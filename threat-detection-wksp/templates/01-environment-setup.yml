@@ -23,14 +23,6 @@ Parameters:
      - 'Yes'
     Description: Is AWS Config already enabled in this region?
 
-  InspectorRole:
-    Type: String
-    Default: 'No'
-    AllowedValues: 
-     - 'No'
-     - 'Yes'
-    Description: Has the Inspector Service-Linked Role been created for this account?
-
 Metadata: 
   AWS::CloudFormation::Interface:
     ParameterGroups: 
@@ -45,7 +37,6 @@ Metadata:
           default: "Security Services Configuration"
         Parameters: 
           - ConfigEnabled
-          - InspectorRole
 
     ParameterLabels: 
       ResourceName:
@@ -54,8 +45,6 @@ Metadata:
         default: "Email Address"
       ConfigEnabled: 
         default: "AWS Config"
-      InspectorRole: 
-        default: "AWS Inspector Role"
 
 Mappings: {}
 
@@ -64,10 +53,6 @@ Conditions:
   # Is Config already enabled?
   CreateRecorder:
     !Equals [!Ref ConfigEnabled, 'No']
-
-  # Has the Inspector Role been created?
-  CreateInspectorRole:
-    !Equals [!Ref InspectorRole, 'No']
 
 Resources:
 
@@ -335,22 +320,21 @@ Resources:
               macdesc: "$.detail.summary.Description"
 
 
-  ### Configuration Lambda - Inspector Role Creation
-  LambdaInspectorCreation: 
-    Condition: CreateInspectorRole
+  ### Configuration Lambda - Inspector and Config
+  LambdaAdditionalConfig: 
     Type: "AWS::Lambda::Function"
     Properties: 
       FunctionName: 
         Fn::Join:
         - '-'
-        - [!Ref ResourceName, 'inspector-role-creation']
+        - [!Ref ResourceName, 'additional-configuration']
       Handler: "index.handler"
       Environment:
         Variables:
           PREFIX: !Ref ResourceName
       Role: 
         Fn::GetAtt: 
-          - "LambdaInspectorCreationRole"
+          - "LambdaAdditionalConfigRole"
           - "Arn"
       Code: 
         ZipFile: |
@@ -364,7 +348,6 @@ Resources:
            
           def handler(event, context):
 
-            iam = boto3.client('iam')
             inspector = boto3.client('inspector')
 
             print("log -- Event: %s " % json.dumps(event))
@@ -373,10 +356,7 @@ Resources:
             if event['RequestType'] == 'Create':
               print("log -- Create Event ")
               try:
-                iam.create_service_linked_role(
-                    AWSServiceName='inspector.amazonaws.com',
-                    Description='Allows Inspecter to access AWS resources to perform security assessments on your behalf.'
-                )
+
                 group = inspector.create_resource_group(
                     resourceGroupTags=[
                         {
@@ -389,17 +369,14 @@ Resources:
                     assessmentTargetName=target_name,
                     resourceGroupArn=group['resourceGroupArn']
                 )
-                response = sendResponse(event, context, "SUCCESS", { "Message": "Inspector Role successfully created!" })
+                response = sendResponse(event, context, "SUCCESS", { "Message": "Inspector Assessment Target successfully created!" })
               except ClientError as e:
                 print(e)
-                response = sendResponse(event, context, "SUCCESS", { "Message": "Inspector Role unsuccessful in being created!" })
+                response = sendResponse(event, context, "SUCCESS", { "Message": "Inspector Assessment Target unsuccessful in being created!" })
             elif event['RequestType'] == 'Update':
               print("log -- Update Event")
               try:
-                iam.create_service_linked_role(
-                    AWSServiceName='inspector.amazonaws.com',
-                    Description='Allows Inspecter to access AWS resources to perform security assessments on your behalf.'
-                )
+                
                 group = inspector.create_resource_group(
                     resourceGroupTags=[
                         {
@@ -413,10 +390,10 @@ Resources:
                     resourceGroupArn=group['resourceGroupArn']
                 )
 
-                response = sendResponse(event, context, "SUCCESS", { "Message": "Inspector Role successfully created!" })
+                response = sendResponse(event, context, "SUCCESS", { "Message": "Inspector Assessment Target successfully created!" })
               except ClientError as e:
                 print(e)
-                response = sendResponse(event, context, "SUCCESS", { "Message": "Inspector Role unsuccessful in being created!" })
+                response = sendResponse(event, context, "SUCCESS", { "Message": "Inspector Assessment Target unsuccessful in being created!" })
             elif event['RequestType'] == 'Delete':
               print("log -- Delete Event")
               response = sendResponse(event, context, "SUCCESS", { "Message": "Resource deletion successful!  Please delete the Inspector Role manually." })
@@ -450,8 +427,7 @@ Resources:
 
       Runtime: "python2.7"
       Timeout: "35"
-  LambdaInspectorCreationRole: 
-    Condition: CreateInspectorRole
+  LambdaAdditionalConfigRole: 
     Type: AWS::IAM::Role
     Properties: 
       RoleName: 
@@ -490,10 +466,9 @@ Resources:
                   - inspector:CreateResourceGroup
                 Resource: '*'
   InspectorCustomResource:
-    Condition: CreateInspectorRole
     Type: Custom::CustomResource
     Properties:
-      ServiceToken: !GetAtt 'LambdaInspectorCreation.Arn'
+      ServiceToken: !GetAtt 'LambdaAdditionalConfig.Arn'
       ParameterOne: Parameter to pass into Custom Lambda Function
 
   # Remediation Lambda - SSH Brute Force

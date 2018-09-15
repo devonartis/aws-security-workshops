@@ -11,12 +11,7 @@ In this module you will be configuring all the initial detective and remediation
 
 When you launch the first CloudFormation template you'll be prompted with questions regarding whether certain resources are already configured.  Please verify whether you already have the following configured in your account:
 
-1.	Go to [AWS IAM](https://console.aws.amazon.com/iam/home?region=us-west-2#/roles) and see if you have the following Role created:
-	![Roles](../images/01-current-roles.png)
-
-  	> If you do not see the Inspector Role; you'll answer **No** when prompted if the Inspector Role exists when launching the CloudFormation template.
-
-2.	Go to <a href="https://us-west-2.console.aws.amazon.com/config/home?region=us-west-2" target="_blank">AWS Config</a> (in the us-west-2 - Oregon region) and see if it is already enabled.
+1.	Go to <a href="https://us-west-2.console.aws.amazon.com/config/home?region=us-west-2" target="_blank">AWS Config</a> (in the us-west-2 - Oregon region) and see if it is already enabled.
   
   	> If you see a **Get Started** button; you'll answer **No** when prompted if Config is enabled when launching the CloudFormation template.
 
@@ -31,10 +26,12 @@ US West 2 (Oregon) | [![Deploy Module 1 in us-west-2](../images/deploy-to-aws.pn
 1. Click the **Deploy to AWS** button above.  This will automatically take you to the console to run the template.  The file for the CloudFormation template (**01-environment-setup.yml**) is also available in the [templates](../templates/) folder if you'd like to download it and manually upload it to create a stack.
 
 2. On the **Specify Details** section enter the necessary parameters as shown below. 
-	* Enter a valid **Email Address**.
-	* Please use the answers you discovered during the *Review Current Configurations*.
 
-![Parameters Example](../images/01-specify-details.png)
+	| Parameter | Value  |
+	|---|---|
+	| Stack name | ThreatDetectionWksp-Env-Setup  |
+	| Email Address | A ***valid*** email address  |
+	| AWS Config  | Yes or No (Is AWS Config enabled already?) |
 
 3. Once you have entered your parameters click **Next**, then **Next** again \(leave everything on this page at the default\).
 
