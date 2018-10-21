@@ -100,6 +100,7 @@ At this point you should have received both a CloudFront and S3 URL from the Dev
 
 ![Architecture](./images/architecture-final.png)
 
+<!--
 ## Cleanup
 
 In order to prevent charges to your account we recommend cleaning up the infrastructure that was created, especially if you are doing other Identity rounds. 
@@ -117,6 +118,8 @@ In order to prevent charges to your account we recommend cleaning up the infrast
 	* Select the appropiate stack.
 	* Select **Action**.
 	* Click **Delete Stack**.
+
+-->
 
 ***
 

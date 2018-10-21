@@ -61,7 +61,7 @@ Since you are championing the security tasks for your team, you pick up the two 
 
 #### Task 1 - Reduce the attack surface of the origin
 
-Ensure the application serves content out through the CloudFront Distribution and that your end users can **only** access the application through CloudFront URLs and not Amazon S3 URLs. As part of this configuration your end users should **not** be able to affect the availability or integrity of the application. 
+Ensure the application serves content out through the CloudFront Distribution and that your end users can **only** access the application through CloudFront URLs and not Amazon S3 URLs. As part of this configuration your end users should **not** be able to affect the availability or integrity of the application. Lastly, your Administrators and Operators (Role name: identity-wksp-serverless-operate) should still be able to perform the functions as permitted by their IAM policies.
 
 ##### Key Security Benefits
 
