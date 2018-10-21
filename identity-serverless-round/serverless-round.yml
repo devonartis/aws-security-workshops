@@ -451,6 +451,8 @@ Resources:
             cfnresponse.send(event, context, result, {})
 
 Outputs:
+  Instructions:
+    Value: 'https://github.com/aws-samples/aws-security-workshops/blob/master/identity-serverless-round/serverless-round-build.md'
   WebsiteS3URL:
     Value: !GetAtt WebsiteBucket.WebsiteURL
   WebsiteCloudFrontURL:

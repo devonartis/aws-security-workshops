@@ -66,7 +66,7 @@ Ensure the application serves content out through the CloudFront Distribution an
 * Forces traffic over HTTPS
 * Adds DDoS protection to your application and enables the use of [AWS WAF](https://aws.amazon.com/waf/) and [AWS Shield](https://aws.amazon.com/shield/)
 
-> **Hint**: Not sure where to start? How do you usually figure out things you don't know? Google it (Serving Private content through CloudFront)!  For this task you don't need to worry about signed cookies.
+> **Hint**: Not sure where to start? How do you usually figure out things you don't know? Google it (Serving Private content through CloudFront)!  For this task you don't need to worry about signed URLs or cookies.
 
 #### Task 2 - Setup application user management 
 

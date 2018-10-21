@@ -16,10 +16,10 @@ At this point you should have received both a CloudFront and S3 URL from the Dev
 
 * You can not delete or modify any of the application resources.
 
-	> Try using Curl or Postman to make requests with different HTTP verbs (e.g. Delete)
+	> Try using cURL or Postman to make requests with different HTTP verbs (e.g. Delete)
 
 <details open>
-<summary>**Security Levels**</summary>
+<summary>Security Levels</summary>
 
 **Level 100**
 
@@ -64,27 +64,27 @@ At this point you should have received both a CloudFront and S3 URL from the Dev
 * After authentication, you are redirected to ride.html and are presented with your JWT IdToken.
 
 <details open>
-<summary>**Security Levels**</summary>
+<summary>Security Levels</summary>
 
-**Level $200**
+**Level 200**
 
   * Giddy Up Link takes you to the hosted UI
   
-**Level $250**
+**Level 250**
 
   * Giddy Up Link takes you to the hosted UI
   * Self-service signup
   * Email Verification
   * Password Complexity
 
-**Level $350**
+**Level 350**
 
   * Giddy Up Link takes you to the hosted UI
   * Self-service signup
   * Password Complexity
   * User directed to ride.html and sees a their JWT ID Token
 
-**Level $550**
+**Level 550**
 
   * Giddy Up Link takes you to the hosted UI
   * Self-service signup
