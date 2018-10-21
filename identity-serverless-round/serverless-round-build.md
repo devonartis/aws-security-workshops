@@ -17,6 +17,7 @@ The round is broken down into the following phases:
 
 > If this round is done as part of an AWS sponsored event then you'll be split into teams and have a different team complete the Operate phase for your application.
 
+<!---
 ### Setup
 
 Launch the CloudFormation stack below to setup the WildRydes application:
@@ -34,6 +35,8 @@ US East 1 (N. Virginia) | [![Deploy in us-east-1](./images/deploy-to-aws.png)](h
 4. Finally, acknowledge that the template will create IAM roles under **Capabilities and click **Create**.
 
 This will bring you back to the CloudFormation console. You can refresh the page to see the stack starting to create. Before moving on, make sure the stack is in a **CREATE_COMPLETE**.
+
+-->
 
 ## Scenario - WildRydes Identity Overhaul
 
