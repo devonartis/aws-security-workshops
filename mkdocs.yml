@@ -1,0 +1,55 @@
+# Project information
+
+site_name: Security Workshops
+site_description: 'A collection of AWS Security related workshops'
+site_author: 'aws-security-workshops@amazon.com'
+site_url: 'https://awssecworkshops.com'
+
+# Repository
+repo_name: 'aws-samples/aws-security-workshops'
+repo_url: 'https://github.com/aws-samples/aws-security-workshops'
+
+# Copyright
+copyright: '&copy; 2018, Amazon Web Services, Inc. or its affiliates. All rights reserved.'
+
+# Configuration
+theme:
+  name: 'material'
+  logo: 'assets/images/aws_smile_logo.png'
+  favicon: 'assets/images/aws-favicon.ico'
+  feature:
+    tabs: true
+  custom_dir: 'docs/theme'
+
+# Customization
+extra_css:
+  - 'stylesheets/custom.css'
+extra:
+  social:
+    - type: 'home'
+      link: 'https://aws.amazon.com/blogs/security/'
+    - type: 'globe'
+      link: 'https://aws.amazon.com/security/'
+    - type: 'twitter'
+      link: 'https://twitter.com/awssecurityinfo?lang=en'
+    - type: 'rss'
+      link: 'https://aws.amazon.com/blogs/security/'
+
+# Extensions
+markdown_extensions:
+  - codehilite
+
+# Navigation
+nav:
+  - Home: 'index.md'
+  - Getting Started: 'getting-started.md'
+  - Level 300: 
+    - 'Directory': 'level-200/index.md'
+    - 'Find All the Threats': 
+      - 'Overview': 'level-200/threat-detection-remediation/index.md'
+      - 'Module 1: Environment Build': 'level-200/threat-detection-remediation/01-environment-setup.md'
+      - 'Module 2: Attack Simulation': 'level-200/threat-detection-remediation/02-attack-simulation.md'
+      - 'Module 3: Detect & Respond': 'level-200/threat-detection-remediation/03-detection-and-remediation.md'
+      - 'Module 4: Discussion': 'level-200/threat-detection-remediation/04-review-and-discussion.md'
+  - Contributing: 'contribute.md'
+  - License: 'license.md'
