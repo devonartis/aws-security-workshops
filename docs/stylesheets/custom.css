@@ -1,12 +1,12 @@
 
 .md-header {
-    background-color: #232f3e;
-    border-bottom: 1px solid #1b2532;
+    background-color: #232f3e !important;
+    border-bottom: 1px solid #1b2532 !important;
 }
 
 .md-tabs {
     background-image: url(../assets/images/second-nav-blue.png);
-    background-color: #ffffff;
+    background-color: #1f4e79 !important;
 }
 
 .md-tabs__item {
@@ -19,10 +19,10 @@
 
 .md-footer-nav {
     background-image: url(../assets/images/second-nav-blue.png);
-    background-color: #ffffff;
+    background-color: #1f4e79 !important;
 }
 
 .md-footer-meta {
-    background-color: #232f3e;
-    border-top: 1px solid #1b2532;
+    background-color: #232f3e !important;
+    border-top: 1px solid #1b2532 !important;
 }
