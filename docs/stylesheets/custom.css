@@ -4,6 +4,25 @@
     border-bottom: 1px solid #1b2532 !important;
 }
 
+@media only screen and (max-width: 76.1875em) {
+
+    html .md-nav--primary .md-nav__title--site {
+        background-color: #232f3e !important;
+        border-bottom: 1px solid #1b2532 !important;
+    }
+
+    .md-nav__source {
+        background-color: #1f4e79 !important;
+    }
+
+    html .md-nav--primary .md-nav__title {
+        background-color: #232f3e !important;
+        border-bottom: 1px solid #1b2532 !important;
+        color: #ffffff;
+    }
+
+}
+
 .md-tabs {
     background-image: url(../assets/images/second-nav-blue.png);
     background-color: #1f4e79 !important;

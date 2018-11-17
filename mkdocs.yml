@@ -43,6 +43,8 @@ markdown_extensions:
 nav:
   - Home: 'index.md'
   - Getting Started: 'getting-started.md'
+  - Builder Sessions:
+    - Permission Boundaries: 'getting-started.md'
   - Level 300: 
     - 'Directory': 'level-300/index.md'
     - 'Find All the Threats': 
