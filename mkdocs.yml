@@ -44,7 +44,10 @@ nav:
   - Home: 'index.md'
   - Getting Started: 'getting-started.md'
   - Builder Sessions:
-    - Permission Boundaries: 'getting-started.md'
+    - Directory: 'builder-sessions/index.md'
+    - Permission Boundaries: 
+      - Build Phase: 'builder-sessions/permission-boundaries-build.md'
+      #- Verify Phase: 'builder-sessions/permission-boundaries-verify.md'
   - Level 300: 
     - 'Directory': 'level-300/index.md'
     - 'Find All the Threats': 
