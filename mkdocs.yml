@@ -47,7 +47,7 @@ nav:
     - Directory: 'builder-sessions/index.md'
     - Permission Boundaries: 
       - Build Phase: 'builder-sessions/permission-boundaries-build.md'
-      #- Verify Phase: 'builder-sessions/permission-boundaries-verify.md'
+      - Verify Phase: 'builder-sessions/permission-boundaries-verify.md'
   - Level 300: 
     - 'Directory': 'level-300/index.md'
     - 'Find All the Threats': 
