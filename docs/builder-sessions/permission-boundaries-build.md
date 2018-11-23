@@ -57,7 +57,7 @@ The web administrators should not be able to impact any resources in the account
             "Action": [
                 "s3:List*"
             ],
-            "Resource": "arn:aws:s3:::identity-ex-???"
+            "Resource": "arn:aws:s3:::identity-ex-????"
         }
     ]
 }
@@ -66,6 +66,8 @@ The web administrators should not be able to impact any resources in the account
 ## Task 2 - Create a permission policy for the Web Admin
 
 **ACTION**: Create the permission policy that will be attached to the **webadmin** AWS IAM user. Name the new policy **`identity-ex-webadmin-ares-permissionpolicy`**. 
+
+>  **Hint**: <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html" target="_blank">Permission boundaries</a>. The question marks **`????`** in the resource element below should be replaced with something that could act as a resource restriction. 
 
 ``` json
 {
@@ -169,7 +171,7 @@ When you are done the **webadmin** user should have three policies attached: web
 
 **ACTION**: Now that you have setup the IAM user for the web admins, it's time to pass this information on to the next team who will work through the **VERIFY** tasks. You need to gather some details about your IAM user and then hand this info to the next team.
 
-Copy the **IAM users sign-in link**, the IAM user name (if you used a name other then **webadmin**) and the password you used. You will also need the resource restriction that you used in your policies and the name you used for the permission boundary (if you used a name other than **webadminpermissionboundary**)
+Copy the **IAM users sign-in link**, the IAM user name (if you used a name other then **webadmin**) and the password you used. You will also need the resource restriction that you used in your policies and the name you used for the permission policy and permission boundary (if you used names other than the ones recommended above)
 
 Here are all of the details you need to pass to another team:
 
@@ -177,7 +179,8 @@ Here are all of the details you need to pass to another team:
 * IAM user name:    
 * IAM user password:    
 * Resource restriction identifier:  
-* Permission boundary name: 
+* Permission boundary name: (recommended name: **identity-ex-permissionboundary-ares-lambda**)
+* Permission policy: (recommended name: **identity-ex-webadmin-permissionpolicy**)
 
 Enter this information into the **VERIFY** phase form and exchange forms with another team so you both can work through the tasks.
 
