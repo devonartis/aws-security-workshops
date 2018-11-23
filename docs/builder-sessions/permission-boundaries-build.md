@@ -30,7 +30,8 @@ The web administrators should not be able to impact any resources in the account
 
 **ACTION**: Create a new IAM policy that will act as the permission boundary for the web admins. Name the policy **`identity-ex-permissionboundary-ares-lambda`**
 
->  **Hint**: <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html" target="_blank">Permission boundaries</a>. The question marks **`????`** in the resource element below should be replaced with something that could act as a resource restriction. 
+>  **Hint**: <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html" target="_blank">Friendly Names and Paths
+</a>. The question marks **`????`** in the resource element below should be replaced with something that could act as a resource restriction. 
 
 ``` json
 {
@@ -67,7 +68,8 @@ The web administrators should not be able to impact any resources in the account
 
 **ACTION**: Create the permission policy that will be attached to the **webadmin** AWS IAM user. Name the new policy **`identity-ex-webadmin-ares-permissionpolicy`**. 
 
->  **Hint**: <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html" target="_blank">Permission boundaries</a>. The question marks **`????`** in the resource element below should be replaced with something that could act as a resource restriction. 
+>  **Hint**: <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html" target="_blank">Friendly Names and Paths
+</a>. The question marks **`????`** in the resource element below should be replaced with something that could act as a resource restriction. 
 
 ``` json
 {
