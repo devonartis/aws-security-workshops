@@ -794,6 +794,9 @@
 <ul>
 <li>Finally you will create a <strong>Node.js 8.10</strong> Lambda function using the code below and attach the IAM role you just created to it. You will need to replace <code>"ELB_ACCESS_LOGS_BUCKET_NAME"</code> with bucket from your account that begins with <code>"identity-ex-ares*"</code>. </li>
 </ul>
+<blockquote>
+<p>Keep in mind the resource restrictions put in place which will require you to use a certain name for the role.  What is the resource restriction identifier that was given to you?</p>
+</blockquote>
 <div class="codehilite"><pre><span></span><span class="nt">const</span> <span class="nt">AWS</span> <span class="o">=</span> <span class="nt">require</span><span class="o">(</span><span class="s1">&#39;aws-sdk&#39;</span><span class="o">);</span>
 <span class="nt">const</span> <span class="nt">s3</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">AWS</span><span class="p">.</span><span class="nc">S3</span><span class="o">();</span>
 

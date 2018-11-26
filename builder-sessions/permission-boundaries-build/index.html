@@ -797,7 +797,7 @@
 
 
 <h2 id="task-2-create-a-permission-policy-for-the-web-admin">Task 2 - Create a permission policy for the Web Admin</h2>
-<p><strong>ACTION</strong>: Create the permission policy that will be attached to the <strong>webadmin</strong> AWS IAM user. Name the new policy <strong><code>identity-ex-webadmin-ares-permissionpolicy</code></strong>. </p>
+<p><strong>ACTION</strong>: Create the permission policy that will be attached to the <strong>webadmin</strong> AWS IAM user. Name the new policy <strong><code>identity-ex-webadmin-permissionpolicy</code></strong>. </p>
 <blockquote>
 <p><strong>Hint</strong>: <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html" target="_blank">Friendly Names and Paths
 </a>. The question marks <strong><code>????</code></strong> in the resource element below should be replaced with something that could act as a resource restriction. </p>
@@ -895,9 +895,9 @@
 <p><strong>ACTION</strong>:</p>
 <ul>
 <li>Create an IAM User and name it <code>webadmin</code>. The user will need console access so give it a password.</li>
-<li>Attach the <strong>identity-ex-webadminpermissionpolicy</strong>, <strong>IAMReadOnlyAccess</strong> &amp; <strong>AWSLambdaReadOnlyAccess</strong> policies to the IAM user.</li>
+<li>Attach the <strong>identity-ex-webadmin-permissionpolicy</strong>, <strong>IAMReadOnlyAccess</strong> &amp; <strong>AWSLambdaReadOnlyAccess</strong> policies to the IAM user.</li>
 </ul>
-<p>When you are done the <strong>webadmin</strong> user should have three policies attached: webadminpermissionpolicy, IAMReadOnlyAccess &amp; AWSLambdaReadOnlyAccess.</p>
+<p>When you are done the <strong>webadmin</strong> user should have three policies attached: identity-ex-webadmin-permissionpolicy, IAMReadOnlyAccess &amp; AWSLambdaReadOnlyAccess.</p>
 <h2 id="task-4-gather-info-needed-for-the-verify-phase">Task 4 - Gather info needed for the Verify phase</h2>
 <p><strong>ACTION</strong>: Now that you have setup the IAM user for the web admins, it's time to pass this information on to the next team who will work through the <strong>VERIFY</strong> tasks. You need to gather some details about your IAM user and then hand this info to the next team.</p>
 <p>Copy the <strong>IAM users sign-in link</strong>, the IAM user name (if you used a name other then <strong>webadmin</strong>) and the password you used. You will also need the resource restriction that you used in your policies and the name you used for the permission policy and permission boundary (if you used names other than the ones recommended above)</p>
