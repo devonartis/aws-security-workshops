@@ -60,6 +60,9 @@ The following steps should be taken to validate that the delegation was done pro
 * Finally you will create a **Node.js 8.10** Lambda function using the code below and attach the IAM role you just created to it. You will need to replace `"ELB_ACCESS_LOGS_BUCKET_NAME"` with bucket from your account that begins with `"identity-ex-ares*"`. 
 
 
+> Keep in mind the resource restrictions put in place which will require you to use a certain name for the role.  What is the resource restriction identifier that was given to you?
+
+
 ```
 const AWS = require('aws-sdk');
 const s3 = new AWS.S3();

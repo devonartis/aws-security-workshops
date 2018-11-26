@@ -66,7 +66,7 @@ The web administrators should not be able to impact any resources in the account
 
 ## Task 2 - Create a permission policy for the Web Admin
 
-**ACTION**: Create the permission policy that will be attached to the **webadmin** AWS IAM user. Name the new policy **`identity-ex-webadmin-ares-permissionpolicy`**. 
+**ACTION**: Create the permission policy that will be attached to the **webadmin** AWS IAM user. Name the new policy **`identity-ex-webadmin-permissionpolicy`**. 
 
 >  **Hint**: <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html" target="_blank">Friendly Names and Paths
 </a>. The question marks **`????`** in the resource element below should be replaced with something that could act as a resource restriction. 
@@ -165,9 +165,9 @@ The web administrators should not be able to impact any resources in the account
 **ACTION**:
 
 * Create an IAM User and name it `webadmin`. The user will need console access so give it a password.
-* Attach the **identity-ex-webadminpermissionpolicy**, **IAMReadOnlyAccess** & **AWSLambdaReadOnlyAccess** policies to the IAM user.
+* Attach the **identity-ex-webadmin-permissionpolicy**, **IAMReadOnlyAccess** & **AWSLambdaReadOnlyAccess** policies to the IAM user.
 
-When you are done the **webadmin** user should have three policies attached: webadminpermissionpolicy, IAMReadOnlyAccess & AWSLambdaReadOnlyAccess.
+When you are done the **webadmin** user should have three policies attached: identity-ex-webadmin-permissionpolicy, IAMReadOnlyAccess & AWSLambdaReadOnlyAccess.
 
 ## Task 4 - Gather info needed for the Verify phase
 
