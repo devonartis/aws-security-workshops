@@ -139,7 +139,11 @@ You can also view the IP Insghts documentation here:
 
 https://docs.aws.amazon.com/sagemaker/latest/dg/ip-insights.html
 
-Work through the IP Insights tutorial notebook to understand how it works. Once ready, train the model using the "train/cloudtrail\_tuples.csv" file from the "sec405-tuplesbucket", then score the GuardDuty findings by using the file "infer/guardduty\_tuples.csv" from the same S3 bucket.
+Work through the IP Insights tutorial notebook to understand how it works. For `train_instance_type`, you can just use "m4.xlarge".
+
+## 2.5 Train and score tuples with the IP Insights algorithm
+
+Once you finish the notebook tutorial, you will train the model using the "train/cloudtrail\_tuples.csv" file of CloudTrail tuples from the "sec405-tuplesbucket", then score the GuardDuty findings by using "infer/guardduty\_tuples.csv" from the same S3 bucket.
 
 In the **Select Amazon S3 Bucket** part of the notebook, you will need to set the `bucket` variable to be the full name of your "sec405-tuplesbucket" S3 bucket, and the `prefix` should be set to the empty string `''`.
 
@@ -191,7 +195,7 @@ inference_data.head()
 predictor.predict(inference_data)
 ```
 
-What does the output of the algorithm look like? How can we interpret the score?
+When run, it should print out a few lines of the GuardDuty tuples (due to the `head()` call). What does the output of the algorithm look like? How can we interpret the score?
 
 # Cleaning up
 
