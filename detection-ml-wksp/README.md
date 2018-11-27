@@ -78,7 +78,7 @@ The "real" GuardDuty findings that were generated for this workshop are containe
 2. Scroll down to view the code for the Lambda function in the inline, browser-based editor. Skim through the code to familiarize with what it does.
 3. Click the **Test** button to run the function. You will need to create a test event to do this, but the event actually does not matter in this case, so just use the "Hello World" event template and give it a name "SEC405", then click **Create**. You then need to click the **Test** button once more.
 4. Examine the output, where you'll see the JSON for each GuardDuty finding being printed by the function `print_full_finding`. Look over the findings to see what information they contain.
-5. A function called `print_short_finding` is also defined to print out a shortened, one-line version of each GuardDuty finding. Replace the call to the function `print_full_finding` with `print_short_finding`.
+5. A function called `print_short_finding` is also defined to print out a shortened, one-line version of each GuardDuty finding. Replace the call to the function `print_full_finding` with `print_short_finding` (hint: Search for "TODO" around line 135. You will see multiple TODOs, but only the first one applies here.).
 6. Click the **Save** button at the top of the screen to save your changes to the function, then click **Test** to run it again. Observe the new output, where you will now see a summarized verison of each finding being printed.
 
 # Exercise 2: IP-based anomaly detection in SageMaker
@@ -101,7 +101,7 @@ An AWS Lambda function has been created to do this, but you'll need to make a sm
 6. Click the **Save** button at the top to save your function changes.
 7. Click the **Test** button to run the function again. This time it will write the tuples to the S3 bucket where they can be loaded into the IP Insights algorithm for training the model.
 
-In the S3 console, if you find the bucket whose name starts with "sec405-tuplesbucket", you should now see a file cloudtrail_tuples.txt inside that contains some `<principal ID, IP address>` tuples.
+In the S3 console, if you find the bucket whose name starts with "sec405-tuplesbucket", you should now see a file "train/cloudtrail_tuples.csv" inside that contains some `<principal ID, IP address>` tuples.
 
 ## 2.2 Generate scoring data using GuardDuty findings
 
@@ -114,7 +114,7 @@ An AWS Lambda function has been created to do this, but you'll need to make a sm
 3. Click the **Save** button at the top to save your function changes.
 4. Click the **Test** button to run the function again. This time it write the tuples to the S3 bucket where they can be loaded into the IP Insights algorithm for scoring.
 
-In the S3 console, if you find the bucket whose name starts with "sec405-tuplesbucket", you should now see a file guardduty_tuples.txt inside that contains some `<principal ID, IP address>` tuples.
+In the S3 console, if you find the bucket whose name starts with "sec405-tuplesbucket", you should now see a file "infer/guardduty_tuples.csv" inside that contains some `<principal ID, IP address>` tuples.
 
 ## 2.3 Set up the SageMaker notebook
 
@@ -139,7 +139,57 @@ You can also view the IP Insghts documentation here:
 
 https://docs.aws.amazon.com/sagemaker/latest/dg/ip-insights.html
 
-Work through the IP Insights tutorial notebook to understand how it works. Once ready, train the model using the cloudtrail\_tuples.txt file from the "sec405-tuplesbucket", then score the GuardDuty findings by using the file guardduty\_tuples.txt from the same S3 bucket.
+Work through the IP Insights tutorial notebook to understand how it works. Once ready, train the model using the "train/cloudtrail\_tuples.csv" file from the "sec405-tuplesbucket", then score the GuardDuty findings by using the file "infer/guardduty\_tuples.csv" from the same S3 bucket.
+
+In the **Select Amazon S3 Bucket** part of the notebook, you will need to set the `bucket` variable to be the full name of your "sec405-tuplesbucket" S3 bucket, and the `prefix` should be set to the empty string `''`.
+
+You will also need to modify a bit of the code in the **Store Data on S3** part of the notebook to set the input locations for the training CloudTrail tuples and load them from S3.
+
+Change this:
+
+```python
+# Upload data to S3 key
+train_data_file = 'train.csv'
+key = os.path.join(prefix, 'train', train_data_file)
+s3_train_data = 's3://{}/{}'.format(bucket, key)
+
+print('Uploading data to: {}'.format(s3_train_data))
+boto3.resource('s3').Bucket(bucket).Object(key).put(Body=train_data)
+```
+
+To this:
+
+```python
+# Upload data to S3 key
+# train_data_file = 'train.csv'
+# key = os.path.join(prefix, 'train', train_data_file)
+
+key = os.path.join(prefix, 'train', 'cloudtrail_tuples.csv')
+s3_train_data = 's3://{}/{}'.format(bucket, key)
+
+# print('Uploading data to: {}'.format(s3_train_data))
+# boto3.resource('s3').Bucket(bucket).Object(key).put(Body=train_data)
+```
+
+Finally, go to the **Data Serialization/Deserialization** part of the notebook and change how the inference data is set up to load the GuardDuty finding tuples from S3.
+
+Change this:
+
+```python
+inference_data = train_df[:5].values
+predictor.predict(inference_data)
+```
+
+To this:
+
+```python
+# inference_data = train_df[:5].values
+infer_key = os.path.join(prefix, 'infer', 'guardduty_tuples.csv')
+s3_infer_data = 's3://{}/{}'.format(bucket, infer_key)
+inference_data = pd.read_csv(s3_infer_data)
+inference_data.head()
+predictor.predict(inference_data)
+```
 
 What does the output of the algorithm look like? How can we interpret the score?
 
