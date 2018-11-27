@@ -96,7 +96,7 @@ def handler(event, context):
         s3_client, logs_input_bucket, logs_input_prefix
     )]
     
-    tuples = set()
+    tuples = []
     
     for bucket, key in log_files:
         # Load the records from each CloudTrail log file
@@ -110,7 +110,7 @@ def handler(event, context):
             
             # TODO - Uncomment next lines to get tuples for each finding
             # principal, ip = get_tuple(record)
-            # tuples.add('{},{}'.format(principal, ip))
+            # tuples.append('{},{}'.format(principal, ip))
     
     # Write the tuples to S3 where they can be read by the Sagemaker algorithm
     if len(tuples) > 0:
