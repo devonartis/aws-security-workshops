@@ -71,7 +71,7 @@ Resources:
           INPUT_BUCKET: aws-reinvent2018-sec405-de42b9ca
           INPUT_PREFIX: cloudtrail
           OUTPUT_BUCKET: !Ref TuplesBucket
-          OUTPUT_KEY: cloudtrail_tuples.csv
+          OUTPUT_KEY: train/cloudtrail_tuples.csv
       Handler: cloudtrail_ingest.handler
       MemorySize: 1024
       Role: !GetAtt LambdaRole.Arn
@@ -99,7 +99,7 @@ Resources:
           INPUT_BUCKET: aws-reinvent2018-sec405-de42b9ca
           INPUT_PREFIX: guardduty
           OUTPUT_BUCKET: !Ref TuplesBucket
-          OUTPUT_KEY:  guardduty_tuples.csv
+          OUTPUT_KEY:  infer/guardduty_tuples.csv
       Handler: guardduty_ingest.handler
       MemorySize: 1024
       Role: !GetAtt LambdaRole.Arn
