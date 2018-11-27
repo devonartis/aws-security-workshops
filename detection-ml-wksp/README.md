@@ -16,6 +16,7 @@ This repository contains the following files that will be used for this workshop
 - aws_lambda/
   - cloudtrail_ingest.zip - Lambda zip bundle for workshop CloudTrail log ingest
   - guardduty_ingest.zip - Lambda zip bundle for workshop GuardDuty finding ingest
+- cleanup.sh - Shell script to delete the workshop CloudFormation stack at the end
 
 # Initial setup
 
