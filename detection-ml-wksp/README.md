@@ -133,7 +133,7 @@ IP Insights is an unsupervised learning algorithm for detecting anomalous behavi
 
 For more information about the IP Insights algorithm, please read the following AWS blog post:
 
-https://aws.amazon.com/blogs/machine-learning/detect-suspicious-ip-addresses-with-the-amazon-sagemaker-ip-insights-algorithm/].
+https://aws.amazon.com/blogs/machine-learning/detect-suspicious-ip-addresses-with-the-amazon-sagemaker-ip-insights-algorithm/
 
 You can also view the IP Insghts documentation here:
 
