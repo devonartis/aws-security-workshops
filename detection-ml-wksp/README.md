@@ -68,7 +68,7 @@ The goal of this exercise is to familiarize with the kinds of information contai
 2. If GuardDuty is not yet enabled, click the button labelled **Enable GuardDuty** to turn it on with a single click.
 3. In the left menu click **Settings**, scroll down to the section titled "Sample Findings", and then click on the button labelled **Generate sample findings** to generate a sample GuardDuty finding for every finding type.
 4. Click on **Findings** in the left menu and then examine some of the findings shown in the GuardDuty console. What kinds of information do you see?
-5. Filter the findings to ones with a threat purpose of "UnauthorizedAccess" and examine some of those findings as well.
+5. Examine some of the  findings with a threat purpose of "UnauthorizedAccess".
 
 ## 1.2 Examining real findings
 
