@@ -78,7 +78,7 @@ The "real" GuardDuty findings that were generated for this workshop are containe
 2. Scroll down to view the code for the Lambda function in the inline, browser-based editor. Skim through the code to familiarize with what it does.
 3. Click the **Test** button to run the function. You will need to create a test event to do this, but the event actually does not matter in this case, so just use the "Hello World" event template and give it a name "SEC405", then click **Create**. You then need to click the **Test** button once more.
 4. Examine the output, where you'll see the JSON for each GuardDuty finding being printed by the function `print_full_finding`. Look over the findings to see what information they contain.
-5. A function called `print_short_finding` is also defined to print out a shortened, one-line version of each GuardDuty finding. Replace the call to the function `print_full_finding` with `print_short_finding`.
+5. A function called `print_short_finding` is also defined to print out a shortened, one-line version of each GuardDuty finding. Replace the call to the function `print_full_finding` with `print_short_finding` (hint: Search for "TODO" around line 135. You will see multiple TODOs, but only the first one applies here.).
 6. Click the **Save** button at the top of the screen to save your changes to the function, then click **Test** to run it again. Observe the new output, where you will now see a summarized verison of each finding being printed.
 
 # Exercise 2: IP-based anomaly detection in SageMaker
