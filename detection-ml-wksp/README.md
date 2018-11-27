@@ -139,7 +139,21 @@ You can also view the IP Insghts documentation here:
 
 https://docs.aws.amazon.com/sagemaker/latest/dg/ip-insights.html
 
-Work through the IP Insights tutorial notebook to understand how it works. For `train_instance_type`, you can just use "m4.xlarge".
+Work through the IP Insights tutorial notebook to understand how it works.
+
+In the section **Training Hyperparameters** you should modify the code to specify a different training instance type:
+
+Change this:
+
+```python
+train_instance_type='ml.p3.2xlarge'
+```
+
+To this:
+
+```python
+train_instance_type='ml.m4.xlarge'
+```
 
 ## 2.5 Train and score tuples with the IP Insights algorithm
 
