@@ -206,7 +206,7 @@ infer_key = os.path.join(prefix, 'infer', 'guardduty_tuples.csv')
 s3_infer_data = 's3://{}/{}'.format(bucket, infer_key)
 inference_data = pd.read_csv(s3_infer_data)
 inference_data.head()
-predictor.predict(inference_data)
+predictor.predict(inference_data.values)
 ```
 
 When run, it should print out a few lines of the GuardDuty tuples (due to the `head()` call). What does the output of the algorithm look like? How can we interpret the score?
