@@ -159,7 +159,10 @@ chmod +x cleanup.sh
 - *Q: I'm using a different AWS CLI profile than the default.*
 - A: The script supports a flag to specify a CLI profile that is configured in your `~/.aws/config` file. Do `./cleanup.sh -p PROFILE_NAME`. To see all supported options for the clean-up script, do `./cleanup.sh -h`.
 
+To delete the SageMaker notebook, on the **Notebook instances** page in the SageMaker console, click the circle to select the notebook then under **Actions** choose **Stop**. Once the notebook is stopped, under **Actions** choose **Delete**.
+
 ### Manual clean-up
 
 1. First you will need to delete the S3 bucket whose name starts with "sec405-tuplesbucket" or else deleting the CloudFormation stack will fail since the bucket has objects in it.
 2. Delete the CloudFormation stack by going to the CloudFormation console, selecting the stack called **SEC405**, and from the top menu choosing action **Delete Stack**.
+3. To delete the SageMaker notebook, on the **Notebook instances** page in the SageMaker console, click the circle to select the notebook then under **Actions** choose **Stop**. Once the notebook is stopped, under **Actions** choose **Delete**.
