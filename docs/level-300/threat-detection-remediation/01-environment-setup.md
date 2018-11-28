@@ -33,7 +33,7 @@ You will get an email from SNS asking you to confirm the Subscription. **Confirm
 
 ## Setup Amazon CloudWatch event rules and automatic response
 
-The CloudFormation template you just ran created three CloudWatch Event Rules(https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/WhatIsCloudWatchEvents.html) for alerting and response purposes. The steps below will walk you through creating the final rule.  After this you'll have rules in place to receive email notifications and trigger AWS Lambda functions to respond to threats.
+The CloudFormation template you just ran created three <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/WhatIsCloudWatchEvents.html" target="_blank">CloudWatch Event Rules</a> for alerting and response purposes. The steps below will walk you through creating the final rule.  After this you'll have rules in place to receive email notifications and trigger AWS Lambda functions to respond to threats.
 
 Below are steps to create this rule through the console but you can also find out more about doing it programmatically by reviewing the <a href="http://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html" target="_blank">Amazon GuardDuty Documentation</a>.
 
@@ -45,7 +45,7 @@ Below are steps to create this rule through the console but you can also find ou
 3.	Click **Create Rule**
 
 4.	Under **Event Pattern** click **Build event pattern to match events by service** and select **Custom event pattern** in the drop down.
-Paste in the custom event pattern below:
+Copy and paste in the custom event pattern below:
 	
 ```json
 {
