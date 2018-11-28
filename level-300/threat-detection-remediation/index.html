@@ -523,13 +523,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" title="Prerequisites" class="md-nav__link">
-    Prerequisites
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#scenario" title="Scenario" class="md-nav__link">
     Scenario
   </a>
@@ -671,13 +664,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" title="Prerequisites" class="md-nav__link">
-    Prerequisites
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#scenario" title="Scenario" class="md-nav__link">
     Scenario
   </a>
@@ -725,15 +711,12 @@
                 
                 
                 <h1 id="find-all-the-threats-aws-threat-detection-and-remediation">Find All the Threats: AWS Threat Detection and Remediation</h1>
-<p>This workshop is designed to help you get familiar with AWS Security services and learn how to use them to identify and remediate threats in your environment.  You'll be working with services such as Amazon GuardDuty, Amazon Macie, Amazon Inspector, Amazon CloudWatch, AWS Lambda, AWS Systems Manager, AWS Config, and AWS CloudTrail. You will learn how to use these services to set up a notification and remediation pipeline, investigate threats during and after an attack, and  add additional protections in place to improve the security posture of your environment.</p>
-<h2 id="prerequisites">Prerequisites</h2>
-<p>You should have some level of familiarity with AWS services such as EC2, VPC and S3. Exposure to AWS Lambda and CloudFormation are a bonus. Some experience working with the AWS console is helpful as well.</p>
+<p>This workshop is designed to help you get familiar with AWS Security services and learn how to use them to identify and remediate threats in your environment.  You'll be working with services such as Amazon GuardDuty, Amazon Macie, Amazon Inspector, Amazon CloudWatch, AWS Lambda, AWS Systems Manager, AWS Config, and AWS CloudTrail. You will learn how to use these services to investigate threats during and after an attack, set up a notification and remediation pipeline, and  add additional protections to improve the security posture of your environment.</p>
 <h2 id="scenario">Scenario</h2>
 <p>Your company is new to the cloud and has recently performed a lift-and-shift of your infrastructure for piloting purposes.  You are a systems administrator and have been tasked with security monitoring within your AWS environment.  As part of that maintenance you are also responsible for responding to any security event in your environment.</p>
 <h2 id="architecture-overview">Architecture overview</h2>
 <p>For this Workshop you will have a single instance setup in the us-west-2 region. As this was a “lift-and-shift” migration for piloting, you have yet to build redundancy into your application, so you have a single public-facing web server. The web server has access to the Internet Gateway through an Elastic Network Interface. Customers access your web server through a DNS entry pointing to the Elastic Network Interface. You store static content in an S3 bucket and use the VPC S3 Endpoint Gateway for access from the web server.</p>
 <p><img alt="Architecture" src="images/diagram-basic-arch.png" title="Lab Workload Architecture" /></p>
-<p>Before you migrated the application you saw a webinar about AWS security best practices. Because of that webinar, you knew to enable a number of Security services provided by AWS. </p>
 <h2 id="region">Region</h2>
 <p>Please use the <strong>us-west-2 (Oregon)</strong> region for this workshop.</p>
 <h2 id="modules">Modules</h2>

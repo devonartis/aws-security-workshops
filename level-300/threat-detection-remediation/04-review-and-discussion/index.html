@@ -571,13 +571,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#agenda" title="Agenda" class="md-nav__link">
-    Agenda
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#architecture-overview" title="Architecture Overview" class="md-nav__link">
     Architecture Overview
   </a>
@@ -588,19 +581,6 @@
   <a href="#what-is-really-going-on" title="What is Really Going On?" class="md-nav__link">
     What is Really Going On?
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#here-is-what-occurred-in-the-attack" title="Here is what occurred in the attack:" class="md-nav__link">
-    Here is what occurred in the attack:
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -684,13 +664,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#agenda" title="Agenda" class="md-nav__link">
-    Agenda
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#architecture-overview" title="Architecture Overview" class="md-nav__link">
     Architecture Overview
   </a>
@@ -701,19 +674,6 @@
   <a href="#what-is-really-going-on" title="What is Really Going On?" class="md-nav__link">
     What is Really Going On?
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#here-is-what-occurred-in-the-attack" title="Here is what occurred in the attack:" class="md-nav__link">
-    Here is what occurred in the attack:
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -751,19 +711,19 @@
                 
                 
                 <h1 id="module-4-review-and-discussion">Module 4: Review and Discussion</h1>
-<p>In the last module we will have a short discussion of the lab (and discuss exactly what occurred.) We will also go over a number of questions and then provide instructions on how to clean up the lab environment (to prevent future charges in your AWS account.) </p>
-<h3 id="agenda">Agenda</h3>
+<p>In the last module we will have a short discussion of the workshop (and discuss exactly what occurred.) We will also go over a number of questions and then provide instructions on how to clean up the workshop environment (to prevent future charges in your AWS account.) </p>
+<p><strong>Agenda</strong></p>
 <ol>
 <li>Review &amp; Discussion – 10 min</li>
 <li>Questions – 10 min</li>
 <li>Cleanup – 5 min</li>
 </ol>
 <h2 id="architecture-overview">Architecture Overview</h2>
-<p>Diagram of the overall lab setup:
+<p>Diagram of the overall workshop setup:
 <img alt="Part 1 Diagram" src="../images/04-diagram-module4.png" /></p>
 <h2 id="what-is-really-going-on">What is Really Going On?</h2>
-<p>In <strong>Module 1</strong> of the lab you setup the initial components of your infrastructure including GuardDuty, Macie and a simple notification and remediation pipeline. Some of the steps required manual configuration but you also ran a CloudFormation template which setup some of the components. In <strong>Module 2</strong> you launched a second CloudFormation template that initiated the attack simulated by this lab. The CloudFormation template created two EC2 instances. One instance (named <strong>Malicious Host</strong>) had an EIP attached to it that was added to your GuardDuty custom threat list. Although the <strong>Malicious Host</strong> is in the same VPC as the other instance, for the sake of the scenario (and to prevent the need to submit a penetration testing request) we acted as if it is on the Internet and represented the attack's computer. The other instance (named <strong>Compromised Instance</strong>) was your web server and it was taken over by the <strong>Malicious Host</strong>. In <strong>Module 3</strong> you investigated the attack, remediated the damage, and setup some automated remediations for future attacks.  </p>
-<h3 id="here-is-what-occurred-in-the-attack">Here is what occurred in the attack:</h3>
+<p>In <strong>Module 1</strong> of the workshop you setup the initial components of your infrastructure including GuardDuty, Macie and a simple notification and remediation pipeline. Some of the steps required manual configuration but you also ran a CloudFormation template which setup some of the components. In <strong>Module 2</strong> you launched a second CloudFormation template that initiated the attack simulated by this workshop. The CloudFormation template created two EC2 instances. One instance (named <strong>Malicious Host</strong>) had an EIP attached to it that was added to your GuardDuty custom threat list. Although the <strong>Malicious Host</strong> is in the same VPC as the other instance, for the sake of the scenario (and to prevent the need to submit a penetration testing request) we acted as if it is on the Internet and represented the attack's computer. The other instance (named <strong>Compromised Instance</strong>) was your web server and it was taken over by the <strong>Malicious Host</strong>. In <strong>Module 3</strong> you investigated the attack, remediated the damage, and setup some automated remediations for future attacks.  </p>
+<p><strong>Here is what occurred in the attack:</strong></p>
 <ol>
 <li>
 <p>There are two instances created by the Module 2 CloudFormation template. They are in the same VPC but different subnets. The <strong>Malicious Host</strong> represents the attacker which we pretend is on the Internet. The Elastic IP on the <strong>Malicious Host</strong> is in a custom threat list in GuardDuty. The other instance named <strong>Compromised Instance</strong> represents the web server that was lifted and shifted into AWS.</p>
@@ -816,7 +776,7 @@
 </li>
 </ol>
 <h2 id="cleanup">Cleanup</h2>
-<p>In order to prevent charges to your account we recommend cleaning up the infrastructure that was created. If you plan to keep things running so you can examine the lab a bit more please remember to do the cleanup when you are done. It is very easy to leave things running in an AWS account, forgot about it, and then accrue charges. </p>
+<p>In order to prevent charges to your account we recommend cleaning up the infrastructure that was created. If you plan to keep things running so you can examine the workshop a bit more please remember to do the cleanup when you are done. It is very easy to leave things running in an AWS account, forgot about it, and then accrue charges. </p>
 <blockquote>
 <p>You will need to manually delete some resources before you delete the CloudFormation stacks so please do the following steps in order.</p>
 </blockquote>
@@ -824,7 +784,7 @@
 <li>
 <p>Delete the Inspector objects created for the workshop.</p>
 <ul>
-<li>Go to the <a href="https://us-west-2.console.aws.amazon.com/inspector">Amazon Inspector</a> console.</li>
+<li>Go to the <a href="https://us-west-2.console.aws.amazon.com/inspector" target="_blank">Amazon Inspector</a> console.</li>
 <li>Click on <strong>Assessment targets</strong> in the navigation pane on the left.</li>
 <li>Delete all that start with <strong>threat-detection-wksp</strong>.</li>
 </ul>
@@ -832,7 +792,7 @@
 <li>
 <p>Delete the IAM Role for the compromised EC2 instance and the Service-Linked Role for Inspector (if you didn't already have this Role created).</p>
 <ul>
-<li>Go to <a href="https://console.aws.amazon.com/iam/">AWS IAM</a> console.</li>
+<li>Go to <a href="https://console.aws.amazon.com/iam/" target="_blank">AWS IAM</a> console.</li>
 <li>Click on <strong>Roles</strong></li>
 <li>Search for the role named <strong>threat-detection-wksp-compromised-ec2</strong>.</li>
 <li>Click the check box next to it and click <strong>Delete</strong>.</li>
@@ -842,7 +802,7 @@
 <li>
 <p>Delete all three S3 buckets created by the Module 1 CloudFormation template (the buckets that start with <strong>threat-detection-wksp</strong> and end with <strong>-data</strong>, <strong>-threatlist</strong> and <strong>-logs</strong>)</p>
 <ul>
-<li>Go to <a href="https://s3.console.aws.amazon.com/s3/home?region=us-west-2">Amazon S3</a> console.</li>
+<li>Go to <a href="https://s3.console.aws.amazon.com/s3/home?region=us-west-2" target="_blank">Amazon S3</a> console.</li>
 <li>Click on the appropiate bucket.</li>
 <li>Click <strong>Delete Bucket</strong>.</li>
 <li>Copy and paste the name of the bucket (this is an extra verification that you actually want to delete the bucket).</li>
@@ -852,7 +812,7 @@
 <li>
 <p>Delete Module 1 and 2 CloudFormation stacks (<strong>ThreatDetectionWksp-Env-Setup</strong> and <strong>ThreatDetectionWksp-Attacks</strong>).</p>
 <ul>
-<li>Go to the <a href="https://us-west-2.console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks?filter=active">AWS CloudFormation</a> console.</li>
+<li>Go to the <a href="https://us-west-2.console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks?filter=active" target="_blank">AWS CloudFormation</a> console.</li>
 <li>Select the appropiate stack.</li>
 <li>Select <strong>Action</strong>.</li>
 <li>Click <strong>Delete Stack</strong>.</li>
@@ -865,7 +825,7 @@
 <li>
 <p>Delete the GuardDuty custom threat list and disable GuardDuty (if you didn't already have it configured before the workshop)</p>
 <ul>
-<li>Go to the <a href="https://us-west-2.console.aws.amazon.com/guardduty/">Amazon GuardDuty</a> console.</li>
+<li>Go to the <a href="https://us-west-2.console.aws.amazon.com/guardduty/" target="_blank">Amazon GuardDuty</a> console.</li>
 <li>Click on <strong>Lists</strong> on the left navigation.</li>
 <li>Click the <strong>X</strong> next to the threat list that starts with <strong>Custom-Threat-List</strong>.</li>
 <li>Click <strong>Settings</strong> in the navigation pane on the left navigation.</li>
@@ -874,9 +834,18 @@
 </ul>
 </li>
 <li>
+<p>Disable AWS Security Hub</p>
+<ul>
+<li>Go to the <a href="https://us-west-2.console.aws.amazon.com/securityhub/home?region=us-west-2#/findings" target="_blank">AWS Security Hub</a> console.</li>
+<li>Click on <strong>Settings</strong> on the left navigation.</li>
+<li>Click the <strong>General</strong> on the top navigation.</li>
+<li>Click <strong>Disable AWS Security Hub</strong>.</li>
+</ul>
+</li>
+<li>
 <p>Delete the manual CloudWatch Event Rule you created and the CloudWatch Logs that were generated.</p>
 <ul>
-<li>Go to the <a href="https://us-west-2.console.aws.amazon.com/cloudwatch">AWS CloudWatch</a> console.</li>
+<li>Go to the <a href="https://us-west-2.console.aws.amazon.com/cloudwatch" target="_blank">AWS CloudWatch</a> console.</li>
 <li>Click on <strong>Rules</strong> in the navigation pane on the left.</li>
 <li>Click the radio button next <strong>threat-detection-wksp-guardduty-finding-maliciousip</strong>.</li>
 <li>Select <strong>Action</strong> and click <strong>Delete</strong>.</li>
@@ -894,7 +863,7 @@
 <li>
 <p>Delete the SNS subscription that was created when you subscribed to SNS Topic.</p>
 <ul>
-<li>Go to the <a href="https://us-west-2.console.aws.amazon.com/sns">AWS SNS</a> console.</li>
+<li>Go to the <a href="https://us-west-2.console.aws.amazon.com/sns" target="_blank">AWS SNS</a> console.</li>
 <li>Click on <strong>Subscriptions</strong> on the left navigation.</li>
 <li>Select the check box next to the subscription that shows your e-mail as the Endpoint and has <strong>threat-detection-wksp</strong> in the <strong>Subscription ARN</strong>.</li>
 <li>Select <strong>Action</strong> and then click <strong>Delete subscriptions</strong></li>
@@ -903,7 +872,7 @@
 <li>
 <p>Disable Macie (if you didn't already have Macie enabled before the workshop).</p>
 <ul>
-<li>Go the <a href="https://mt.us-west-2.macie.aws.amazon.com/">Amazon Macie</a> console.</li>
+<li>Go the <a href="https://mt.us-west-2.macie.aws.amazon.com/" target="_blank">Amazon Macie</a> console.</li>
 <li>In the upper right-hand corner select the down arrow to the left of the Region and select <strong>Macie General Settings</strong>.</li>
 <li>Check the two boxes and click <strong>Disable Amazon Macie</strong></li>
 </ul>
