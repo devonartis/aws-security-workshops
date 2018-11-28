@@ -1,21 +1,21 @@
 # Module 2: Attack Simulation
 
-Now that you have all the detective controls setup and some automated remediations, you'll be running another CloudFormation template which will simulate a variety of findings.
+Now that you have detective and responsive controls setup, you'll be running another CloudFormation template which will simulate the actual attack you will be investigating.
 
-### Agenda
+**Agenda**
 
-1. Run the 2nd CloudFormation template – 5 min
-2. Threat Detection & Remediation Presentation – 25 min
+1. Run the second CloudFormation template – 5 min
+2. Threat detection and response presentation – 25 min
 
-## Deploy the CloudFormation Template
+## Deploy the CloudFormation template
 
 To initiate the attack simulation you will need to run the module 2 CloudFormation template: 
 
 Region| Deploy
 ------|-----
-US West 2 (Oregon) | [![Deploy Module 2 in us-west-2](./images/deploy-to-aws.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=ThreatDetectionWksp-Attacks&templateURL=https://s3-us-west-2.amazonaws.com/sa-security-specialist-workshops-us-west-2/02-attack-simulation.yml)
+US West 2 (Oregon) | <a href="https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=ThreatDetectionWksp-Attacks&templateURL=https://s3-us-west-2.amazonaws.com/sa-security-specialist-workshops-us-west-2/threat-detect-workshop/staging/02-attack-simulation.yml" target="_blank">![Deploy Module 2 in us-west-2](./images/deploy-to-aws.png)</a>
 
-1. Click the **Deploy to AWS** button above.  This will automatically take you to the console to run the template.  The file for the CloudFormation template (**02-attack-simulation.yml**) is also available in the [templates](../templates/) folder if you'd like to download it and manually upload it to create a stack.
+1. Click the **Deploy to AWS** button above.  This will automatically take you to the console to run the template.  
 
 2. The name of the stack will be automatically populated but you are free to change it, after which click **Next**, then **Next** again (leave everything on this page at the default).  
 
@@ -27,7 +27,7 @@ This will bring you back to the CloudFormation console. You can refresh the page
 
 ![Stack Complete](./images/02-stack-complete.png)
 
-## Threat Detection and Remediation Presentation
+## Threat detection and response presentation
 
 Below is a diagram of the setup after the module 2 CloudFormation stack is created.
 
@@ -36,4 +36,3 @@ Below is a diagram of the setup after the module 2 CloudFormation stack is creat
 > If you are going through this workshop in a classroom setting then wait till the presentation is over before starting module 3 (the presentation will allow enough time to pass for the attack scenario to complete.)  
 > 
 > If you are going through this workshop outside of a classroom setting you can proceed to Module 3.  Please note it will take at least **20 minutes** after the 2nd CloudFormation template has completed before you will start seeing findings. 
-
