@@ -182,12 +182,11 @@ One of the findings should indicate that the EC2 instance is communicating with 
 Automated responses to threats can do many things. For example, you could have an trigger that helps gather information about the threat that could then be used in the investigation by the security team. With that option in mind, we have a CloudWatch event rule in place that will trigger an <a href="https://aws.amazon.com/inspector/" target="_blank">Amazon Inspector</a> scan of an EC2 instance when GuardDuty detects a particular attack. We will use AWS Security Hub to view the findings from Inspector. We want to determine if the SSH configuration adheres to best practices. 
 
 1. Go to the <a href="https://us-west-2.console.aws.amazon.com/securityhub/home?region=us-west-2#/findings" target="_blank">AWS Security Hub</a> console.
-2. The link should take you to the **Findings** section but if not, click on **Findings** in the navigation on the left.
-3x. Click in the **Add filter** box:
+2. The link should take you to the **Findings** section but if not, click on **Findings** in the navigation on the left. Click in the **Add filter** box:
 
 	* Scroll down to **Title**, change the operator to **CONTAINS** and paste in `password authentication over SSH`. 
 
-4. In the results do you see a finding regarding SSH and password authentication for the instance that experienced the SSH brute force attack? 
+3. In the results do you see a finding regarding SSH and password authentication for the instance that experienced the SSH brute force attack? 
 
 <!--
 1. Go to [AWS Security Hub](https://us-west-2.console.aws.amazon.com/securityhub/) in the AWS Management Console.
@@ -198,7 +197,7 @@ Automated responses to threats can do many things. For example, you could have a
 4. In the results do you see a finding regarding SSH and password authentication for the instance that experienced the SSH brute force attack? 
 -->
 
-	> If you do not see any findings after awhile, there may have been an issue with your Inspector agent.  Go to the <a href="https://us-west-2.console.aws.amazon.com/inspector" target="_blank">Inspector</a> console, click on **Assessment Templates**, check the template that starts with **threat-detection-wksp**, and click **Run**.  Please allow **15 minutes** for the scan to complete.  You can also look in **Assessment runs** and check the **status**. Feel free to continue through this module and check the results later on. 
+> If you do not see any findings after awhile, there may have been an issue with your Inspector agent.  Go to the <a href="https://us-west-2.console.aws.amazon.com/inspector" target="_blank">Inspector</a> console, click on **Assessment Templates**, check the template that starts with **threat-detection-wksp**, and click **Run**.  Please allow **15 minutes** for the scan to complete.  You can also look in **Assessment runs** and check the **status**. Feel free to continue through this module and check the results later on. 
 
 Based on the findings you should see that password authentication over SSH is configured on the instance. In addition if you examine some of the other Inspector findings you will see that there are no password complexity restrictions. This means the instance is more susceptible to an SSH brute force attack. 
 
