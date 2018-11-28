@@ -807,7 +807,7 @@
 <p><img alt="Stack Complete" src="../images/01-stack-complete.png" /></p>
 <p>You will get an email from SNS asking you to confirm the Subscription. <strong>Confirm the subscription</strong> so you can receive email alerts from AWS services during the Workshop.</p>
 <h2 id="setup-amazon-cloudwatch-event-rules-and-automatic-response">Setup Amazon CloudWatch event rules and automatic response</h2>
-<p>The CloudFormation template you just ran created three CloudWatch Event Rules(https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/WhatIsCloudWatchEvents.html) for alerting and response purposes. The steps below will walk you through creating the final rule.  After this you'll have rules in place to receive email notifications and trigger AWS Lambda functions to respond to threats.</p>
+<p>The CloudFormation template you just ran created three <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/WhatIsCloudWatchEvents.html" target="_blank">CloudWatch Event Rules</a> for alerting and response purposes. The steps below will walk you through creating the final rule.  After this you'll have rules in place to receive email notifications and trigger AWS Lambda functions to respond to threats.</p>
 <p>Below are steps to create this rule through the console but you can also find out more about doing it programmatically by reviewing the <a href="http://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html" target="_blank">Amazon GuardDuty Documentation</a>.</p>
 <ol>
 <li>Open the <a href="https://us-west-2.console.aws.amazon.com/cloudwatch/home?region=us-west-2" target="_blank">CloudWatch console</a> (us-west-2)</li>
@@ -822,7 +822,7 @@
 </li>
 <li>
 <p>Under <strong>Event Pattern</strong> click <strong>Build event pattern to match events by service</strong> and select <strong>Custom event pattern</strong> in the drop down.
-Paste in the custom event pattern below:</p>
+Copy and paste in the custom event pattern below:</p>
 </li>
 </ol>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
