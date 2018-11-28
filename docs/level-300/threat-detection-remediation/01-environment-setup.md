@@ -100,7 +100,7 @@ Since you plan on storing sensitive data in S3, let’s quickly enable Amazon Ma
 
 Macie is also used for automatically discovering and classifying sensitive data.  Now that Macie is enabled, setup an integration to classify data in your S3 bucket.
 
-1.	In the <a href="https://us-west-2.redirection.macie.aws.amazon.com/" target="_blank">Amazon Macie</a> console click on **Integrations** on the left navigation.
+1.	In the Amazon Macie console click on **Integrations** on the left navigation.
 
 3.	Find your AWS account ID (there should be only one) and click **Select** 
 
