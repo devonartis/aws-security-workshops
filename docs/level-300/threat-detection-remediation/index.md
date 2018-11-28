@@ -1,10 +1,6 @@
 # Find All the Threats: AWS Threat Detection and Remediation
 
-This workshop is designed to help you get familiar with AWS Security services and learn how to use them to identify and remediate threats in your environment.  You'll be working with services such as Amazon GuardDuty, Amazon Macie, Amazon Inspector, Amazon CloudWatch, AWS Lambda, AWS Systems Manager, AWS Config, and AWS CloudTrail. You will learn how to use these services to set up a notification and remediation pipeline, investigate threats during and after an attack, and  add additional protections in place to improve the security posture of your environment.
-
-## Prerequisites
-
-You should have some level of familiarity with AWS services such as EC2, VPC and S3. Exposure to AWS Lambda and CloudFormation are a bonus. Some experience working with the AWS console is helpful as well.
+This workshop is designed to help you get familiar with AWS Security services and learn how to use them to identify and remediate threats in your environment.  You'll be working with services such as Amazon GuardDuty, Amazon Macie, Amazon Inspector, Amazon CloudWatch, AWS Lambda, AWS Systems Manager, AWS Config, and AWS CloudTrail. You will learn how to use these services to investigate threats during and after an attack, set up a notification and remediation pipeline, and  add additional protections to improve the security posture of your environment.
 
 ## Scenario
 
@@ -15,8 +11,6 @@ Your company is new to the cloud and has recently performed a lift-and-shift of 
 For this Workshop you will have a single instance setup in the us-west-2 region. As this was a “lift-and-shift” migration for piloting, you have yet to build redundancy into your application, so you have a single public-facing web server. The web server has access to the Internet Gateway through an Elastic Network Interface. Customers access your web server through a DNS entry pointing to the Elastic Network Interface. You store static content in an S3 bucket and use the VPC S3 Endpoint Gateway for access from the web server.
 
 ![Architecture](./images/diagram-basic-arch.png "Lab Workload Architecture")
-
-Before you migrated the application you saw a webinar about AWS security best practices. Because of that webinar, you knew to enable a number of Security services provided by AWS. 
 
 ## Region
 Please use the **us-west-2 (Oregon)** region for this workshop.
