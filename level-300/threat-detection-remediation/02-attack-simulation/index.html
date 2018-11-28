@@ -547,22 +547,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#agenda" title="Agenda" class="md-nav__link">
-    Agenda
+  <a href="#deploy-the-cloudformation-template" title="Deploy the CloudFormation template" class="md-nav__link">
+    Deploy the CloudFormation template
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#deploy-the-cloudformation-template" title="Deploy the CloudFormation Template" class="md-nav__link">
-    Deploy the CloudFormation Template
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#threat-detection-and-remediation-presentation" title="Threat Detection and Remediation Presentation" class="md-nav__link">
-    Threat Detection and Remediation Presentation
+  <a href="#threat-detection-and-response-presentation" title="Threat detection and response presentation" class="md-nav__link">
+    Threat detection and response presentation
   </a>
   
 </li>
@@ -657,22 +650,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#agenda" title="Agenda" class="md-nav__link">
-    Agenda
+  <a href="#deploy-the-cloudformation-template" title="Deploy the CloudFormation template" class="md-nav__link">
+    Deploy the CloudFormation template
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#deploy-the-cloudformation-template" title="Deploy the CloudFormation Template" class="md-nav__link">
-    Deploy the CloudFormation Template
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#threat-detection-and-remediation-presentation" title="Threat Detection and Remediation Presentation" class="md-nav__link">
-    Threat Detection and Remediation Presentation
+  <a href="#threat-detection-and-response-presentation" title="Threat detection and response presentation" class="md-nav__link">
+    Threat detection and response presentation
   </a>
   
 </li>
@@ -697,13 +683,13 @@
                 
                 
                 <h1 id="module-2-attack-simulation">Module 2: Attack Simulation</h1>
-<p>Now that you have all the detective controls setup and some automated remediations, you'll be running another CloudFormation template which will simulate a variety of findings.</p>
-<h3 id="agenda">Agenda</h3>
+<p>Now that you have detective and responsive controls setup, you'll be running another CloudFormation template which will simulate the actual attack you will be investigating.</p>
+<p><strong>Agenda</strong></p>
 <ol>
-<li>Run the 2nd CloudFormation template – 5 min</li>
-<li>Threat Detection &amp; Remediation Presentation – 25 min</li>
+<li>Run the second CloudFormation template – 5 min</li>
+<li>Threat detection and response presentation – 25 min</li>
 </ol>
-<h2 id="deploy-the-cloudformation-template">Deploy the CloudFormation Template</h2>
+<h2 id="deploy-the-cloudformation-template">Deploy the CloudFormation template</h2>
 <p>To initiate the attack simulation you will need to run the module 2 CloudFormation template: </p>
 <table>
 <thead>
@@ -715,13 +701,13 @@
 <tbody>
 <tr>
 <td>US West 2 (Oregon)</td>
-<td><a href="https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=ThreatDetectionWksp-Attacks&amp;templateURL=https://s3-us-west-2.amazonaws.com/sa-security-specialist-workshops-us-west-2/02-attack-simulation.yml"><img alt="Deploy Module 2 in us-west-2" src="../images/deploy-to-aws.png" /></a></td>
+<td><a href="https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=ThreatDetectionWksp-Attacks&templateURL=https://s3-us-west-2.amazonaws.com/sa-security-specialist-workshops-us-west-2/threat-detect-workshop/staging/02-attack-simulation.yml" target="_blank"><img alt="Deploy Module 2 in us-west-2" src="../images/deploy-to-aws.png" /></a></td>
 </tr>
 </tbody>
 </table>
 <ol>
 <li>
-<p>Click the <strong>Deploy to AWS</strong> button above.  This will automatically take you to the console to run the template.  The file for the CloudFormation template (<strong>02-attack-simulation.yml</strong>) is also available in the <a href="../templates/">templates</a> folder if you'd like to download it and manually upload it to create a stack.</p>
+<p>Click the <strong>Deploy to AWS</strong> button above.  This will automatically take you to the console to run the template.  </p>
 </li>
 <li>
 <p>The name of the stack will be automatically populated but you are free to change it, after which click <strong>Next</strong>, then <strong>Next</strong> again (leave everything on this page at the default).  </p>
@@ -733,7 +719,7 @@
 <p><img alt="IAM Capabilities" src="../images/iam-capabilities.png" /></p>
 <p>This will bring you back to the CloudFormation console. You can refresh the page to see the stack starting to create. Before moving on, make sure the stack is in a <strong>CREATE_COMPLETE</strong> status as shown below.</p>
 <p><img alt="Stack Complete" src="../images/02-stack-complete.png" /></p>
-<h2 id="threat-detection-and-remediation-presentation">Threat Detection and Remediation Presentation</h2>
+<h2 id="threat-detection-and-response-presentation">Threat detection and response presentation</h2>
 <p>Below is a diagram of the setup after the module 2 CloudFormation stack is created.</p>
 <p><img alt="Module 2 Diagram" src="../images/02-diagram-module2-3.png" /></p>
 <blockquote>

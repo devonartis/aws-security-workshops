@@ -535,50 +535,43 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#agenda" title="Agenda" class="md-nav__link">
-    Agenda
+  <a href="#deploy-the-aws-cloudformation-template" title="Deploy the AWS CloudFormation template" class="md-nav__link">
+    Deploy the AWS CloudFormation template
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#review-current-configurations" title="Review current configurations" class="md-nav__link">
-    Review current configurations
+  <a href="#setup-amazon-cloudwatch-event-rules-and-automatic-response" title="Setup Amazon CloudWatch event rules and automatic response" class="md-nav__link">
+    Setup Amazon CloudWatch event rules and automatic response
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#deploy-the-cloudformation-template" title="Deploy the CloudFormation template" class="md-nav__link">
-    Deploy the CloudFormation template
+  <a href="#enable-amazon-guardduty" title="Enable Amazon GuardDuty" class="md-nav__link">
+    Enable Amazon GuardDuty
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#setup-cloudwatch-event-rules-and-automatic-remediation" title="Setup CloudWatch Event rules and automatic remediation" class="md-nav__link">
-    Setup CloudWatch Event rules and automatic remediation
+  <a href="#enable-amazon-macie" title="Enable Amazon Macie" class="md-nav__link">
+    Enable Amazon Macie
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#enable-guardduty" title="Enable GuardDuty" class="md-nav__link">
-    Enable GuardDuty
+  <a href="#setup-amazon-macie-for-data-discovery-classification" title="Setup Amazon Macie for data discovery &amp; classification" class="md-nav__link">
+    Setup Amazon Macie for data discovery &amp; classification
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#enable-macie" title="Enable Macie" class="md-nav__link">
-    Enable Macie
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#setup-macie-for-data-discovery-classification-and-protection" title="Setup Macie for data discovery, classification and protection" class="md-nav__link">
-    Setup Macie for data discovery, classification and protection
+  <a href="#enable-aws-security-hub" title="Enable AWS Security Hub" class="md-nav__link">
+    Enable AWS Security Hub
   </a>
   
 </li>
@@ -692,50 +685,43 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#agenda" title="Agenda" class="md-nav__link">
-    Agenda
+  <a href="#deploy-the-aws-cloudformation-template" title="Deploy the AWS CloudFormation template" class="md-nav__link">
+    Deploy the AWS CloudFormation template
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#review-current-configurations" title="Review current configurations" class="md-nav__link">
-    Review current configurations
+  <a href="#setup-amazon-cloudwatch-event-rules-and-automatic-response" title="Setup Amazon CloudWatch event rules and automatic response" class="md-nav__link">
+    Setup Amazon CloudWatch event rules and automatic response
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#deploy-the-cloudformation-template" title="Deploy the CloudFormation template" class="md-nav__link">
-    Deploy the CloudFormation template
+  <a href="#enable-amazon-guardduty" title="Enable Amazon GuardDuty" class="md-nav__link">
+    Enable Amazon GuardDuty
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#setup-cloudwatch-event-rules-and-automatic-remediation" title="Setup CloudWatch Event rules and automatic remediation" class="md-nav__link">
-    Setup CloudWatch Event rules and automatic remediation
+  <a href="#enable-amazon-macie" title="Enable Amazon Macie" class="md-nav__link">
+    Enable Amazon Macie
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#enable-guardduty" title="Enable GuardDuty" class="md-nav__link">
-    Enable GuardDuty
+  <a href="#setup-amazon-macie-for-data-discovery-classification" title="Setup Amazon Macie for data discovery &amp; classification" class="md-nav__link">
+    Setup Amazon Macie for data discovery &amp; classification
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#enable-macie" title="Enable Macie" class="md-nav__link">
-    Enable Macie
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#setup-macie-for-data-discovery-classification-and-protection" title="Setup Macie for data discovery, classification and protection" class="md-nav__link">
-    Setup Macie for data discovery, classification and protection
+  <a href="#enable-aws-security-hub" title="Enable AWS Security Hub" class="md-nav__link">
+    Enable AWS Security Hub
   </a>
   
 </li>
@@ -767,23 +753,8 @@
                 
                 
                 <h1 id="module-1-environment-build-and-configuration">Module 1: Environment build and configuration</h1>
-<p>In this module you will be configuring all the initial detective and remediation controls for your environment.  You'll be running the first of two CloudFormation templates which will automate the creation of some of these controls and then you will manually configure the rest.</p>
-<h2 id="agenda">Agenda</h2>
-<ol>
-<li>Review current configurations and run the 1st CloudFormation template – 5 min</li>
-<li>Configure the remaining controls – 15 min</li>
-</ol>
-<h2 id="review-current-configurations">Review current configurations</h2>
-<p>When you launch the first CloudFormation template you'll be prompted with questions regarding whether certain resources are already configured.  Please verify whether you already have the following configured in your account:</p>
-<ol>
-<li>
-<p>Go to <a href="https://us-west-2.console.aws.amazon.com/config/home?region=us-west-2" target="_blank">AWS Config</a> (in the us-west-2 - Oregon region) and see if it is already enabled.</p>
-<blockquote>
-<p>If you see a <strong>Get Started</strong> button; you'll answer <strong>No</strong> when prompted if Config is enabled when launching the CloudFormation template.</p>
-</blockquote>
-</li>
-</ol>
-<h2 id="deploy-the-cloudformation-template">Deploy the CloudFormation template</h2>
+<p>In the first module you will be configuring detective and responsive controls for your environment.  You'll be running the first of two CloudFormation templates which will automate the creation of some of these controls and then you will manually configure the rest.</p>
+<h2 id="deploy-the-aws-cloudformation-template">Deploy the AWS CloudFormation template</h2>
 <p>To initiate the scenario and configure your environment you will need to run the module 1 CloudFormation template: </p>
 <table>
 <thead>
@@ -795,13 +766,13 @@
 <tbody>
 <tr>
 <td>US West 2 (Oregon)</td>
-<td><a href="https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=ThreatDetectionWksp-Env-Setup&amp;templateURL=https://s3-us-west-2.amazonaws.com/sa-security-specialist-workshops-us-west-2/01-environment-setup.yml"><img alt="Deploy Module 1 in us-west-2" src="../images/deploy-to-aws.png" /></a></td>
+<td><a href="https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=ThreatDetectionWksp-Env-Setup&templateURL=https://s3-us-west-2.amazonaws.com/sa-security-specialist-workshops-us-west-2/threat-detect-workshop/staging/01-environment-setup.yml" target="_blank"><img alt="Deploy Module 1 in us-west-2" src="../images/deploy-to-aws.png" /></a></td>
 </tr>
 </tbody>
 </table>
 <ol>
 <li>
-<p>Click the <strong>Deploy to AWS</strong> button above.  This will automatically take you to the console to run the template.  The file for the CloudFormation template (<strong>01-environment-setup.yml</strong>) is also available in the <a href="../templates/">templates</a> folder if you'd like to download it and manually upload it to create a stack.</p>
+<p>Click the <strong>Deploy to AWS</strong> button above.  This will automatically take you to the console to run the template.  </p>
 </li>
 <li>
 <p>On the <strong>Specify Details</strong> section enter the necessary parameters as shown below. </p>
@@ -821,10 +792,6 @@
 <td>Email Address</td>
 <td>A <strong><em>valid</em></strong> email address</td>
 </tr>
-<tr>
-<td>AWS Config</td>
-<td>Yes or No (Is AWS Config enabled already?)</td>
-</tr>
 </tbody>
 </table>
 </li>
@@ -839,13 +806,13 @@
 <p>This will bring you back to the CloudFormation console. You can refresh the page to see the stack starting to create. Before moving on, make sure the stack is in a <strong>CREATE_COMPLETE</strong> status as shown below.</p>
 <p><img alt="Stack Complete" src="../images/01-stack-complete.png" /></p>
 <ol>
-<li>You will get an email from SNS asking you to confirm the Subscription. Confirm this so you can receive email alerts from AWS services during the Workshop.</li>
+<li>You will get an email from SNS asking you to confirm the Subscription. <strong>Confirm the subscription</strong> so you can receive email alerts from AWS services during the Workshop.</li>
 </ol>
-<h2 id="setup-cloudwatch-event-rules-and-automatic-remediation">Setup CloudWatch Event rules and automatic remediation</h2>
-<p>The CloudFormation template you just ran created three <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/WhatIsCloudWatchEvents.html">CloudWatch Event Rules</a> for alerting and remediation purposes. The steps below will walk you through creating the final rule.  After this you'll have all the necessary rules in place to receive email notifications and trigger the appropriate AWS Lambda functions for remediations.</p>
-<p>Below are steps to create this rule through the console but you can also find out more about doing it programmatically by reviewing the <a href="http://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html">GuardDuty Documentation</a>.</p>
+<h2 id="setup-amazon-cloudwatch-event-rules-and-automatic-response">Setup Amazon CloudWatch event rules and automatic response</h2>
+<p>The CloudFormation template you just ran created three CloudWatch Event Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/WhatIsCloudWatchEvents.html) for alerting and response purposes. The steps below will walk you through creating the final rule.  After this you'll have rules in place to receive email notifications and trigger AWS Lambda functions to respond to threats.</p>
+<p>Below are steps to create this rule through the console but you can also find out more about doing it programmatically by reviewing the <a href="http://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html" target="_blank">Amazon GuardDuty Documentation</a>.</p>
 <ol>
-<li>Open the <a href="https://us-west-2.console.aws.amazon.com/cloudwatch/home?region=us-west-2">CloudWatch console</a></li>
+<li>Open the <a href="https://us-west-2.console.aws.amazon.com/cloudwatch/home?region=us-west-2" target="_blank">CloudWatch console</a> (us-west-2)</li>
 <li>
 <p>In the navigation pane on the left, under <strong>Events</strong>, click <strong>Rules</strong></p>
 <blockquote>
@@ -855,8 +822,10 @@
 <li>
 <p>Click <strong>Create Rule</strong></p>
 </li>
-<li>On the <strong>Create rule</strong> screen.</li>
-<li>Under <strong>Event Pattern</strong> click <strong>Build event pattern to match events by service</strong> and select <strong>Custom event pattern</strong> in the drop down. Paste in the custom event pattern below:</li>
+<li>
+<p>Under <strong>Event Pattern</strong> click <strong>Build event pattern to match events by service</strong> and select <strong>Custom event pattern</strong> in the drop down.
+Paste in the custom event pattern below:</p>
+</li>
 </ol>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -871,12 +840,7 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>* For *Targets*, click **Add Target**, select **Lambda Function**, and then select **threat-detection-wksp-remediation-nacl**.
-
-* Click **Configure details**
-</pre></div>
-
-
+<p>For <em>Targets</em>, click <strong>Add Target</strong>, select <strong>Lambda Function</strong>, and then select <strong>threat-detection-wksp-remediation-nacl</strong>. Click <strong>Configure details</strong>.</p>
 <ol>
 <li>On the <strong>Configure rule details</strong> screen fill out the <strong>Name</strong> and <strong>Description</strong> (suggestions below).<ul>
 <li>Name: <strong>threat-detection-wksp-guardduty-finding-ec2-maliciousip</strong></li>
@@ -884,20 +848,19 @@
 </ul>
 </li>
 <li>Click <strong>Create rule</strong>.</li>
-<li>Now let’s examine the Lambda function to see what it does.  Open the <a href="https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2">Lambda console</a></li>
 <li>
-<p>Click on the function named <strong>threat-detection-wksp-remediation-nacl</strong></p>
+<p><strong>Optional:</strong> Consider examining the Lambda function to see what it does.  Open the <a href="https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2" target="_blank">Lambda console</a>. Click on the function named <strong>threat-detection-wksp-remediation-nacl</strong></p>
 <blockquote>
 <p>What will the function do when invoked?</p>
 <p>What will the <strong>threat-detection-wksp-remediation-inspector</strong> functions do?</p>
 </blockquote>
 </li>
 </ol>
-<h2 id="enable-guardduty">Enable GuardDuty</h2>
+<h2 id="enable-amazon-guardduty">Enable Amazon GuardDuty</h2>
 <p>The next step is to enable Amazon GuardDuty, which will continuously monitor your environment for malicious or unauthorized behavior.</p>
 <ol>
 <li>
-<p>Go to the <a href="https://us-west-2.console.aws.amazon.com/guardduty/home?region=us-west-2">Amazon GuardDuty</a> console.</p>
+<p>Go to the <a href="https://us-west-2.console.aws.amazon.com/guardduty/home?region=us-west-2" target="_blank">Amazon GuardDuty</a> console (us-west-2).</p>
 </li>
 <li>
 <p>Click the <strong>Get Started</strong> button.</p>
@@ -907,14 +870,11 @@
 </li>
 </ol>
 <p>GuardDuty is now enabled and continuously monitoring your CloudTrail logs, VPC flow logs, and DNS Query logs for threats in your environment.</p>
-<h2 id="enable-macie">Enable Macie</h2>
+<h2 id="enable-amazon-macie">Enable Amazon Macie</h2>
 <p>Since you plan on storing sensitive data in S3, let’s quickly enable Amazon Macie.  Macie is a security service that will continuously monitor data access activity for anomalies and generate alerts when it detects risk of unauthorized access or inadvertent data leaks.</p>
 <ol>
 <li>
-<p>Go to the <a href="https://us-west-2.redirection.macie.aws.amazon.com/">Amazon Macie</a> console.</p>
-<blockquote>
-<p>If you get a <em>Failed to Fetch</em> error you may have a script blocker enabled in your browser.</p>
-</blockquote>
+<p>Go to the <a href="https://us-west-2.redirection.macie.aws.amazon.com/" target="_blank">Amazon Macie</a> console (us-west-2).</p>
 </li>
 <li>
 <p>Click <strong>Get Started</strong>.</p>
@@ -926,11 +886,11 @@
 <p>Click <strong>Enable Macie</strong>.</p>
 </li>
 </ol>
-<h2 id="setup-macie-for-data-discovery-classification-and-protection">Setup Macie for data discovery, classification and protection</h2>
+<h2 id="setup-amazon-macie-for-data-discovery-classification">Setup Amazon Macie for data discovery &amp; classification</h2>
 <p>Macie is also used for automatically discovering and classifying sensitive data.  Now that Macie is enabled, setup an integration to classify data in your S3 bucket.</p>
 <ol>
 <li>
-<p>In the <a href="https://us-west-2.redirection.macie.aws.amazon.com/">Amazon Macie</a> console click on <strong>Integrations</strong> on the left navigation.</p>
+<p>In the <a href="https://us-west-2.redirection.macie.aws.amazon.com/" target="_blank">Amazon Macie</a> console click on <strong>Integrations</strong> on the left navigation.</p>
 </li>
 <li>
 <p>Find your AWS account ID (there should be only one) and click <strong>Select</strong> </p>
@@ -948,6 +908,20 @@
 <p>Finally click <strong>Done</strong>. Macie is now enabled and has begun to discover, classify and protect your data.</p>
 </li>
 </ol>
+<h2 id="enable-aws-security-hub">Enable AWS Security Hub</h2>
+<p>Now that all of your detective controls have been configured you need to enable AWS Security Hub](https://aws.amazon.com/securityhub/), which will provide you with a comprehensive view of the security and compliance of your AWS environment.</p>
+<ol>
+<li>
+<p>Go to the <a href="https://us-west-2.console.aws.amazon.com/securityhub/" target="_blank">AWS Security Hub</a> console.</p>
+</li>
+<li>
+<p>Click the <strong>Get started</strong> button.</p>
+</li>
+<li>
+<p>On the next screen click the <strong>Enable SecurityHub</strong> button.</p>
+</li>
+</ol>
+<p>AWS Security Hub is now enabled and will begin collecting and aggregating findings from the security services we have enabled so far.</p>
 <h2 id="architecture-overview">Architecture overview</h2>
 <p>Your environment is now configured and ready for operations.  Below is a diagram to depict the detective controls you now have in place.</p>
 <p><img alt="Detective Controls" src="../images/01-diagram-module1.png" /></p>
