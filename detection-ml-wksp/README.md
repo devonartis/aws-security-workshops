@@ -146,9 +146,9 @@ If you would like to experiment with the IP Insights algorithm using a much larg
 
 # Cleaning up
 
-In order to prevent charges to your account from the resources created during this workshop, we recommend cleaning up the infrastructure that was created by deleting the CloudFormation stack. You can leave things running if you want to examine the lab a bit more, and can do the clean-up steps below at any time.
+In order to prevent charges to your account from the resources created during this workshop, we recommend cleaning up the infrastructure that was created by deleting the CloudFormation stack. You can leave things running though if you want to do more with the workshop; the following cleanup steps can be performed at any time.
 
-We've created a Bash script that will take care of deleting the CloudFormation stack, which will remove the Lambda functions, IAM role, and S3 bucket. The script, `cleanup.sh`, is provided in this repository. Download it and then run as follows:
+We've created a Bash script to delete the CloudFormation stack, which will remove the Lambda functions, IAM role, and S3 bucket. We use a script because the S3 bucket has The script, `cleanup.sh`, is provided in this repository. Download it and then run as follows:
 
 ```
 chmod +x cleanup.sh
@@ -162,11 +162,12 @@ If you cannot run the Bash script, you can manually clean-up these resources by 
 1. Go to the S3 console and delete the bucket whose name starts with "sec405-tuplesbucket".
 2. Delete the CloudFormation stack by going to the CloudFormation console, selecting the stack called **SEC405**, and from the top menu choosing action **Delete Stack**. This step will fail if you haven't deleted the S3 bucket first.
 
-You will also need to turn off GuardDuty and the SageMaker notebook unless you wish to keep them running:
+You will also need to turn off or remove the following resources, unless you wish to keep them running or retain them:
 
 - GuardDuty ([pricing info](https://aws.amazon.com/guardduty/pricing/))
   - Go to the GuardDuty console, go to **Settings**, then scroll down and choose either **Suspend GuardDuty** or **Disable GuardDuty**.
 - SageMaker ([pricing info](https://aws.amazon.com/sagemaker/pricing/))
   - Notebook - On the **Notebook instances** page in the SageMaker console, click the circle to select the "SEC405" notebook then under **Actions** choose **Stop**. Once the notebook is stopped, under **Actions** choose **Delete**. If you'd rather keep the notebook around to work with again, then just **Stop** is enough.
   - Endpoint - On the **Endpoints** page in the SageMaker console, click the circle to select the endpoint for the workshop then under **Actions** choose **Delete**.
- - CloudWatch Logs - CloudWatch log groups will have been created for 
+ - CloudWatch ([pricing info](https://aws.amazon.com/cloudwatch/pricing/))
+   - Logs - CloudWatch log groups will have been created for the "SEC405-CloudTrailIngestLambda" and "SEC405-GuardDutyIngestLambda" AWS Lambda functions. You can delete a log group by selecting it and then under **Actions** choosing **Delete log group**.
