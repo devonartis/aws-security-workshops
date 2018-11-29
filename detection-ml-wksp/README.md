@@ -11,12 +11,13 @@ After the setup steps below, there are instructions provided for all of the hand
 
 This repository contains the following files that will be used for this workshop:
 
-- templates/
-  - cloudformation.yaml - The CloudFormation template to deploy the stack of resources for the workshop
 - aws_lambda/
   - cloudtrail_ingest.zip - Lambda zip bundle for workshop CloudTrail log ingest
   - guardduty_ingest.zip - Lambda zip bundle for workshop GuardDuty finding ingest
 - cleanup.sh - Shell script to delete the workshop CloudFormation stack at the end
+- sec405-ipinsights.ipynb - Jupyter notebook for the workshop to load into SageMaker
+- templates/
+  - cloudformation.yaml - The CloudFormation template to deploy the stack of resources for the workshop
 
 # Initial setup
 
