@@ -106,7 +106,7 @@ In the S3 console, if you find the bucket whose name starts with "sec405-tuplesb
 
 ## 2.2 Generate scoring data using GuardDuty findings
 
-To make use of the trained model, we will pass `<principal ID, IP address>` tuples extracted from the GuardDuty findings to it for scoring. The activity contained in these GuardDuty findings directly corresponds to the activity contained in the CloudTrail logs.
+To make use of the trained model, we will pass `<principal ID, IP address>` tuples extracted from the GuardDuty findings to it for scoring (i.e., inference). The activity contained in these GuardDuty findings directly corresponds to the activity contained in the CloudTrail logs.
     
 An AWS Lambda function has been created to do this, but you'll need to make a small change to the function and then run it to generate the tuples.
 
@@ -119,7 +119,7 @@ In the S3 console, if you find the bucket whose name starts with "sec405-tuplesb
 
 ## 2.3 Set up the SageMaker notebook
 
-To use the IP Insights algorithm, you will work from a Jupyter notebook, which is an interactive coding environment that lets you mix notes and documentation with code blocks that can be "run" in a stepwise fashion throughout the notebook and share the same interpreter. It's an invaluable tool that professionals such as data scientists, engineers, and analyts can use to experiment with ML algorithms and easily share their work with others.
+To use the IP Insights algorithm, you will work from a Jupyter notebook, which is an interactive coding environment that lets you mix notes and documentation with code blocks that can be "run" in a stepwise fashion throughout the notebook and share the same interpreter.
 
 1. First, go to the S3 console and look for the bucket whose name starts with "sec405-tuplesbucket" (e.g., sec405-tuplesbucket-1fnqifqbmsfxy). Copy the name of this bucket; you will need it in a moment.
 2. Browse to the Amazon SageMaker console and click on the button called **Create notebook instance**.
@@ -130,7 +130,10 @@ To use the IP Insights algorithm, you will work from a Jupyter notebook, which i
 7. Once the notebook is running, click **Open Jupyter** to open the notebook.
 8. Download the sample notebook file for the workshop where we will be working with the IP Insights algorithm: https://s3.ca-central-1.amazonaws.com/aws-reinvent2018-sec405-de42b9ca/sec405-ipinsights.ipynb
 9. Once you download the notebook file, click the **Upload** button on the upper right hand side in Jupyter to upload it to your running notebook instance.
-9. Click on the notebook and work through it step by step. We recommend using the "Run" command to walk through each code block one by one rather than doing "Run All".
+
+## 2.4 Training and scoring with the IP Insights algorithm
+
+Click on the notebook and work through it step by step to learn how to train the model using the tuples from the CloudTrail logs and then make inferences by scoring the tuples from the GuardDuty findings. We recommend using the "Run" command to walk through each code block one by one rather than doing "Run All".
 
 IP Insights is an unsupervised learning algorithm for detecting anomalous behavior and usage patterns of IP addresses, that helps users identifying fraudulent behavior using IP addresses, describe the Amazon SageMaker IP Insights algorithm, demonstrate how you can use it in a real-world application, and share some of our results using it internally.
 
@@ -138,9 +141,11 @@ For more information about the IP Insights algorithm, please read the following 
 
 https://aws.amazon.com/blogs/machine-learning/detect-suspicious-ip-addresses-with-the-amazon-sagemaker-ip-insights-algorithm/].
 
-You can also view the IP Insghts documentation here:
+You can also view the IP Insights documentation here:
 
 https://docs.aws.amazon.com/sagemaker/latest/dg/ip-insights.html
+
+### 2.4.1 (BONUS) IP Insights algorithm tutorial
 
 If you would like to experiment with the IP Insights algorithm using a much larger dataset, you can choose the **SageMaker Examples** tab in Jupyter to see a list of all the Amazon SageMaker examples. Expand the **Introduction to Amazon Algorithms** section, look for a notebook called **ipinsights-tutorial.ipynb**, then click its **Use** button and **Create copy** in the dialog to create a copy of it, then work through it step by step.
 
@@ -168,6 +173,6 @@ You will also need to turn off or remove the following resources, unless you wis
   - Go to the GuardDuty console, go to **Settings**, then scroll down and choose either **Suspend GuardDuty** or **Disable GuardDuty**.
 - SageMaker ([pricing info](https://aws.amazon.com/sagemaker/pricing/))
   - Notebook - On the **Notebook instances** page in the SageMaker console, click the circle to select the "SEC405" notebook then under **Actions** choose **Stop**. Once the notebook is stopped, under **Actions** choose **Delete**. If you'd rather keep the notebook around to work with again, then just **Stop** is enough.
-  - Endpoint - On the **Endpoints** page in the SageMaker console, click the circle to select the endpoint for the workshop then under **Actions** choose **Delete**.
+  - Endpoint - On the **Endpoints** page in the SageMaker console, click the circle to select the endpoint for the workshop (the endpoint with the name stored in the variable `endpoint_name` from the notebook), then under **Actions** choose **Delete**.
  - CloudWatch ([pricing info](https://aws.amazon.com/cloudwatch/pricing/))
    - Logs - CloudWatch log groups will have been created for the "SEC405-CloudTrailIngestLambda" and "SEC405-GuardDutyIngestLambda" AWS Lambda functions. You can delete a log group by selecting it and then under **Actions** choosing **Delete log group**.
