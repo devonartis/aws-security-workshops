@@ -12,6 +12,9 @@ For this Workshop you will have a single instance setup in the us-west-2 region.
 
 ![Architecture](./images/diagram-basic-arch.png "Lab Workload Architecture")
 
+## Presentation deck
+[Workshop Presentation Deck](./threat-detect-workshop-presentation.pdf)
+
 ## Region
 Please use the **us-west-2 (Oregon)** region for this workshop.
 
