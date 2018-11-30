@@ -4,6 +4,8 @@ Permission boundaries is probably one of the most important new IAM features tha
 
 ![mechanism](./images/permission-boundaries.png)
 
+[Presentation deck](./Builder-session--permission-boundaries-presentation.pdf)
+
 ## Console Login
 
 * Browse to the URL provided to you and login. 
