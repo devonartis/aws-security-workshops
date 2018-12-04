@@ -88,6 +88,29 @@ async function getKeys(params, keys){
 
 * Test the Lambda function and make sure it is generating logs in CloudWatch logs and that it is able to list the ELB logs in the ELB access logs bucket the object in S3. In order to test you will need to create a test event. The parameters of the test do not matter.
 
+## Cleanup
+
+In order to prevent charges to your account we recommend cleaning up the infrastructure that was created. Expand one of the following dropdowns and follow the instructions:
+
+??? note "AWS Sponsored Event"
+    No cleanup required! The responsibility falls to AWS.
+
+??? note "Individual"
+
+    You will need to manually delete some resources before you delete the CloudFormation stacks so please do the following steps in order.
+
+    1.	Delete the Ares S3 bucket.
+        * Go to the <a href="https://s3.console.aws.amazon.com/s3/home" target="_blank">Amazon S3</a> console.
+        * Click on the bucket named **identity-ex-ares-app**
+        * Click **Delete**
+        * Enter the bucket name again to confirm and click **Delete**.
+
+    2.	Delete the CloudFormation stack (**Identity-PB-Builder-Session**).
+        * Go to the <a href="https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks?filter=active" target="_blank">AWS CloudFormation</a> console.
+        * Select the appropriate stack.
+        * Select **Action**.
+        * Click **Delete Stack**.
+
 ## Summary
 
 Congratulations, you've completed the Permission Boundaries Builder session!  Hopefully by going through this session you have a better idea of what permission boundaries are, where they can be used, and are starting to think about where you can apply them in your environments.

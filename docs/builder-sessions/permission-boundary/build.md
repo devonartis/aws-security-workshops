@@ -8,12 +8,27 @@ Permission boundaries is probably one of the most important new IAM features tha
 
 ## Environment Setup
 
-* Browse to the URL provided to you and login. 
+??? note "AWS Sponsored Event"
+    * Browse to the URL provided to you and login. 
+    * After you login click the **AWS Account** box, then click on the Account ID displayed below that (the red box in the image.) You should see a link below that for the **Management console**. Click on that and you will be taken to the AWS console. 
 
-* After you login click the **AWS Account** box, then click on the Account ID displayed below that (the red box in the image.) You should see a link below that for the **Management console**. Click on that and you will be taken to the AWS console. 
+    ![login-page](./images/login.png)
 
-![login-page](./images/login.png)
+??? note "Individual"
 
+    Launch the CloudFormation stack below to setup the Permission Boundary environment:
+
+    Region| Deploy
+    ------|-----
+    US West 2 (Oregon) | <a href="https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=Identity-PB-Builder-Session&templateURL=https://s3-us-west-2.amazonaws.com/sa-security-specialist-workshops-us-west-2/builder-sessions/permissionboundary/permission-boundaries-env.yml" target="_blank">![Deploy in us-west-2](./images/deploy-to-aws.png)</a>
+
+    1. Click the **Deploy to AWS** button above.  This will automatically take you to the console to run the template.  
+
+    2. Click **Next** on the **Specify Template**, **Specify Details, and **Options** sections.
+
+    3. Finally, acknowledge that the template will create IAM roles under **Capabilities and click **Create**.
+
+    This will bring you back to the CloudFormation console. You can refresh the page to see the stack starting to create. Before moving on, make sure the stack is in a **CREATE_COMPLETE**.
 
 ## Scenario
 
