@@ -1,4 +1,4 @@
-# Level 300 Workshops
+# Workshops
 
 <div class="md-typeset__table">
     <table>

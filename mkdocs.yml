@@ -37,6 +37,7 @@ extra:
 
 # Extensions
 markdown_extensions:
+  - admonition
   - codehilite
 
 # Navigation
@@ -46,15 +47,15 @@ nav:
   - Builder Sessions:
     - Directory: 'builder-sessions/index.md'
     - Permission Boundaries: 
-      - Build Phase: 'builder-sessions/permission-boundaries-build.md'
-      - Verify Phase: 'builder-sessions/permission-boundaries-verify.md'
-  - Level 300: 
-    - 'Directory': 'level-300/index.md'
+      - Build Phase: 'builder-sessions/permission-boundary/build.md'
+      - Verify Phase: 'builder-sessions/permission-boundary/verify.md'
+  - Workshops: 
+    - 'Directory': 'workshops/index.md'
     - 'Find All the Threats': 
-      - 'Overview': 'level-300/threat-detection-remediation/index.md'
-      - 'Module 1: Environment Build': 'level-300/threat-detection-remediation/01-environment-setup.md'
-      - 'Module 2: Attack Simulation': 'level-300/threat-detection-remediation/02-attack-simulation.md'
-      - 'Module 3: Detect & Respond': 'level-300/threat-detection-remediation/03-detection-and-remediation.md'
-      - 'Module 4: Discussion': 'level-300/threat-detection-remediation/04-review-and-discussion.md'
+      - 'Overview': 'workshops/threat-detection-remediation/index.md'
+      - 'Module 1: Environment Build': 'workshops/threat-detection-remediation/01-environment-setup.md'
+      - 'Module 2: Attack Simulation': 'workshops/threat-detection-remediation/02-attack-simulation.md'
+      - 'Module 3: Detect & Respond': 'workshops/threat-detection-remediation/03-detection-and-remediation.md'
+      - 'Module 4: Discussion': 'workshops/threat-detection-remediation/04-review-and-discussion.md'
   - Contributing: 'contribute.md'
   - License: 'license.md'

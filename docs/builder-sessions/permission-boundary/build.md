@@ -4,14 +4,55 @@ Permission boundaries is probably one of the most important new IAM features tha
 
 ![mechanism](./images/permission-boundaries.png)
 
-[Presentation deck](./Builder-session--permission-boundaries-presentation.pdf)
+[Presentation deck](./presentation.pdf)
 
-## Console Login
+## Environment Setup
+
+??? note "Phasellus posuere in sem ut cursus"
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+    massa, nec semper lorem quam in massa.
+
+??? note "AWS Sponsored Event"
+    * Browse to the URL provided to you and login. 
+    * After you login click the **AWS Account** box, then click on the Account ID displayed below that (the red box in the image.) You should see a link below that for the **Management console**. Click on that and you will be taken to the AWS console. 
+
+    ![login-page](./images/login.png)
+
+<details>
+<summary>AWS Sponsored Event</summary>
 
 * Browse to the URL provided to you and login. 
+
 * After you login click the **AWS Account** box, then click on the Account ID displayed below that (the red box in the image.) You should see a link below that for the **Management console**. Click on that and you will be taken to the AWS console. 
 
 ![login-page](./images/login.png)
+</details>
+
+<details>
+<summary>Individual</summary>
+
+Launch the CloudFormation stack below to setup the Permission Boundary environment:
+
+    Region| Deploy
+    ------|-----
+    US West 2 (Oregon) | <a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=Identity-RR-Wksp-Serverless-Round&templateURL=https://s3-us-west-2.amazonaws.com/sa-security-specialist-workshops-us-west-2/builder-sessions/permissionboundary/permission-boundaries-env.yml" target="_blank">![Deploy in us-west-2](./images/deploy-to-aws.png)</a>
+
+1. Click the **Deploy to AWS** button above.  This will automatically take you to the console to run the template.  
+
+2. Click **Next** on the **Specify Template** section.
+
+3. On the **Specify Details** step, add a **validation AWS Account** and then click **Next**. 
+ 
+	> This will be the account that validates the controls put in place during the BUILD phase.  If you are doing both phases in a single AWS account just put the account number for the account you are currently using.
+4. Click **Next** on the **Options** section.
+4. Finally, acknowledge that the template will create IAM roles under **Capabilities and click **Create**.
+
+This will bring you back to the CloudFormation console. You can refresh the page to see the stack starting to create. Before moving on, make sure the stack is in a **CREATE_COMPLETE**.
+</details>
+
+
 
 ## Scenario
 
