@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../assets/images/aws-favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.0.6">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.1.0">
     
     
       
@@ -46,12 +46,12 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/application.451f80e5.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.11e41852.css">
       
       
     
     
-      <script src="../../../assets/javascripts/modernizr.1aa3b519.js"></script>
+      <script src="../../../assets/javascripts/modernizr.20ef595d.js"></script>
     
     
       
@@ -61,6 +61,7 @@
       
     
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
     
       <link rel="stylesheet" href="../../../stylesheets/custom.css">
     
@@ -486,6 +487,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#cleanup" title="Cleanup" class="md-nav__link">
+    Cleanup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#summary" title="Summary" class="md-nav__link">
     Summary
   </a>
@@ -713,6 +721,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#cleanup" title="Cleanup" class="md-nav__link">
+    Cleanup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#summary" title="Summary" class="md-nav__link">
     Summary
   </a>
@@ -823,6 +838,32 @@
 <ul>
 <li>Test the Lambda function and make sure it is generating logs in CloudWatch logs and that it is able to list the ELB logs in the ELB access logs bucket the object in S3. In order to test you will need to create a test event. The parameters of the test do not matter.</li>
 </ul>
+<h2 id="cleanup">Cleanup</h2>
+<p>In order to prevent charges to your account we recommend cleaning up the infrastructure that was created. Expand one of the following dropdowns and follow the instructions:</p>
+<details class="note"><summary>AWS Sponsored Event</summary><p>No cleanup required! The responsibility falls to AWS.</p>
+</details>
+<details class="note"><summary>Individual</summary><p>You will need to manually delete some resources before you delete the CloudFormation stacks so please do the following steps in order.</p>
+<ol>
+<li>
+<p>Delete the Ares S3 bucket.</p>
+<ul>
+<li>Go to the <a href="https://s3.console.aws.amazon.com/s3/home" target="_blank">Amazon S3</a> console.</li>
+<li>Click on the bucket named <strong>identity-ex-ares-app</strong></li>
+<li>Click <strong>Delete</strong></li>
+<li>Enter the bucket name again to confirm and click <strong>Delete</strong>.</li>
+</ul>
+</li>
+<li>
+<p>Delete the CloudFormation stack (<strong>Identity-PB-Builder-Session</strong>).</p>
+<ul>
+<li>Go to the <a href="https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks?filter=active" target="_blank">AWS CloudFormation</a> console.</li>
+<li>Select the appropriate stack.</li>
+<li>Select <strong>Action</strong>.</li>
+<li>Click <strong>Delete Stack</strong>.</li>
+</ul>
+</li>
+</ol>
+</details>
 <h2 id="summary">Summary</h2>
 <p>Congratulations, you've completed the Permission Boundaries Builder session!  Hopefully by going through this session you have a better idea of what permission boundaries are, where they can be used, and are starting to think about where you can apply them in your environments.</p>
                 
@@ -913,7 +954,7 @@
       
     </div>
     
-      <script src="../../../assets/javascripts/application.5e60981f.js"></script>
+      <script src="../../../assets/javascripts/application.9e1f3b71.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
