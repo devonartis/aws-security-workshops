@@ -11,12 +11,13 @@ After the setup steps below, there are instructions provided for all of the hand
 
 This repository contains the following files that will be used for this workshop:
 
-- templates/
-  - cloudformation.yaml - The CloudFormation template to deploy the stack of resources for the workshop
 - aws_lambda/
   - cloudtrail_ingest.zip - Lambda zip bundle for workshop CloudTrail log ingest
   - guardduty_ingest.zip - Lambda zip bundle for workshop GuardDuty finding ingest
 - cleanup.sh - Shell script to delete the workshop CloudFormation stack at the end
+- sec405-ipinsights.ipynb - Jupyter notebook for the workshop to load into SageMaker
+- templates/
+  - cloudformation.yaml - The CloudFormation template to deploy the stack of resources for the workshop
 
 # Initial setup
 
@@ -78,14 +79,14 @@ The "real" GuardDuty findings that were generated for this workshop are containe
 2. Scroll down to view the code for the Lambda function in the inline, browser-based editor. Skim through the code to familiarize with what it does.
 3. Click the **Test** button to run the function. You will need to create a test event to do this, but the event actually does not matter in this case, so just use the "Hello World" event template and give it a name "SEC405", then click **Create**. You then need to click the **Test** button once more.
 4. Examine the output, where you'll see the JSON for each GuardDuty finding being printed by the function `print_full_finding`. Look over the findings to see what information they contain.
-5. A function called `print_short_finding` is also defined to print out a shortened, one-line version of each GuardDuty finding. Replace the call to the function `print_full_finding` with `print_short_finding` (hint: Search for "TODO" around line 135. You will see multiple TODOs, but only the first one applies here.).
+5. A function called `print_short_finding` is also defined to print out a shortened, one-line version of each GuardDuty finding. Replace the call to the function `print_full_finding` with `print_short_finding` (hint: Search for "TODO" around line 135. You will see multiple TODOs in the file, but only the first one applies here.).
 6. Click the **Save** button at the top of the screen to save your changes to the function, then click **Test** to run it again. Observe the new output, where you will now see a summarized verison of each finding being printed.
 
 # Exercise 2: IP-based anomaly detection in SageMaker
 
 In this exercise, you will use the IP Insights SageMaker machine learning algorithm to learn how unusual GuardDuty findings are for given principals (i.e., IAM users or roles) based on IP address.
 
-First, you will generate training data consisting of `<principal ID, IP address>` tuples to train the model by using CloudTrail logs that have been generated for this workshop. You will also generate scoring data tuples by using the GuardDuty findings from Exercise 1 that are based on the same set of activity as the CloudTrail logs.
+First, you will use two Lambda functions to prepare the input data for the ML algorithm from the source CloudTrail and GuardDuty log data. You will generate training data consisting of `<principal ID, IP address>` tuples from the CloudTrail logs and then you will call the trained model to make inferences to score the GuardDuty findings from Exercise 1 by using a similar set of tuples generated from the findings. The GuardDuty findings are based on the same set of account activity as the CloudTrail logs.
 
 ## 2.1 Generate training data using CloudTrail logs
 
@@ -97,7 +98,7 @@ An AWS Lambda function has been created to do this, but you'll need to make a sm
 2. Scroll down to view the code for the Lambda function in the inline, browser-based editor. Skim through the code to familiarize with what it does.
 3. Click the **Test** button to run the function. You will need to create a test event to do this, but the event actually does not matter in this case, so just use the "Hello World" event template and give it a name "SEC405", then click **Create**. You then need to click the **Test** button once more.
 4. Look at the output of the function, where you'll see a short version of each CloudTrail record returned by the function `print_short_record` being printed.
-5. A function `get_tuple` has been provided to take a CloudTrail record as input and return a `<principal ID, IP address>` tuple for each record. A call to this function has already been set up in the `handler` function, but it is commented out (hint: search for the string "TODO"). Uncomment it.
+5. A function `get_tuple` has been provided to take a CloudTrail record as input and return a `<principal ID, IP address>` tuple for each record. A call to this function has already been set up in the `handler` function, but the lines are commented out (hint: search for the string "TODO"). Uncomment both lines.
 6. Click the **Save** button at the top to save your function changes.
 7. Click the **Test** button to run the function again. This time it will write the tuples to the S3 bucket where they can be loaded into the IP Insights algorithm for training the model.
 
@@ -105,12 +106,12 @@ In the S3 console, if you find the bucket whose name starts with "sec405-tuplesb
 
 ## 2.2 Generate scoring data using GuardDuty findings
 
-To make use of the trained model, we will pass `<principal ID, IP address>` tuples extracted from the GuardDuty findings to it for scoring. The activity contained in these GuardDuty findings directly corresponds to the activity contained in the CloudTrail logs.
+To make use of the trained model, we will pass `<principal ID, IP address>` tuples extracted from the GuardDuty findings to it for scoring (i.e., inference). The activity contained in these GuardDuty findings directly corresponds to the activity contained in the CloudTrail logs.
     
 An AWS Lambda function has been created to do this, but you'll need to make a small change to the function and then run it to generate the tuples.
 
 1. Browse to the AWS Lambda console and click on the Lambda function whose name starts with "SEC405-GuardDutyIngestLambda".
-2. A function `extract_tuples` has been provided to take GuardDuty findings as input and return `<principal ID, IP address>` tuples for each finding. A call to this function has already been set up in the `handler` function (search for the string "TODO"), but it is commented out. Uncomment it.
+2. A function `get_tuples` has been provided to take GuardDuty findings as input and return `<principal ID, IP address>` tuples for each finding. A call to this function has already been set up in the `handler` function (search for the string "TODO"), but the line is is commented out. Uncomment it.
 3. Click the **Save** button at the top to save your function changes.
 4. Click the **Test** button to run the function again. This time it write the tuples to the S3 bucket where they can be loaded into the IP Insights algorithm for scoring.
 
@@ -118,16 +119,21 @@ In the S3 console, if you find the bucket whose name starts with "sec405-tuplesb
 
 ## 2.3 Set up the SageMaker notebook
 
+To use the IP Insights algorithm, you will work from a Jupyter notebook, which is an interactive coding environment that lets you mix notes and documentation with code blocks that can be "run" in a stepwise fashion throughout the notebook and share the same interpreter.
+
 1. First, go to the S3 console and look for the bucket whose name starts with "sec405-tuplesbucket" (e.g., sec405-tuplesbucket-1fnqifqbmsfxy). Copy the name of this bucket; you will need it in a moment.
 2. Browse to the Amazon SageMaker console and click on the button called **Create notebook instance**.
 3. On the next screen, give the notebook a name "SEC405".
-4. For Notebook instance type, we recommend selecting ml.m4.xlarge.
+4. For Notebook instance type, we recommend selecting ml.t2.medium.
 5. For IAM role, choose "Create a new role" in the dropdown. On the next dialog, ensure "S3 buckets you specify" is selected, in the text field for "Specific S3 buckets" paste the name of the S3 bucket from step 1, and click **Create role**.
 6. All other notebook options can be left at defaults. Click **Create notebook instance**.
 7. Once the notebook is running, click **Open Jupyter** to open the notebook.
-7. In the notebook, choose the **SageMaker Examples** tab to see a list of all the Amazon SageMaker examples, expand the **Introduction to Amazon Algorithms** section, look for **ipinsights-tutorial.ipynb**, click its **Use** button and then **Create copy** in the dialog.
+8. Download the sample notebook file for the workshop where we will be working with the IP Insights algorithm: https://s3.ca-central-1.amazonaws.com/aws-reinvent2018-sec405-de42b9ca/sec405-ipinsights.ipynb
+9. Once you download the notebook file, click the **Upload** button on the upper right hand side in Jupyter to upload it to your running notebook instance.
 
-## 2.4 Learn about the IP Insights algorithm
+## 2.4 Training and scoring with the IP Insights algorithm
+
+Click on the notebook and work through it step by step to learn how to train the model using the tuples from the CloudTrail logs and then make inferences by scoring the tuples from the GuardDuty findings. We recommend using the "Run" command to walk through each code block one by one rather than doing "Run All".
 
 IP Insights is an unsupervised learning algorithm for detecting anomalous behavior and usage patterns of IP addresses, that helps users identifying fraudulent behavior using IP addresses, describe the Amazon SageMaker IP Insights algorithm, demonstrate how you can use it in a real-world application, and share some of our results using it internally.
 
@@ -135,102 +141,38 @@ For more information about the IP Insights algorithm, please read the following 
 
 https://aws.amazon.com/blogs/machine-learning/detect-suspicious-ip-addresses-with-the-amazon-sagemaker-ip-insights-algorithm/
 
-You can also view the IP Insghts documentation here:
+You can also view the IP Insights documentation here:
 
 https://docs.aws.amazon.com/sagemaker/latest/dg/ip-insights.html
 
-Work through the IP Insights tutorial notebook to understand how it works.
+### 2.4.1 (BONUS) IP Insights algorithm tutorial
 
-In the section **Training Hyperparameters** you should modify the code to specify a different training instance type:
-
-Change this:
-
-```python
-train_instance_type='ml.p3.2xlarge'
-```
-
-To this:
-
-```python
-train_instance_type='ml.m4.xlarge'
-```
-
-## 2.5 Train and score tuples with the IP Insights algorithm
-
-Once you finish the notebook tutorial, you will train the model using the "train/cloudtrail\_tuples.csv" file of CloudTrail tuples from the "sec405-tuplesbucket", then score the GuardDuty findings by using "infer/guardduty\_tuples.csv" from the same S3 bucket.
-
-In the **Select Amazon S3 Bucket** part of the notebook, you will need to set the `bucket` variable to be the full name of your "sec405-tuplesbucket" S3 bucket, and the `prefix` should be set to the empty string `''`.
-
-You will also need to modify a bit of the code in the **Store Data on S3** part of the notebook to set the input locations for the training CloudTrail tuples and load them from S3.
-
-Change this:
-
-```python
-# Upload data to S3 key
-train_data_file = 'train.csv'
-key = os.path.join(prefix, 'train', train_data_file)
-s3_train_data = 's3://{}/{}'.format(bucket, key)
-
-print('Uploading data to: {}'.format(s3_train_data))
-boto3.resource('s3').Bucket(bucket).Object(key).put(Body=train_data)
-```
-
-To this:
-
-```python
-# Upload data to S3 key
-# train_data_file = 'train.csv'
-# key = os.path.join(prefix, 'train', train_data_file)
-
-key = os.path.join(prefix, 'train', 'cloudtrail_tuples.csv')
-s3_train_data = 's3://{}/{}'.format(bucket, key)
-
-# print('Uploading data to: {}'.format(s3_train_data))
-# boto3.resource('s3').Bucket(bucket).Object(key).put(Body=train_data)
-```
-
-Finally, go to the **Data Serialization/Deserialization** part of the notebook and change how the inference data is set up to load the GuardDuty finding tuples from S3.
-
-Change this:
-
-```python
-inference_data = train_df[:5].values
-predictor.predict(inference_data)
-```
-
-To this:
-
-```python
-# inference_data = train_df[:5].values
-infer_key = os.path.join(prefix, 'infer', 'guardduty_tuples.csv')
-s3_infer_data = 's3://{}/{}'.format(bucket, infer_key)
-inference_data = pd.read_csv(s3_infer_data)
-inference_data.head()
-predictor.predict(inference_data.values)
-```
-
-When run, it should print out a few lines of the GuardDuty tuples (due to the `head()` call). What does the output of the algorithm look like? How can we interpret the score?
+If you would like to experiment with the IP Insights algorithm using a much larger dataset, you can choose the **SageMaker Examples** tab in Jupyter to see a list of all the Amazon SageMaker examples. Expand the **Introduction to Amazon Algorithms** section, look for a notebook called **ipinsights-tutorial.ipynb**, then click its **Use** button and **Create copy** in the dialog to create a copy of it, then work through it step by step.
 
 # Cleaning up
 
-In order to prevent charges to your account from the resources created during this workshop, we recommend cleaning up the infrastructure that was created by deleting the CloudFormation stack. You can leave things running if you want to examine the lab a bit more, and can do the clean-up steps below at any time.
+In order to prevent charges to your account from the resources created during this workshop, we recommend cleaning up the infrastructure that was created by deleting the CloudFormation stack. You can leave things running though if you want to do more with the workshop; the following cleanup steps can be performed at any time.
 
-### Automated clean-up
-
-To delete the CloudFormation stack, a Bash script, `cleanup.sh`, is provided in this repository. Download it and then run as follows:
+We've created a Bash script to delete the CloudFormation stack, which will remove the Lambda functions, IAM role, and S3 bucket. We use a script because the S3 bucket has The script, `cleanup.sh`, is provided in this repository. Download it and then run as follows:
 
 ```
 chmod +x cleanup.sh
 ./cleanup.sh
 ```
 
-- *Q: I'm using a different AWS CLI profile than the default.*
-- A: The script supports a flag to specify a CLI profile that is configured in your `~/.aws/config` file. Do `./cleanup.sh -p PROFILE_NAME`. To see all supported options for the clean-up script, do `./cleanup.sh -h`.
+If you are using a different AWS CLI profile than the default, you can specify it with the `-p PROFILE` parameter to the script, like `cleanup.sh -p foo`.
 
-To delete the SageMaker notebook, on the **Notebook instances** page in the SageMaker console, click the circle to select the notebook then under **Actions** choose **Stop**. Once the notebook is stopped, under **Actions** choose **Delete**.
+If you cannot run the Bash script, you can manually clean-up these resources by the following steps:
 
-### Manual clean-up
+1. Go to the S3 console and delete the bucket whose name starts with "sec405-tuplesbucket".
+2. Delete the CloudFormation stack by going to the CloudFormation console, selecting the stack called **SEC405**, and from the top menu choosing action **Delete Stack**. This step will fail if you haven't deleted the S3 bucket first.
 
-1. First you will need to delete the S3 bucket whose name starts with "sec405-tuplesbucket" or else deleting the CloudFormation stack will fail since the bucket has objects in it.
-2. Delete the CloudFormation stack by going to the CloudFormation console, selecting the stack called **SEC405**, and from the top menu choosing action **Delete Stack**.
-3. To delete the SageMaker notebook, on the **Notebook instances** page in the SageMaker console, click the circle to select the notebook then under **Actions** choose **Stop**. Once the notebook is stopped, under **Actions** choose **Delete**.
+You will also need to turn off or remove the following resources, unless you wish to keep them running or retain them:
+
+- GuardDuty ([pricing info](https://aws.amazon.com/guardduty/pricing/))
+  - Go to the GuardDuty console, go to **Settings**, then scroll down and choose either **Suspend GuardDuty** or **Disable GuardDuty**.
+- SageMaker ([pricing info](https://aws.amazon.com/sagemaker/pricing/))
+  - Notebook - On the **Notebook instances** page in the SageMaker console, click the circle to select the "SEC405" notebook then under **Actions** choose **Stop**. Once the notebook is stopped, under **Actions** choose **Delete**. If you'd rather keep the notebook around to work with again, then just **Stop** is enough.
+  - Endpoint - On the **Endpoints** page in the SageMaker console, click the circle to select the endpoint for the workshop (the endpoint with the name stored in the variable `endpoint_name` from the notebook), then under **Actions** choose **Delete**.
+ - CloudWatch ([pricing info](https://aws.amazon.com/cloudwatch/pricing/))
+   - Logs - CloudWatch log groups will have been created for the "SEC405-CloudTrailIngestLambda" and "SEC405-GuardDutyIngestLambda" AWS Lambda functions. You can delete a log group by selecting it and then under **Actions** choosing **Delete log group**.
