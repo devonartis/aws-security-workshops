@@ -58,5 +58,19 @@ nav:
       - 'Module 2: Attack Simulation': 'workshops/threat-detection-remediation/02-attack-simulation.md'
       - 'Module 3: Detect & Respond': 'workshops/threat-detection-remediation/03-detection-and-remediation.md'
       - 'Module 4: Discussion': 'workshops/threat-detection-remediation/04-review-and-discussion.md'
+    - 'Identity Round Robin': 
+      - 'Overview': 'workshops/identity-round-robin/index.md'
+      - 'Serverless Round':
+        - 'Scenario': 'workshops/identity-round-robin/serverless/index.md'
+        - 'Build Phase': 'workshops/identity-round-robin/serverless/build.md'
+        - 'Verify Phase': 'workshops/identity-round-robin/serverless/verify.md'
+      - 'Security Services Round':
+        - 'Scenario': 'workshops/identity-round-robin/ess/index.md'
+        - 'Build Phase': 'workshops/identity-round-robin/ess/build.md'
+        - 'Verify Phase': 'workshops/identity-round-robin/ess/verify.md'
+      - 'Permission Boundary Round':
+        - 'Scenario': 'workshops/identity-round-robin/permission-boundaries/index.md'
+        - 'Build Phase': 'workshops/identity-round-robin/permission-boundaries/build.md'
+        - 'Verify Phase': 'workshops/identity-round-robin/permission-boundaries/verify.md'
   - Contributing: 'contribute.md'
   - License: 'license.md'
