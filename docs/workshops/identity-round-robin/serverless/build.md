@@ -9,8 +9,8 @@ Ensure the application serves content out through the CloudFront Distribution an
 !!! info "Key Security Benefits"
 
     * Obfuscates the S3 origin
-    * Forces traffic over HTTPS
-    * Adds DDoS protection to your application and enables the use of <a href="https://aws.amazon.com/waf/" target="_blank">AWS WAF</a> and <a href="https://aws.amazon.com/shield/" target="_blank">AWS Shield</a>
+    * Forces traffic over HTTPS with custom certificates
+    * Adds DDoS protection to your application and enables the future use of <a href="https://aws.amazon.com/waf/" target="_blank">AWS WAF</a> and <a href="https://aws.amazon.com/shield/" target="_blank">AWS Shield</a>
 
 ### View the Existing Policy
 
@@ -20,8 +20,9 @@ First, view the existing S3 bucket policy to see what permissions the previous e
 2. Click on the **identity-wksp-serverless-<*ACCOUNT#*\>-us-east-1-wildrydes** bucket.
 3. Click on the **Permissions** tab and then click on **Bucket Policy**.
 
-!!! question
-    What's wrong with this policy? What does "Principal": "*" mean? 
+!!! question "What's wrong with this policy? What does `"Principal": "*"` mean? "
+    
+    Both `"Principal": "*"` and `"Principal":{"AWS":"*"}` grant permission to everyone (also referred to as anonymous access).  Use caution when granting anonymous access to your S3 bucket. When you grant anonymous access, anyone in the world can access your bucket. We highly recommend that you never grant any kind of anonymous write access to your S3 bucket.
 
 ### Modify Principal
 
@@ -30,7 +31,8 @@ Since the current bucket allows for anonymous access, you need to change this to
 1. Go to the <a href="https://console.aws.amazon.com/cloudfront/" target="_blank">Amazon CloudFront</a> console.  You should see a Web Distribution for the WildRydes web application.
 2. Click on **Origin Access Identities** in the left navigation. You should see an identity named **Unicorn OAI**. 
 
-	> An Origin Access Identity is a special CloudFront identity that you can associate with a Distribution in order restrict access using AWS IAM.
+    !!! info "CloudFront Origin Access Identity"
+        An Origin Access Identity (OAI) is a special CloudFront identity that you can associate with a Distribution in order restrict access using AWS IAM.  You can also find the OAI by viewing your Web Distribution
 
 3. Copy down the ID.
 4. Go back to the <a href="https://s3.console.aws.amazon.com/s3/home" target="_blank">Amazon S3</a> console and open up the bucket policy.
@@ -52,8 +54,7 @@ Now that the principal is restricted to the identity associated with the CloudFr
 
 1. Go back to the <a href="https://s3.console.aws.amazon.com/s3/home" target="_blank">Amazon S3</a> console and open up the bucket policy.
 
-    !!! question
-        Does CloudFront really need access to Delete Objects?
+    !!! question "Does CloudFront really need access to Delete Objects?"
 	
 2. The distribution is acting as a CDN for the static site so it only needs read access to the S3 bucket.  Change the actions to the following to ensure an end user can not affect the integrity of the site.
 
@@ -71,9 +72,7 @@ Now that the bucket policy has been updated, go validate that you can not access
 2. Click on the **Identity-RR-Wksp-Serverless-Round** stack.
 3. Click on **Outputs** and click on **WebsiteS3URL**.
 
-!!! question
-        
-    Are you able to access the site using the S3 URL?
+!!! question "Are you able to access the site using the S3 URL?"
 
 ### Solve the Mystery
 
@@ -84,6 +83,8 @@ So you've modified the bucket policy to restrict access to read only actions fro
 
     * <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notprincipal.html" target="_blank">AWS IAM Policy Elements: NotPrincipal</a>
     * <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html" target="_blank">S3 Block Public Access</a>
+
+    Be sure to clear your cache when testing!
 
 
 ## Task 2 <small>Setup application user management</small>
