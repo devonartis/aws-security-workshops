@@ -2,7 +2,7 @@
 
 Since you are championing the security tasks for your team, you pick up the two tasks for the WildRydes application.  Please read through and complete the following tasks.  Good Luck!
 
-## Task 1: <small>Reduce the attack surface of the origin</small>
+## Task 1 <small>Reduce the attack surface of the origin</small>
 
 Ensure the application serves content out through the CloudFront Distribution and that your end users can **only** access the application through CloudFront URLs and not Amazon S3 URLs. As part of this configuration your end users should **not** be able to affect the availability or integrity of the application. 
 
@@ -86,7 +86,7 @@ So you've modified the bucket policy to restrict access to read only actions fro
     * <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html" target="_blank">S3 Block Public Access</a>
 
 
-## Task 2: <small>Setup application user management</small>
+## Task 2 <small>Setup application user management</small>
 
 Set up user management for the application using Cognito User pools.  To reduce the operational overhead of creating and maintaining forms and custom logic for authentication, the decision has been made to use the Cognito hosted-UI to integrate the application with the User Pool.
 
