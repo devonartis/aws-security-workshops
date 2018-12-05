@@ -13,7 +13,7 @@
         <meta name="description" content="A collection of AWS Security related workshops">
       
       
-        <link rel="canonical" href="https://awssecworkshops.com/workshops/threat-detection-remediation/02-attack-simulation/">
+        <link rel="canonical" href="https://awssecworkshops.com/workshops/identity-round-robin/serverless/verify/">
       
       
         <meta name="author" content="aws-security-workshops@amazon.com">
@@ -37,21 +37,21 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="../../../assets/images/aws-favicon.ico">
+      <link rel="shortcut icon" href="../../../../assets/images/aws-favicon.ico">
       <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.1.0">
     
     
       
-        <title>Module 2: Attack Simulation - Security Workshops</title>
+        <title>Verify Phase - Security Workshops</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/application.11e41852.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.11e41852.css">
       
       
     
     
-      <script src="../../../assets/javascripts/modernizr.20ef595d.js"></script>
+      <script src="../../../../assets/javascripts/modernizr.20ef595d.js"></script>
     
     
       
@@ -60,10 +60,10 @@
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
-    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../stylesheets/custom.css">
+      <link rel="stylesheet" href="../../../../stylesheets/custom.css">
     
     
   </head>
@@ -99,7 +99,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#module-2-attack-simulation" tabindex="1" class="md-skip">
+      <a href="#serverless-round-verify-phase" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -136,7 +136,7 @@
               title="Amazon Web Services"
               class="md-header-nav__button md-logo">
             
-              <img src="../../../assets/images/aws_smile_logo.png" width="40" height="24" />
+              <img src="../../../../assets/images/aws_smile_logo.png" width="40" height="24" />
             
           </a>
         </div>
@@ -157,7 +157,7 @@
                   Security Workshops
                 </span>
                 <span class="md-header-nav__topic">
-                  Module 2: Attack Simulation
+                  Verify Phase
                 </span>
               
             
@@ -245,7 +245,7 @@
         
   <li class="md-tabs__item">
     
-      <a href="../../.." title="Home" class="md-tabs__link">
+      <a href="../../../.." title="Home" class="md-tabs__link">
         Home
       </a>
     
@@ -259,7 +259,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../builder-sessions/" title="Builder Sessions" class="md-tabs__link">
+        <a href="../../../../builder-sessions/" title="Builder Sessions" class="md-tabs__link">
           Builder Sessions
         </a>
       
@@ -272,7 +272,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../" title="Workshops" class="md-tabs__link md-tabs__link--active">
+        <a href="../../../" title="Workshops" class="md-tabs__link md-tabs__link--active">
           Workshops
         </a>
       
@@ -299,7 +299,7 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="https://awssecworkshops.com" title="Security Workshops" class="md-nav__button md-logo">
       
-        <img src="../../../assets/images/aws_smile_logo.png" width="48" height="48">
+        <img src="../../../../assets/images/aws_smile_logo.png" width="48" height="48">
       
     </a>
     Security Workshops
@@ -335,7 +335,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../.." title="Home" class="md-nav__link">
+    <a href="../../../.." title="Home" class="md-nav__link">
       Home
     </a>
   </li>
@@ -347,7 +347,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../getting-started/" title="Getting Started" class="md-nav__link">
+    <a href="../../../../getting-started/" title="Getting Started" class="md-nav__link">
       Getting Started
     </a>
   </li>
@@ -378,7 +378,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../builder-sessions/" title="Directory" class="md-nav__link">
+    <a href="../../../../builder-sessions/" title="Directory" class="md-nav__link">
       Directory
     </a>
   </li>
@@ -409,7 +409,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../builder-sessions/permission-boundary/build/" title="Build Phase" class="md-nav__link">
+    <a href="../../../../builder-sessions/permission-boundary/build/" title="Build Phase" class="md-nav__link">
       Build Phase
     </a>
   </li>
@@ -421,7 +421,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../builder-sessions/permission-boundary/verify/" title="Verify Phase" class="md-nav__link">
+    <a href="../../../../builder-sessions/permission-boundary/verify/" title="Verify Phase" class="md-nav__link">
       Verify Phase
     </a>
   </li>
@@ -464,7 +464,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../" title="Directory" class="md-nav__link">
+    <a href="../../../" title="Directory" class="md-nav__link">
       Directory
     </a>
   </li>
@@ -474,12 +474,10 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
     
     <label class="md-nav__link" for="nav-4-2">
       Find All the Threats
@@ -497,7 +495,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../" title="Overview" class="md-nav__link">
+    <a href="../../../threat-detection-remediation/" title="Overview" class="md-nav__link">
       Overview
     </a>
   </li>
@@ -509,8 +507,127 @@
 
 
   <li class="md-nav__item">
-    <a href="../01-environment-setup/" title="Module 1: Environment Build" class="md-nav__link">
+    <a href="../../../threat-detection-remediation/01-environment-setup/" title="Module 1: Environment Build" class="md-nav__link">
       Module 1: Environment Build
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../threat-detection-remediation/02-attack-simulation/" title="Module 2: Attack Simulation" class="md-nav__link">
+      Module 2: Attack Simulation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../threat-detection-remediation/03-detection-and-remediation/" title="Module 3: Detect & Respond" class="md-nav__link">
+      Module 3: Detect & Respond
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../threat-detection-remediation/04-review-and-discussion/" title="Module 4: Discussion" class="md-nav__link">
+      Module 4: Discussion
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3" checked>
+    
+    <label class="md-nav__link" for="nav-4-3">
+      Identity Round Robin
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-3">
+        Identity Round Robin
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-2" type="checkbox" id="nav-4-3-2" checked>
+    
+    <label class="md-nav__link" for="nav-4-3-2">
+      Serverless Round
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-3-2">
+        Serverless Round
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Scenario" class="md-nav__link">
+      Scenario
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../build/" title="Build Phase" class="md-nav__link">
+      Build Phase
     </a>
   </li>
 
@@ -530,11 +647,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Module 2: Attack Simulation
+        Verify Phase
       </label>
     
-    <a href="./" title="Module 2: Attack Simulation" class="md-nav__link md-nav__link--active">
-      Module 2: Attack Simulation
+    <a href="./" title="Verify Phase" class="md-nav__link md-nav__link--active">
+      Verify Phase
     </a>
     
       
@@ -548,15 +665,36 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#deploy-the-cloudformation-template" title="Deploy the CloudFormation template" class="md-nav__link">
-    Deploy the CloudFormation template
+  <a href="#login-instructions" title="Login Instructions" class="md-nav__link">
+    Login Instructions
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#threat-detection-and-response-presentation" title="Threat detection and response presentation" class="md-nav__link">
-    Threat detection and response presentation
+  <a href="#verify-task-1" title="Verify Task 1" class="md-nav__link">
+    Verify Task 1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verify-task-2" title="Verify Task 2" class="md-nav__link">
+    Verify Task 2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-architecture" title="Final Architecture" class="md-nav__link">
+    Final Architecture
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cleanup" title="Cleanup" class="md-nav__link">
+    Cleanup
   </a>
   
 </li>
@@ -569,121 +707,6 @@
   
 </nav>
     
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../03-detection-and-remediation/" title="Module 3: Detect & Respond" class="md-nav__link">
-      Module 3: Detect & Respond
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../04-review-and-discussion/" title="Module 4: Discussion" class="md-nav__link">
-      Module 4: Discussion
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3">
-    
-    <label class="md-nav__link" for="nav-4-3">
-      Identity Round Robin
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-4-3">
-        Identity Round Robin
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../identity-round-robin/" title="Overview" class="md-nav__link">
-      Overview
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-2" type="checkbox" id="nav-4-3-2">
-    
-    <label class="md-nav__link" for="nav-4-3-2">
-      Serverless Round
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-4-3-2">
-        Serverless Round
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../identity-round-robin/serverless/" title="Scenario" class="md-nav__link">
-      Scenario
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../identity-round-robin/serverless/build/" title="Build Phase" class="md-nav__link">
-      Build Phase
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../identity-round-robin/serverless/verify/" title="Verify Phase" class="md-nav__link">
-      Verify Phase
-    </a>
   </li>
 
         
@@ -717,7 +740,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../identity-round-robin/ess/index.md" title="Scenario" class="md-nav__link">
+    <a href="../../ess/index.md" title="Scenario" class="md-nav__link">
       Scenario
     </a>
   </li>
@@ -729,7 +752,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../identity-round-robin/ess/build.md" title="Build Phase" class="md-nav__link">
+    <a href="../../ess/build.md" title="Build Phase" class="md-nav__link">
       Build Phase
     </a>
   </li>
@@ -741,7 +764,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../identity-round-robin/ess/verify.md" title="Verify Phase" class="md-nav__link">
+    <a href="../../ess/verify.md" title="Verify Phase" class="md-nav__link">
       Verify Phase
     </a>
   </li>
@@ -777,7 +800,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../identity-round-robin/permission-boundaries/index.md" title="Scenario" class="md-nav__link">
+    <a href="../../permission-boundaries/index.md" title="Scenario" class="md-nav__link">
       Scenario
     </a>
   </li>
@@ -789,7 +812,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../identity-round-robin/permission-boundaries/build.md" title="Build Phase" class="md-nav__link">
+    <a href="../../permission-boundaries/build.md" title="Build Phase" class="md-nav__link">
       Build Phase
     </a>
   </li>
@@ -801,7 +824,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../identity-round-robin/permission-boundaries/verify.md" title="Verify Phase" class="md-nav__link">
+    <a href="../../permission-boundaries/verify.md" title="Verify Phase" class="md-nav__link">
       Verify Phase
     </a>
   </li>
@@ -828,7 +851,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../contribute/" title="Contributing" class="md-nav__link">
+    <a href="../../../../contribute/" title="Contributing" class="md-nav__link">
       Contributing
     </a>
   </li>
@@ -840,7 +863,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../license/" title="License" class="md-nav__link">
+    <a href="../../../../license/" title="License" class="md-nav__link">
       License
     </a>
   </li>
@@ -867,15 +890,36 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#deploy-the-cloudformation-template" title="Deploy the CloudFormation template" class="md-nav__link">
-    Deploy the CloudFormation template
+  <a href="#login-instructions" title="Login Instructions" class="md-nav__link">
+    Login Instructions
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#threat-detection-and-response-presentation" title="Threat detection and response presentation" class="md-nav__link">
-    Threat detection and response presentation
+  <a href="#verify-task-1" title="Verify Task 1" class="md-nav__link">
+    Verify Task 1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verify-task-2" title="Verify Task 2" class="md-nav__link">
+    Verify Task 2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-architecture" title="Final Architecture" class="md-nav__link">
+    Final Architecture
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cleanup" title="Cleanup" class="md-nav__link">
+    Cleanup
   </a>
   
 </li>
@@ -896,53 +940,118 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/aws-samples/aws-security-workshops/edit/master/docs/workshops/threat-detection-remediation/02-attack-simulation.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/aws-samples/aws-security-workshops/edit/master/docs/workshops/identity-round-robin/serverless/verify.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="module-2-attack-simulation">Module 2: Attack Simulation</h1>
-<p>Now that you have detective and responsive controls setup, you'll be running another CloudFormation template which will simulate the actual attack you will be investigating.</p>
-<p><strong>Agenda</strong></p>
+                <h1 id="serverless-round-verify-phase">Serverless Round <small>Verify Phase</small></h1>
+<p>Now that the additional identity controls have been added to the application, you have been tasked with acting as an end user and manually testing to verify that the controls have been put in place correctly and that the requirements have been met.</p>
+<h2 id="login-instructions">Login Instructions</h2>
+<p>The Build team created a cross-account AWS IAM Role to allow you complete your testing and verification tasks.  To complete your tasks switch roles in the AWS Management Console to this role.</p>
 <ol>
-<li>Run the second CloudFormation template – 5 min</li>
-<li>Threat detection and response presentation – 25 min</li>
-</ol>
-<h2 id="deploy-the-cloudformation-template">Deploy the CloudFormation template</h2>
-<p>To initiate the attack simulation you will need to run the module 2 CloudFormation template: </p>
-<table>
-<thead>
-<tr>
-<th>Region</th>
-<th>Deploy</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>US West 2 (Oregon)</td>
-<td><a href="https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=ThreatDetectionWksp-Attacks&templateURL=https://s3-us-west-2.amazonaws.com/sa-security-specialist-workshops-us-west-2/threat-detect-workshop/staging/02-attack-simulation.yml" target="_blank"><img alt="Deploy Module 2 in us-west-2" src="../images/deploy-to-aws.png" /></a></td>
-</tr>
-</tbody>
-</table>
-<ol>
-<li>
-<p>Click the <strong>Deploy to AWS</strong> button above.  This will automatically take you to the console to run the template.  </p>
-</li>
-<li>
-<p>The name of the stack will be automatically populated but you are free to change it, after which click <strong>Next</strong>, then <strong>Next</strong> again (leave everything on this page at the default).  </p>
-</li>
-<li>
-<p>Finally, acknowledge that the template will create IAM roles and click <strong>Create</strong></p>
+<li>Open the <a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks?filter=active" target="_blank">Amazon CloudFormation</a> console (us-east-1)</li>
+<li>Click on the <strong>Identity-RR-Wksp-Serverless-Round</strong> stack.</li>
+<li>Click on <strong>Outputs</strong> and copy down <strong>VerifyAWSAccount</strong>.</li>
+<li>Click your account drop down in the top right corner of the Management Console next to the bell (third from the right).</li>
+<li>Click on <strong>Switch Roles</strong></li>
+<li>Enter the following information<ul>
+<li><strong>Account</strong>: VerifyAWSAccount #</li>
+<li><strong>Role</strong>: identity-wksp-serverless-verify</li>
+<li><strong>Display Name</strong>: Build</li>
+<li><strong>Color</strong>: your choice</li>
+</ul>
 </li>
 </ol>
-<p><img alt="IAM Capabilities" src="../images/iam-capabilities.png" /></p>
-<p>This will bring you back to the CloudFormation console. You can refresh the page to see the stack starting to create. Before moving on, make sure the stack is in a <strong>CREATE_COMPLETE</strong> status as shown below.</p>
-<p><img alt="Stack Complete" src="../images/02-stack-complete.png" /></p>
-<h2 id="threat-detection-and-response-presentation">Threat detection and response presentation</h2>
-<p>Below is a diagram of the setup after the module 2 CloudFormation stack is created.</p>
-<p><img alt="Module 2 Diagram" src="../images/02-diagram-module2-3.png" /></p>
+<p>Now that you are logged into the Build AWS account you can access find their application URLs in the CloudFormation stack Outputs.</p>
+<ol>
+<li>Open the <a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks?filter=active">CloudFormation console</a> (us-east-1)</li>
+<li>Click on the <strong>Identity-RR-Wksp-Serverless-Round</strong> stack.</li>
+<li>Click on <strong>Outputs</strong> and use <strong>WebsiteCloudFrontURL</strong> and <strong>WebsiteS3URL</strong>.</li>
+</ol>
+<h2 id="verify-task-1">Verify Task 1</h2>
+<p><em>Ensure the application serves content out through the CloudFront Distribution and that your end users can only access the application through CloudFront URLs and not Amazon S3 URLs. As part of this configuration your end users should not be able to affect the availability or integrity of the application.</em></p>
+<div class="admonition tip">
+<p class="admonition-title">Verification Checklist</p>
+<ul>
+<li>
+<p>You can access the site through the CloudFront Distribution URL (&lt;WebsiteCloudFrontURL>).</p>
+</li>
+<li>
+<p>You are restricted from accessing any of the application resources through S3 URLs (&lt;WebsiteS3URL>).</p>
 <blockquote>
-<p>If you are going through this workshop in a classroom setting then wait till the presentation is over before starting module 3 (the presentation will allow enough time to pass for the attack scenario to complete.)  </p>
-<p>If you are going through this workshop outside of a classroom setting you can proceed to Module 3.  Please note it will take at least <strong>20 minutes</strong> after the 2nd CloudFormation template has completed before you will start seeing findings. </p>
+<p>Try some deep links (e.g. &lt;WebsiteS3URL>/js/vendor/unicorn-icon)</p>
 </blockquote>
+</li>
+<li>
+<p>You can not delete or modify any of the application resources through the CloudFront Distribution.</p>
+<blockquote>
+<p>Try using something like Postman to make requests with different HTTP verbs (e.g. Delete)</p>
+</blockquote>
+</li>
+</ul>
+</div>
+<h2 id="verify-task-2">Verify Task 2</h2>
+<p><em>Set up user management for the application using Cognito User pools.  To reduce the operational overhead of creating and maintaining forms and custom logic for authentication, the decision has been made to use the Cognito hosted-UI to integrate the application with the User Pool.</em></p>
+<p><em>As part of the user experience users should be able to sign themselves up, they should have to validate their email address, and be required to create a password that meets the password complexity requirements for applications set in your security standards.</em></p>
+<div class="admonition tip">
+<p class="admonition-title">Verification Checklist</p>
+<ul>
+<li>
+<p>You are taken to the hosted UI when clicking on <strong>Giddy Up</strong>.</p>
+</li>
+<li>
+<p>You are able to sign your self up for the site.</p>
+</li>
+<li>
+<p>You are required to create a password with the following complexity:</p>
+<ul>
+<li><em>Minimum length of 10 characters</em></li>
+<li><em>Must include symbols</em></li>
+<li><em>Must include numbers</em></li>
+<li><em>Must include uppercase characters</em></li>
+</ul>
+</li>
+<li>
+<p>You are required to verify your email address.</p>
+</li>
+<li>
+<p>After authentication, you are redirected to ride.html and are presented with your JWT IdToken.</p>
+</li>
+</ul>
+</div>
+<h2 id="final-architecture">Final Architecture</h2>
+<p><img alt="Architecture" src="../images/architecture-final.png" /></p>
+<h2 id="cleanup">Cleanup</h2>
+<p>To setup your environment please expand one of the following dropdowns (depending on how you're doing this workshop) and follow the instructions: </p>
+<p>In order to prevent charges to your account we recommend cleaning up the infrastructure that was created, especially if you are doing other Identity rounds. Expand one of the following dropdowns and follow the instructions:</p>
+<details>
+<summary>AWS Sponsored Event</summary>
+
+No cleanup required! The responsibility falls to AWS.
+
+</details>
+
+<details>
+<summary>Individual</summary>
+
+> You will need to manually delete some resources before you delete the CloudFormation stacks so please do the following steps in order.
+
+1.  Delete the Amazon Cognito Domain for the hosted-UI.
+    * Go to the [Amazon Cognito](https://console.aws.amazon.com/cognito/users/?region=us-east-1) console.
+    * On the left navigation under **App Integration**, click on **Domain Name**.
+    * Click **Delete**
+    * Click the acknowledgement checkbox and click **Delete**
+
+2.  Delete the CloudFormation stack (**Identity-RR-Wksp-Serverless-Round**).
+    * Go to the [AWS CloudFormation](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks?filter=active) console.
+    * Select the appropriate stack.
+    * Select **Action**.
+    * Click **Delete Stack**.
+
+
+</details>
+
+<hr />
+<p>Congratulations on completing the Serverless Round!</p>
                 
                   
                 
@@ -963,7 +1072,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../01-environment-setup/" title="Module 1: Environment Build" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../build/" title="Build Phase" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -972,19 +1081,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Module 1: Environment Build
+                Build Phase
               </span>
             </div>
           </a>
         
         
-          <a href="../03-detection-and-remediation/" title="Module 3: Detect & Respond" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../../../contribute/" title="Contributing" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Module 3: Detect & Respond
+                Contributing
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -1012,7 +1121,7 @@
       
         
   <div class="md-footer-social">
-    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
+    <link rel="stylesheet" href="../../../../assets/fonts/font-awesome.css">
     
       <a href="https://awssecworkshops.com" class="md-footer-social__link fa fa-home"></a>
     
@@ -1031,9 +1140,9 @@
       
     </div>
     
-      <script src="../../../assets/javascripts/application.9e1f3b71.js"></script>
+      <script src="../../../../assets/javascripts/application.9e1f3b71.js"></script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
       
     
     

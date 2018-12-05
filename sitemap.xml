@@ -56,6 +56,56 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>https://awssecworkshops.com/workshops/identity-round-robin/</loc>
+     <lastmod>2018-12-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://awssecworkshops.com/workshops/identity-round-robin/serverless/</loc>
+     <lastmod>2018-12-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://awssecworkshops.com/workshops/identity-round-robin/serverless/build/</loc>
+     <lastmod>2018-12-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://awssecworkshops.com/workshops/identity-round-robin/serverless/verify/</loc>
+     <lastmod>2018-12-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc></loc>
+     
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc></loc>
+     
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc></loc>
+     
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc></loc>
+     
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc></loc>
+     
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc></loc>
+     
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://awssecworkshops.com/contribute/</loc>
      <lastmod>2018-12-04</lastmod>
      <changefreq>daily</changefreq>
