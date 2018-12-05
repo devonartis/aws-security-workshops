@@ -468,7 +468,7 @@ Outputs:
   VerifyAWSAccount:
     Value: !Ref Account
   TeamName:
-    Value: !Ref TeamNumber
+    Value: !Ref TeamName
   VerifyIAMRole:
     Value: 
       Fn::Join:

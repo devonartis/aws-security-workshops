@@ -24,9 +24,9 @@ This round is broken down into a BUILD & VERIFY phase.
 !!! info "Team or Individual Exercise"
     This workshop can be done as a team exercise or individually. The instructions are written with the assumption that you are working as part of a team but you could just as easily do the steps below individually. If done as part of an AWS sponsored event then you'll be split into teams of around 4-6 people. Each team will do the BUILD phase and then hand off their accounts to another team. Then each team will do the VERIFY phase.
 
-## Powerpoint Presentation
+## Presentation
 
-[Workshop Presentation Deck](./presentation.pdf)
+[Workshop Presentation Powerpoint](./presentation.pdf)
 
 ## Environment setup
 
@@ -44,7 +44,7 @@ To setup your environment please expand one of the following dropdowns (dependin
 
     Region| Deploy
     ------|-----
-    US East 1 (N. Virginia) | [![Deploy in us-east-1](./images/deploy-to-aws.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=Identity-RR-Wksp-Serverless-Round&templateURL=https://s3-us-west-2.amazonaws.com/sa-security-specialist-workshops-us-west-2/identity-workshop/serverless/environment.yml)
+    US East 1 (N. Virginia) | <a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=Identity-RR-Wksp-Serverless-Round&templateURL=https://s3-us-west-2.amazonaws.com/sa-security-specialist-workshops-us-west-2/identity-workshop/serverless/environment.yml" target="_blank">![Deploy in us-east-1](./images/deploy-to-aws.png)</a>
 
     1. Click the **Deploy to AWS** button above (right click and open in a new tab).  This will automatically take you to the console to run the template.  
 
@@ -64,7 +64,7 @@ To setup your environment please expand one of the following dropdowns (dependin
 You just joined a new DevOps team who manages a suite of animal-based ride sharing applications.  Given your security background you've been embedded on the team to take the lead on security related tasks, evangelize security best practices, and represent your team when interacting with your security organization.  Recently, your team inherited a new application; WildRydes.
 
 ## View your application
-1. Open the [CloudFormation console](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks?filter=active) (us-east-1)
+1. Open the <a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks?filter=active" target="_blank">Amazon CloudFormation</a> console (us-east-1)
 2. Click on the **Identity-RR-Wksp-Serverless-Round** stack.
 3. Click on **Outputs** and click on **WebsiteCloudFrontURL**.
 
