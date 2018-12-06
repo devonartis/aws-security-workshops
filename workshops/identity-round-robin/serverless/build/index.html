@@ -701,8 +701,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#task-2-setup-application-user-management" title="Task 2 Setup application user management" class="md-nav__link">
-    Task 2 Setup application user management
+  <a href="#task-2-set-up-application-user-management" title="Task 2 Set up application user management" class="md-nav__link">
+    Task 2 Set up application user management
   </a>
   
     <nav class="md-nav">
@@ -985,8 +985,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#task-2-setup-application-user-management" title="Task 2 Setup application user management" class="md-nav__link">
-    Task 2 Setup application user management
+  <a href="#task-2-set-up-application-user-management" title="Task 2 Set up application user management" class="md-nav__link">
+    Task 2 Set up application user management
   </a>
   
     <nav class="md-nav">
@@ -1085,7 +1085,7 @@
 
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>You could also use the canonical user id as the princpal: <code>"CanonicalUser": "&lt;OAI S3CanonicalUserId&gt;"</code></p>
+<p>You could also use the canonical user id as the principal: <code>"CanonicalUser": "&lt;OAI S3CanonicalUserId&gt;"</code></p>
 </div>
 <h3 id="modify-actions">Modify Actions</h3>
 <p>Now that the principal is restricted to the identity associated with the CloudFront distribution you can take a closer look at the permissions.</p>
@@ -1127,7 +1127,7 @@
 </ul>
 <p>Be sure to clear your cache when testing!</p>
 </div>
-<h2 id="task-2-setup-application-user-management">Task 2 <small>Setup application user management</small></h2>
+<h2 id="task-2-set-up-application-user-management">Task 2 <small>Set up application user management</small></h2>
 <p>Set up user management for the application using Cognito User pools.  To reduce the operational overhead of creating and maintaining forms and custom logic for authentication, the decision has been made to use the Cognito hosted-UI to integrate the application with the User Pool.</p>
 <p>As part of the user experience users should be able to sign themselves up, they should have to validate their email address, and be required to create a password that meets the <em>password complexity requirements for applications</em> set in your security standards.</p>
 <div class="admonition info">
@@ -1137,6 +1137,7 @@
 <li>Must include symbols</li>
 <li>Must include numbers</li>
 <li>Must include uppercase characters</li>
+<li>Must include lowercase characters</li>
 </ul>
 </div>
 <div class="admonition info">
@@ -1152,12 +1153,12 @@
 <li>Go to the <a href="https://console.aws.amazon.com/cognito/home?region=us-east-1" target="_blank">Amazon Cognito</a> console (us-east-1)</li>
 <li>Click on <strong>Manage User Pools</strong> and then click on the <strong>WildRydes</strong> pool.</li>
 <li>Click on <strong>Policies</strong> in the left navigation and modify the password policy, enable users to sign themselves up, and save your changes.</li>
-<li>Click on <strong>MFA and Verifications</strong> in the left navigation enable email verification and save your changes.</li>
+<li>Click on <strong>MFA and Verifications</strong> in the left navigation, enable email verification, and save your changes.</li>
 </ol>
 <h3 id="configure-app-integration">Configure App Integration</h3>
 <ol>
 <li>
-<p>Click on <strong>App Client Settings</strong> in the left navigation and enter the following:</p>
+<p>Click on <strong>App Client Settings</strong> in the left navigation and enter the following and click <strong>Save changes</strong>:</p>
 <ul>
 <li>Enabled Identity Providers: <strong>Cognito User Pool</strong></li>
 <li>Callback URL: <strong>&lt;WebsiteCloudFrontURL>/ride.html</strong></li>
