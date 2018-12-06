@@ -20,7 +20,7 @@ The Build team created a cross-account AWS IAM Role to allow you complete your t
 	
 Now that you are logged into the Build AWS account you can access find their application URLs in the CloudFormation stack Outputs.
 
-1. Open the [CloudFormation console](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks?filter=active) (us-east-1)
+1. Open the <a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks?filter=active" target="_blank">Amazon CloudFormation</a> console (us-east-1)
 2. Click on the **Identity-RR-Wksp-Serverless-Round** stack.
 3. Click on **Outputs** and use **WebsiteCloudFrontURL** and **WebsiteS3URL**.
 
@@ -70,36 +70,29 @@ Now that you are logged into the Build AWS account you can access find their app
 
 ## Cleanup
 
-To setup your environment please expand one of the following dropdowns (depending on how you're doing this workshop) and follow the instructions: 
+In order to prevent charges to your account we recommend cleaning up the infrastructure that was created, especially if you are doing other Identity rounds. Expand one of the following dropdown sections and follow the instructions:
 
-In order to prevent charges to your account we recommend cleaning up the infrastructure that was created, especially if you are doing other Identity rounds. Expand one of the following dropdowns and follow the instructions:
+??? info "AWS Sponsored Event"
 
-<details>
-<summary>AWS Sponsored Event</summary>
+    No cleanup required! The responsibility falls to AWS.
 
-No cleanup required! The responsibility falls to AWS.
+??? info "Individual"
 
-</details>
+    You will need to manually delete some resources before you delete the CloudFormation stacks so please do the following steps in order.
 
-<details>
-<summary>Individual</summary>
+    1.	Delete the Amazon Cognito Domain for the hosted-UI.
+	    * Go to the <a href="https://console.aws.amazon.com/cognito/users/?region=us-east-1" target="_blank">Amazon Cognito</a> console.
+        * Click on the **WildRydes** pool.
+	    * On the left navigation under **App Integration**, click on **Domain Name**.
+	    * Click **Delete**
+	    * Click the acknowledgement checkbox and click **Delete**
 
-> You will need to manually delete some resources before you delete the CloudFormation stacks so please do the following steps in order.
+    2.	Delete the CloudFormation stack (**Identity-RR-Wksp-Serverless-Round**).
+	    * Go to the <a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks?filter=active" target="_blank">AWS CloudFormation</a> console.
+	    * Select the appropriate stack.
+	    * Select **Action**.
+	    * Click **Delete Stack**.
 
-1.	Delete the Amazon Cognito Domain for the hosted-UI.
-	* Go to the [Amazon Cognito](https://console.aws.amazon.com/cognito/users/?region=us-east-1) console.
-	* On the left navigation under **App Integration**, click on **Domain Name**.
-	* Click **Delete**
-	* Click the acknowledgement checkbox and click **Delete**
-
-2.	Delete the CloudFormation stack (**Identity-RR-Wksp-Serverless-Round**).
-	* Go to the [AWS CloudFormation](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks?filter=active) console.
-	* Select the appropriate stack.
-	* Select **Action**.
-	* Click **Delete Stack**.
-
-
-</details>
 ***
 
 Congratulations on completing the Serverless Round!

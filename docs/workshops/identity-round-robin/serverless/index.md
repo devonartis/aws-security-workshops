@@ -19,7 +19,7 @@ In this round you will be focused on improving the identity controls of the Wild
 This round is broken down into a BUILD & VERIFY phase. 
 
 * **BUILD** (60 min): The Build phase involves evaluating, implementing, and enhancing the identity controls of the WildRydes application based on a set of business level functional and non-functional requirements.
-* **VERIFY** (20 min):  The Verify phase involves putting on the hat of an end user and testing the controls you put in place to ensure the requirements were met. In addition you will also ensure that a systems administrator is still able to manage the resources.
+* **VERIFY** (15 min):  The Verify phase involves putting on the hat of an end user and testing the controls you put in place to ensure the requirements were met. In addition you will also ensure that a systems administrator is still able to manage the resources.
 
 !!! info "Team or Individual Exercise"
     This workshop can be done as a team exercise or individually. The instructions are written with the assumption that you are working as part of a team but you could just as easily do the steps below individually. If done as part of an AWS sponsored event then you'll be split into teams of around 4-6 people. Each team will do the BUILD phase and then hand off their accounts to another team. Then each team will do the VERIFY phase.
@@ -30,7 +30,7 @@ This round is broken down into a BUILD & VERIFY phase.
 
 ## Environment setup
 
-To setup your environment please expand one of the following dropdowns (depending on how you're doing this workshop) and follow the instructions: 
+To setup your environment please expand one of the following dropdown sections (depending on how you're doing this workshop) and follow the instructions: 
 
 ??? info "AWS Sponsored Event"
     * Browse to the URL provided to you and login. 

@@ -46,7 +46,7 @@ Since the current bucket allows for anonymous access, you need to change this to
 
 !!! info
 
-    You could also use the canonical user id as the princpal: `"CanonicalUser": "<OAI S3CanonicalUserId>"`
+    You could also use the canonical user id as the principal: `"CanonicalUser": "<OAI S3CanonicalUserId>"`
 
 ### Modify Actions
 
@@ -87,7 +87,7 @@ So you've modified the bucket policy to restrict access to read only actions fro
     Be sure to clear your cache when testing!
 
 
-## Task 2 <small>Setup application user management</small>
+## Task 2 <small>Set up application user management</small>
 
 Set up user management for the application using Cognito User pools.  To reduce the operational overhead of creating and maintaining forms and custom logic for authentication, the decision has been made to use the Cognito hosted-UI to integrate the application with the User Pool.
 
@@ -98,6 +98,7 @@ As part of the user experience users should be able to sign themselves up, they 
     * Must include symbols
     * Must include numbers
     * Must include uppercase characters
+    * Must include lowercase characters
 
 !!! info "Application Integration Requirements"
     * Implicit grant OAuth flow
@@ -109,11 +110,11 @@ As part of the user experience users should be able to sign themselves up, they 
 1. Go to the <a href="https://console.aws.amazon.com/cognito/home?region=us-east-1" target="_blank">Amazon Cognito</a> console (us-east-1)
 2. Click on **Manage User Pools** and then click on the **WildRydes** pool.
 3. Click on **Policies** in the left navigation and modify the password policy, enable users to sign themselves up, and save your changes.
-4. Click on **MFA and Verifications** in the left navigation enable email verification and save your changes.
+4. Click on **MFA and Verifications** in the left navigation, enable email verification, and save your changes.
 
 ### Configure App Integration
 
-1. Click on **App Client Settings** in the left navigation and enter the following:
+1. Click on **App Client Settings** in the left navigation and enter the following and click **Save changes**:
 	* Enabled Identity Providers: **Cognito User Pool**
 	* Callback URL: **<WebsiteCloudFrontURL\>/ride.html**
 	* Sign Out URL: **<WebsiteCloudFrontURL\>/index.html**
