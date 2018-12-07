@@ -1097,15 +1097,9 @@
 </div>
 </li>
 <li>
-<p>The distribution is acting as a CDN for the static site so it only needs read access to the S3 bucket.  Change the actions to the following to ensure an end user can not affect the integrity of the site.</p>
+<p>The distribution is acting as a CDN for the static site so it only needs read access to the S3 bucket.  Change the actions to ensure an end user can not affect the integrity of the site.</p>
 </li>
 </ol>
-<div class="codehilite"><pre><span></span><span class="s2">&quot;Action&quot;</span><span class="err">:</span> <span class="p">[</span>
-    <span class="s2">&quot;s3:GetObject&quot;</span>
-<span class="p">]</span><span class="err">,</span>
-</pre></div>
-
-
 <h3 id="test-the-new-bucket-policy">Test the new bucket policy</h3>
 <p>Now that the bucket policy has been updated, go validate that you can not access the website using an S3 URL.</p>
 <ol>
@@ -1122,8 +1116,8 @@
 <p class="admonition-title">Tip</p>
 <p>What other access controls exist within S3? Look into the following resources:</p>
 <ul>
-<li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notprincipal.html" target="_blank">AWS IAM Policy Elements: NotPrincipal</a></li>
-<li><a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html" target="_blank">S3 Block Public Access</a></li>
+<li><a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html" target="_blank">S3 Block Public Access</a> (easiest)</li>
+<li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notprincipal.html" target="_blank">AWS IAM Policy Elements: NotPrincipal</a> (hardest)</li>
 </ul>
 <p>Be sure to clear your cache when testing!</p>
 </div>
@@ -1173,17 +1167,14 @@
 </ol>
 <h3 id="construct-the-hosted-ui-url">Construct the Hosted-UI URL</h3>
 <p>Now that your User Pool and App Integration have been configured you can construct the URL to allow users to sign-in via the Cognito Hosted Wed UI (built-in webpages for signing up and signing in your users).</p>
-<div class="codehilite"><pre><span></span>&lt;your_domain&gt;/login?response_type=token&amp;client_id=&lt;your_app_client_id&gt;&amp;redirect_uri=&lt;your_callback_url&gt;
+<div class="codehilite"><pre><span></span>&lt;your_domain&gt;/login?response_type=&lt;code or token&gt;&amp;client_id=&lt;your_app_client_id&gt;&amp;redirect_uri=&lt;your_callback_url&gt;
 </pre></div>
 
 
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<ul>
-<li><em>&lt;your_domain></em>: On the left navigation click on <strong>App Integration</strong> and use the <strong>Domain</strong></li>
-<li><em>&lt;your_app_client_id></em>: On the left navigation, under <strong>General Settings</strong> click on <strong>App Clients</strong> and use the <strong>App Client ID</strong>.</li>
-<li><em>&lt;your_callback_url></em>: On the left navigation, under <strong>App Integration</strong> click on <strong>App Client Settings</strong> and use the <strong>Callback URL</strong>.</li>
-</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Replace the values in &lt;&gt; (including the carrots) to the correct values.  All can be found in your Cognito configuration.  The response type is based on the OAuth flow.</p>
+<p><a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-configuring-app-integration.html" target="_blank">Reference Documentation</a></p>
 </div>
 <ol>
 <li>
