@@ -66,7 +66,7 @@ Now that the bucket policy has been updated, go validate that you can not access
 2. Click on the **Identity-RR-Wksp-Serverless-Round** stack.
 3. Click on **Outputs** and click on **WebsiteS3URL**.
 
-!!! question "Are you able to access the site using the S3 URL?"
+!!! question "Are you still able to access the site using the S3 URL?"
 
 ### Solve the Mystery
 
