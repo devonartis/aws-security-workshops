@@ -56,13 +56,7 @@ Now that the principal is restricted to the identity associated with the CloudFr
 
     !!! question "Does CloudFront really need access to Delete Objects?"
 	
-2. The distribution is acting as a CDN for the static site so it only needs read access to the S3 bucket.  Change the actions to the following to ensure an end user can not affect the integrity of the site.
-
-``` json
-"Action": [
-	"s3:GetObject"
-],
-```
+2. The distribution is acting as a CDN for the static site so it only needs read access to the S3 bucket.  Change the actions to ensure an end user can not affect the integrity of the site.
 
 ### Test the new bucket policy 
 
@@ -81,8 +75,8 @@ So you've modified the bucket policy to restrict access to read only actions fro
 !!! tip
     What other access controls exist within S3? Look into the following resources:
 
-    * <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notprincipal.html" target="_blank">AWS IAM Policy Elements: NotPrincipal</a>
-    * <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html" target="_blank">S3 Block Public Access</a>
+    * <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html" target="_blank">S3 Block Public Access</a> (easiest)
+    * <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notprincipal.html" target="_blank">AWS IAM Policy Elements: NotPrincipal</a> (hardest)
 
     Be sure to clear your cache when testing!
 
@@ -128,14 +122,14 @@ As part of the user experience users should be able to sign themselves up, they 
 Now that your User Pool and App Integration have been configured you can construct the URL to allow users to sign-in via the Cognito Hosted Wed UI (built-in webpages for signing up and signing in your users).
 
 ```
-<your_domain>/login?response_type=token&client_id=<your_app_client_id>&redirect_uri=<your_callback_url>
+<your_domain>/login?response_type=<code or token>&client_id=<your_app_client_id>&redirect_uri=<your_callback_url>
 
 ```
 
-!!! info
-    * *<your_domain\>*: On the left navigation click on **App Integration** and use the **Domain**
-    * *<your_app_client_id\>*: On the left navigation, under **General Settings** click on **App Clients** and use the **App Client ID**.
-    * *<your_callback_url\>*: On the left navigation, under **App Integration** click on **App Client Settings** and use the **Callback URL**.
+!!! tip
+    Replace the values in <> (including the carrots) to the correct values.  All can be found in your Cognito configuration.  The response type is based on the OAuth flow.
+
+    <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-configuring-app-integration.html" target="_blank">Reference Documentation</a>
 
 
 1.  Go to the [S3 console](https://s3.console.aws.amazon.com/s3/home) and click on the bucket named:
