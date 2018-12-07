@@ -39,7 +39,11 @@ Now that you are logged into the Build AWS account you can access find their app
 
     * You can not delete or modify any of the application resources through the CloudFront Distribution.
 
-	    > Try using something like Postman to make requests with different HTTP verbs (e.g. Delete)
+	    > Try using something like curl or Postman to make requests with different HTTP verbs (e.g. Delete).  Below is an example using curl:  
+
+        ```
+        curl -i -X DELETE <WebsiteCloudFrontURL>/index.html
+        ```
 
 ## Verify Task 2
 
