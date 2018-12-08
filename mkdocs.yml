@@ -52,6 +52,7 @@ nav:
       - Verify Phase: 'builder-sessions/permission-boundary/verify.md'
   - Workshops: 
     - 'Directory': 'workshops/index.md'
+    - 'Detection with Machine Learning': 'workshops/detection-ml/index.md'
     - 'Find All the Threats': 
       - 'Overview': 'workshops/threat-detection-remediation/index.md'
       - 'Module 1: Environment Build': 'workshops/threat-detection-remediation/01-environment-setup.md'
