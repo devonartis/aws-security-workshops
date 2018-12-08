@@ -1,0 +1,1379 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="A collection of AWS Security related workshops">
+      
+      
+        <link rel="canonical" href="https://awssecworkshops.com/workshops/identity-round-robin/permission-boundaries/permission-boundary-round-build/">
+      
+      
+        <meta name="author" content="aws-security-workshops@amazon.com">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../../assets/images/aws-favicon.ico">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.0.6">
+    
+    
+      
+        <title>Permission boundary round build - Security Workshops</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.451f80e5.css">
+      
+      
+    
+    
+      <script src="../../../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/custom.css">
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#identity-round-robin-workshop" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Application header -->
+<header class="md-header" data-md-component="header">
+
+    <!-- Top-level navigation -->
+    <nav class="md-header-nav md-grid">
+      <div class="md-flex">
+  
+        <!-- Link to home -->
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <a href="https://aws.amazon.com/"
+              title="Amazon Web Services"
+              class="md-header-nav__button md-logo">
+            
+              <img src="../../../../assets/images/aws_smile_logo.png" width="40" height="24" />
+            
+          </a>
+        </div>
+  
+        <!-- Button to toggle drawer -->
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <label class="md-icon md-icon--menu md-header-nav__button"
+              for="__drawer"></label>
+        </div>
+  
+        <!-- Header title -->
+        <div class="md-flex__cell md-flex__cell--stretch">
+          <div class="md-flex__ellipsis md-header-nav__title"
+              data-md-component="title">
+            
+              
+                <span class="md-header-nav__topic">
+                  Security Workshops
+                </span>
+                <span class="md-header-nav__topic">
+                  Permission boundary round build
+                </span>
+              
+            
+          </div>
+        </div>
+  
+        <!-- Button to open search dialogue -->
+        <div class="md-flex__cell md-flex__cell--shrink">
+          
+            
+              <label class="md-icon md-icon--search md-header-nav__button"
+                  for="__search"></label>
+  
+              <!-- Search interface -->
+              
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+            
+          
+        </div>
+  
+        <!-- Repository containing source -->
+        
+          <div class="md-flex__cell md-flex__cell--shrink">
+            <div class="md-header-nav__source">
+              
+
+
+  
+
+
+  <a href="https://github.com/aws-samples/aws-security-workshops/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      aws-samples/aws-security-workshops
+    </div>
+  </a>
+
+            </div>
+          </div>
+        
+      </div>
+    </nav>
+  </header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../../.." title="Home" class="md-tabs__link md-tabs__link--active">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../builder-sessions/" title="Builder Sessions" class="md-tabs__link">
+          Builder Sessions
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../" title="Workshops" class="md-tabs__link">
+          Workshops
+        </a>
+      
+    </li>
+  
+
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://awssecworkshops.com" title="Security Workshops" class="md-nav__button md-logo">
+      
+        <img src="../../../../assets/images/aws_smile_logo.png" width="48" height="48">
+      
+    </a>
+    Security Workshops
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/aws-samples/aws-security-workshops/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      aws-samples/aws-security-workshops
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../getting-started/" title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Builder Sessions
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Builder Sessions
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../builder-sessions/" title="Directory" class="md-nav__link">
+      Directory
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Permission Boundaries
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        Permission Boundaries
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../builder-sessions/permission-boundary/build/" title="Build Phase" class="md-nav__link">
+      Build Phase
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../builder-sessions/permission-boundary/verify/" title="Verify Phase" class="md-nav__link">
+      Verify Phase
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Workshops
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Workshops
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../" title="Directory" class="md-nav__link">
+      Directory
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
+    
+    <label class="md-nav__link" for="nav-4-2">
+      Find All the Threats
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-2">
+        Find All the Threats
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../threat-detection-remediation/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../threat-detection-remediation/01-environment-setup/" title="Module 1: Environment Build" class="md-nav__link">
+      Module 1: Environment Build
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../threat-detection-remediation/02-attack-simulation/" title="Module 2: Attack Simulation" class="md-nav__link">
+      Module 2: Attack Simulation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../threat-detection-remediation/03-detection-and-remediation/" title="Module 3: Detect & Respond" class="md-nav__link">
+      Module 3: Detect & Respond
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../threat-detection-remediation/04-review-and-discussion/" title="Module 4: Discussion" class="md-nav__link">
+      Module 4: Discussion
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3">
+    
+    <label class="md-nav__link" for="nav-4-3">
+      Identity Round Robin
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-3">
+        Identity Round Robin
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-2" type="checkbox" id="nav-4-3-2">
+    
+    <label class="md-nav__link" for="nav-4-3-2">
+      Serverless Round
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-3-2">
+        Serverless Round
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../serverless/" title="Scenario" class="md-nav__link">
+      Scenario
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../serverless/build/" title="Build Phase" class="md-nav__link">
+      Build Phase
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../serverless/verify/" title="Verify Phase" class="md-nav__link">
+      Verify Phase
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-3" type="checkbox" id="nav-4-3-3">
+    
+    <label class="md-nav__link" for="nav-4-3-3">
+      Security Services Round
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-3-3">
+        Security Services Round
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ess/index.md" title="Scenario" class="md-nav__link">
+      Scenario
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ess/build.md" title="Build Phase" class="md-nav__link">
+      Build Phase
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ess/verify.md" title="Verify Phase" class="md-nav__link">
+      Verify Phase
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-4" type="checkbox" id="nav-4-3-4">
+    
+    <label class="md-nav__link" for="nav-4-3-4">
+      Permission Boundary Round
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-3-4">
+        Permission Boundary Round
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../index.md" title="Scenario" class="md-nav__link">
+      Scenario
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../build.md" title="Build Phase" class="md-nav__link">
+      Build Phase
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../verify.md" title="Verify Phase" class="md-nav__link">
+      Verify Phase
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../contribute/" title="Contributing" class="md-nav__link">
+      Contributing
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../license/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#identity-round-robin-workshop" title="Identity Round Robin Workshop" class="md-nav__link">
+    Identity Round Robin Workshop
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#permission-boundaries-round-build-phase" title="Permission boundaries round - Build Phase" class="md-nav__link">
+    Permission boundaries round - Build Phase
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#task-1-create-an-iam-user-and-an-iam-policy-with-permission-to-create-customer-managed-policies" title="Task 1 - Create an IAM user and an IAM policy with permission to create customer managed policies" class="md-nav__link">
+    Task 1 - Create an IAM user and an IAM policy with permission to create customer managed policies
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#walk-through" title="Walk Through:" class="md-nav__link">
+    Walk Through:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#questions" title="Question(s):" class="md-nav__link">
+    Question(s):
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-2-create-an-iam-policy-with-permission-to-create-iam-roles" title="Task 2 - Create an IAM policy with permission to create IAM roles" class="md-nav__link">
+    Task 2 - Create an IAM policy with permission to create IAM roles
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#walk-through_1" title="Walk Through:" class="md-nav__link">
+    Walk Through:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#questions_1" title="Question(s):" class="md-nav__link">
+    Question(s):
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-3-iam-policy-to-create-lambda-functions" title="Task 3 - IAM policy to create Lambda functions" class="md-nav__link">
+    Task 3 - IAM policy to create Lambda functions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#walk-through_2" title="Walk Through:" class="md-nav__link">
+    Walk Through:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#questions_2" title="Question(s):" class="md-nav__link">
+    Question(s):
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-4-create-a-permission-boundary" title="Task 4 - Create a permission boundary" class="md-nav__link">
+    Task 4 - Create a permission boundary
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#walk-through_3" title="Walk Through:" class="md-nav__link">
+    Walk Through:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#question" title="Question:" class="md-nav__link">
+    Question:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-5-create-one-permission-policy-that-incorporate-all-of-the-preceding-tasks-and-add-a-permission-boundary-condition" title="Task 5 - Create one permission policy that incorporate all of the preceding tasks and add a permission boundary condition" class="md-nav__link">
+    Task 5 - Create one permission policy that incorporate all of the preceding tasks and add a permission boundary condition
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#walk-through_4" title="Walk Through:" class="md-nav__link">
+    Walk Through:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#question_1" title="Question:" class="md-nav__link">
+    Question:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-6-gather-info-needed-for-the-verify-phase" title="Task 6 - Gather info needed for the VERIFY phase" class="md-nav__link">
+    Task 6 - Gather info needed for the VERIFY phase
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#click-here-to-go-to-the-verify-phase" title="Click here to go to the VERIFY phase" class="md-nav__link">
+    Click here to go to the VERIFY phase
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/aws-samples/aws-security-workshops/edit/master/docs/workshops/identity-round-robin/permission-boundaries/permission-boundary-round-build.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Permission boundary round build</h1>
+                
+                <h3 id="identity-round-robin-workshop"><a href="./readme.md">Identity Round Robin Workshop</a></h3>
+<h2 id="permission-boundaries-round-build-phase">Permission boundaries round - Build Phase</h2>
+<p>Below are a series of tasks to delegate permissions to the web admins. In these tasks you will be creating smaller policies and testing them. In <strong>Task 5</strong> you will combine these policies together into one permission policy. You should create each policy and test it before moving on to the next task. It helps to divide the team into people doing the tasks and people testing things out. So some of the members of the team will be logged in using SSO and following the instructions in the tasks while other members will be logged in as the webadmin user (created in Task 1 below) to test out the work done in each task. </p>
+<!--
+In addition you should have at least one team member investigating the account for potential holes that could be exploited by the web admins. 
+-->
+
+<hr />
+<h3 id="task-1-create-an-iam-user-and-an-iam-policy-with-permission-to-create-customer-managed-policies">Task 1 - Create an IAM user and an IAM policy with permission to create customer managed policies</h3>
+<p>Build an IAM policy so that web admins can create customer managed policies. They should only be able to edit the policies they create (no other managed policies). We will not be using inline policies for this exercise. <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html">"In most cases, we recommend that you use managed policies instead of inline policies."</a></p>
+<p><strong>IMPORTANT!</strong> As you use the provided IAM policies hints, keep in mind where you need to add the account ID, what resource restrictions to use and where a region is specified in the resource. All of these items can cause issues.</p>
+<h4 id="walk-through"><strong>Walk Through</strong>:</h4>
+<ul>
+<li>Begin by navigating to the <a href="https://console.aws.amazon.com/iam/home">IAM console</a>.</li>
+<li>We will grab the AWS account ID. On the first screen you see in the IAM console (which should be the Dashboard) you will see an <strong>IAM users sign-in link</strong>. Copy that link because you will need the account ID in the URL for the policies and you will need the entire URL when you hand this account to another team for the <strong>VERIFY</strong> phase. 
+<img alt="image1" src="../images/iam-dashboard.png" /></li>
+<li>Click <strong>Users</strong> on the left menu and create a new IAM user named <strong><code>webadmin</code></strong>. Check <strong>AWS Management Console access</strong> and then either autogenerate a password or set a custom password. Uncheck <strong>Require password reset</strong>. Attach the AWS managed policies <strong>IAMReadOnlyAccess</strong> &amp; <strong>AWSLambdaReadOnlyAccess</strong> to the user.
+<img alt="image1" src="../images/create-iam-user.png" /></li>
+<li>Next click “Policies” on the left menu. Create a new IAM policy based on the hint below. Attach this policy to the IAM user you created.</li>
+</ul>
+<p><strong>Hint</strong>: <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM Identifiers</a>. You will want to use either naming or pathing resource restrictions in the IAM policy. The question marks "<strong>????</strong>" in the resource element below should be replaced with something that could act as a resource restriction. Examine the existing resources (roles, Lambda functions) to make sure the policy will give access to existing resources owned by the web admins. Replacing the question marks is really the key to this round. </p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;Version&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Statement&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;Sid&quot;</span><span class="p">:</span> <span class="s2">&quot;CreateCustomerManagedPolicies&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Effect&quot;</span><span class="p">:</span> <span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Action&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;iam:CreatePolicy&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:DeletePolicy&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:CreatePolicyVersion&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:DeletePolicyVersion&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:SetDefaultPolicyVersion&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;Resource&quot;</span><span class="p">:</span> <span class="s2">&quot;arn:aws:iam::ACCOUNT_ID:policy/????&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li>You should login with the <strong>webadmin</strong> IAM user (using a different browser) to verify the user can create a policy (while following the resource restriction.) Use the <strong>IAM users sign-in link</strong> you gathered earlier to login. The permissions assigned to the policy do not matter for the test.</li>
+</ul>
+<h4 id="questions"><strong>Question(s)</strong>:</h4>
+<p>i. Why are we using resource restrictions here?</p>
+<p>ii. There are two ways of doing resource restrictions: naming and pathing. Which option allows you to create policies using both the AWS Console and CLI?       </p>
+<p>iii. Is there an advantage to using the option that requires you to edit polices via the CLI?</p>
+<hr />
+<h3 id="task-2-create-an-iam-policy-with-permission-to-create-iam-roles">Task 2 - Create an IAM policy with permission to create IAM roles</h3>
+<p>Build an IAM policy so that the web admins can create IAM roles (which they will use for AWS Lambda functions.) Web admins should be able to attach to these roles existing AWS and customer managed policies. The web admins should only be able to edit the roles they create, not any other roles. </p>
+<h4 id="walk-through_1"><strong>Walk Through</strong>:</h4>
+<ul>
+<li>Create a new IAM policy based on the hint below. Attach this policy to the webadmin user created in <strong>Task 1</strong>.</li>
+</ul>
+<p><strong>Hint</strong>: <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM Identifiers</a>. The question marks <strong><code>????</code></strong> in the resource element below should be replaced with something that could act as a resource restriction. Examine the existing resources (roles, Lambda functions) to make sure the policy will give access to existing resources owned by the web admins.  It is recommended to use the same resource restriction throughout this phase to simplify the policies. </p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;Version&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Statement&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;Sid&quot;</span><span class="p">:</span> <span class="s2">&quot;CreateRoles&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Effect&quot;</span><span class="p">:</span> <span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Action&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;iam:CreateRole&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:UpdateRole&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:DeleteRole&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:AttachRolePolicy&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:DetachRolePolicy&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;Resource&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;arn:aws:iam::ACCOUNT_ID:role/????&quot;</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li>From the browser where you are logged into the console as the <strong>webadmin</strong>, verify  you can create a role (while following the resource restriction.) This role should use Lambda as the trusted entity (we will use this role to test the next task). The policy attached to the role do not matter at this point. </li>
+</ul>
+<h4 id="questions_1"><strong>Question(s)</strong>:</h4>
+<p>i. Why do resource restriction matter for roles?</p>
+<hr />
+<h3 id="task-3-iam-policy-to-create-lambda-functions">Task 3 - IAM policy to create Lambda functions</h3>
+<p>The web admins can now create IAM policies and roles, so the next step is to give them permissions to create Lambda functions. They should be able to attach only IAM roles they created to the Lambda functions. In addition they should only be able to edit the Lambda functions they create, no other Lambda functions. </p>
+<h4 id="walk-through_2"><strong>Walk Through</strong>:</h4>
+<ul>
+<li>Create a new IAM policy based on the hint below. Attach this policy to the webadmin user.</li>
+</ul>
+<p><strong>Hint</strong>: <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM Identifiers</a>. The question marks <strong><code>????</code></strong> in the resource element below should be replaced with something that could act as a resource restriction. </p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;Version&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Statement&quot;</span><span class="p">:</span> <span class="p">[</span>
+         <span class="p">{</span>
+            <span class="nt">&quot;Sid&quot;</span><span class="p">:</span> <span class="s2">&quot;LambdaFullAccesswithResourceRestrictions&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Effect&quot;</span><span class="p">:</span> <span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Action&quot;</span><span class="p">:</span> <span class="s2">&quot;lambda:*&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Resource&quot;</span><span class="p">:</span> <span class="s2">&quot;arn:aws:lambda:us-east-2:ACCOUNT_ID:function:????&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;Sid&quot;</span><span class="p">:</span> <span class="s2">&quot;PassRoletoLambda&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Effect&quot;</span><span class="p">:</span> <span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Action&quot;</span><span class="p">:</span> <span class="s2">&quot;iam:PassRole&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Resource&quot;</span><span class="p">:</span> <span class="s2">&quot;arn:aws:iam::ACCOUNT_ID:role/????&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Condition&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;StringLikeIfExists&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;iam:PassedToService&quot;</span><span class="p">:</span> <span class="s2">&quot;lambda.amazonaws.com&quot;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;Sid&quot;</span><span class="p">:</span> <span class="s2">&quot;AdditionalPermissionsforLambda&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Effect&quot;</span><span class="p">:</span> <span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Action&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;kms:ListAliases&quot;</span><span class="p">,</span> <span class="s2">&quot;logs:Describe*&quot;</span><span class="p">,</span> <span class="s2">&quot;logs:ListTagsLogGroup&quot;</span><span class="p">,</span> <span class="s2">&quot;logs:FilterLogEvents&quot;</span><span class="p">,</span> <span class="s2">&quot;logs:GetLogEvents&quot;</span><span class="p">],</span>
+            <span class="nt">&quot;Resource&quot;</span><span class="p">:</span> <span class="s2">&quot;*&quot;</span>
+        <span class="p">}</span>
+   <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li>Again from the browser where you are logged into the console as the <strong>webadmin</strong>, verify the user can create a lambda function (while following the resource restriction.) </li>
+</ul>
+<h4 id="questions_2"><strong>Question(s)</strong>:</h4>
+<p>i. The scenario where you have admins in an account that need to be able to create IAM polices, roles and Lambda functions is common. The ability to restrict the permissions of the roles attached to the Lambda functions is relatively new though and important to proper least privilege administration. How was this situation handled before permission boundaries came along?</p>
+<p>ii. Why do we not allow the web admins to attach any role to Lambda functions? Why do we let the admins only pass IAM roles they create to Lambda functions?</p>
+<p>iii. Are resource restrictions in this case of Lambda function creation really necessary? </p>
+<hr />
+<h3 id="task-4-create-a-permission-boundary">Task 4 - Create a permission boundary</h3>
+<p>We have policies now so that the web admins can create and edit customer managed policies, roles and Lambda functions. We need to limit the permissions of the roles they create though. If not then the web admins could simply create new policies with full admin rights, attach these to the roles, pass these roles to Lambda functions and escalate their permissions (either intentitionally or inadventently). We will use permission boundaries to limits the effective permissions of the roles. The permission boundary should allow the following <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html">effective permissions</a> for any role created by the web admins:</p>
+<blockquote>
+<p>i. Create log groups (but can not overwrite any other log groups)</p>
+<p>ii. Create log streams and put logs</p>
+<p>iii. List the objects from the S3 bucket name that starts with <strong>"identitywksp-web-admins-applicat-rs3elbaccesslogs"</strong></p>
+</blockquote>
+<h4 id="walk-through_3"><strong>Walk Through</strong>:</h4>
+<ul>
+<li>Create a new IAM policy that will act as the permission boundary for the web admins. Name the policy <strong><code>webadminpermissionboundary</code></strong></li>
+</ul>
+<p><strong>Hint</strong>: <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permission boundaries</a>. The question marks <strong><code>????</code></strong> in the resource element below should be replaced with something that could act as a resource restriction. </p>
+<div class="codehilite"><pre><span></span>{
+    &quot;Version&quot;: &quot;2012-10-17&quot;,
+    &quot;Statement&quot;: [
+        {
+            &quot;Sid&quot;: &quot;CreateLogGroup&quot;,
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Action&quot;: &quot;logs:CreateLogGroup&quot;,
+            &quot;Resource&quot;: &quot;arn:aws:logs:us-east-2:ACCOUNT_ID:*&quot;
+        },
+        {
+            &quot;Sid&quot;: &quot;CreateLogStreamandEvents&quot;,
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Action&quot;: [
+                &quot;logs:CreateLogStream&quot;,
+                &quot;logs:PutLogEvents&quot;
+            ],
+            &quot;Resource&quot;: &quot;arn:aws:logs:us-east-2:ACCOUNT_ID:log-group:/aws/lambda/????:*&quot;
+        },
+        {
+            &quot;Sid&quot;: &quot;AllowedS3GetObject&quot;,
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Action&quot;: [
+                &quot;s3:List*&quot;
+            ],
+            &quot;Resource&quot;: &quot;arn:aws:s3:::web-admins-ACCOUNT_ID-*&quot;
+        }
+    ]
+}
+</pre></div>
+
+
+<ul>
+<li>How couldyou test the permission boundary at this point?</li>
+</ul>
+<h4 id="question"><strong>Question</strong>:</h4>
+<p>i. From the standpoint of the policy language and how it is presented in the console, how does a permission boundary differ from a standard IAM policy?</p>
+<hr />
+<h3 id="task-5-create-one-permission-policy-that-incorporate-all-of-the-preceding-tasks-and-add-a-permission-boundary-condition">Task 5 - Create one permission policy that incorporate all of the preceding tasks and add a permission boundary condition</h3>
+<h4 id="walk-through_4"><strong>Walk Through</strong>:</h4>
+<ul>
+<li>
+<p>You have two options here:</p>
+</li>
+<li>
+<p>Combine the policies created so far and reference the permission boundary created in the previous step. </p>
+</li>
+<li>Use the complete policy below (with the usual changes.) </li>
+</ul>
+<p>Note that the policy below contains two additional sections (last two sections in the full policy below) that we did not address in the earlier steps. The additions are focused on denying the ability to change or delete the permission policy or the permission boundary. Also the policy below includes the permission boundary conditions and a few other changes because not all actions support the permission boundary condition. </p>
+<ul>
+<li>Name the new policy <strong><code>webadminpermissionpolicy</code></strong> and attach it to the webadmin user. Remove the earlier policies you added during the testing.</li>
+<li>When you are done the <strong>webadmin</strong> user should have only three policies attached: webadminpermissionpolicy, IAMReadOnlyAccess &amp; AWSLambdaReadOnlyAccess.</li>
+</ul>
+<p><strong>Hint</strong>: <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permission boundaries</a>. The question marks <strong><code>????</code></strong> in the resource elements below should be replaced with something that could act as a resource restriction. </p>
+<div class="codehilite"><pre><span></span>{
+    &quot;Version&quot;: &quot;2012-10-17&quot;,
+    &quot;Statement&quot;: [
+        {
+            &quot;Sid&quot;: &quot;CreateCustomerManagedPolicies&quot;,
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Action&quot;: [
+                &quot;iam:CreatePolicy&quot;,
+                &quot;iam:DeletePolicy&quot;,
+                &quot;iam:CreatePolicyVersion&quot;,
+                &quot;iam:DeletePolicyVersion&quot;,
+                &quot;iam:SetDefaultPolicyVersion&quot;
+            ],
+            &quot;Resource&quot;: &quot;arn:aws:iam::ACCOUNT_ID:policy/????&quot;
+        },
+        {
+              &quot;Sid&quot;: &quot;RoleandPolicyActionswithnoPermissionBoundarySupport&quot;,
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Action&quot;: [
+                    &quot;iam:UpdateRole&quot;,
+                    &quot;iam:DeleteRole&quot;
+            ],
+            &quot;Resource&quot;: [
+                &quot;arn:aws:iam::ACCOUNT_ID:role/????&quot;
+            ]
+        },
+        {
+            &quot;Sid&quot;: &quot;CreateRoles&quot;,
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Action&quot;: [
+                &quot;iam:CreateRole&quot;,
+                &quot;iam:AttachRolePolicy&quot;,
+                &quot;iam:DetachRolePolicy&quot;
+            ],
+            &quot;Resource&quot;: [
+                &quot;arn:aws:iam::ACCOUNT_ID:role/????&quot;
+            ],
+            &quot;Condition&quot;: {&quot;StringEquals&quot;: 
+                {&quot;iam:PermissionsBoundary&quot;: &quot;arn:aws:iam::ACCOUNT_ID:policy/webadminpermissionboundary&quot;}
+            }
+        },
+        {
+            &quot;Sid&quot;: &quot;LambdaFullAccesswithResourceRestrictions&quot;,
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Action&quot;: &quot;lambda:*&quot;,
+            &quot;Resource&quot;: &quot;arn:aws:lambda:us-east-2:ACCOUNT_ID:function:????&quot;
+        },
+        {
+            &quot;Sid&quot;: &quot;PassRoletoLambda&quot;,
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Action&quot;: &quot;iam:PassRole&quot;,
+            &quot;Resource&quot;: &quot;arn:aws:iam::ACCOUNT_ID:role/????&quot;,
+            &quot;Condition&quot;: {
+                &quot;StringLikeIfExists&quot;: {
+                    &quot;iam:PassedToService&quot;: &quot;lambda.amazonaws.com&quot;
+                }
+            }
+        },
+        {
+            &quot;Sid&quot;: &quot;AdditionalPermissionsforLambda&quot;,
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Action&quot;:   [&quot;kms:ListAliases&quot;, &quot;logs:Describe*&quot;, &quot;logs:ListTagsLogGroup&quot;, &quot;logs:FilterLogEvents&quot;, &quot;logs:GetLogEvents&quot;],
+            &quot;Resource&quot;: &quot;*&quot;
+        },
+        {
+            &quot;Sid&quot;: &quot;DenyPermissionBoundaryandPolicyDeleteModify&quot;,
+            &quot;Effect&quot;: &quot;Deny&quot;,
+            &quot;Action&quot;: [
+                &quot;iam:CreatePolicyVersion&quot;,
+                &quot;iam:DeletePolicy&quot;,
+                &quot;iam:DeletePolicyVersion&quot;,
+                &quot;iam:SetDefaultPolicyVersion&quot;
+            ],
+            &quot;Resource&quot;: [
+                &quot;arn:aws:iam::ACCOUNT_ID:policy/webadminpermissionboundary&quot;,
+                &quot;arn:aws:iam::ACCOUNT_ID:policy/webadminpermissionpolicy&quot;
+            ]
+        },
+        {
+            &quot;Sid&quot;: &quot;DenyRolePermissionBoundaryDelete&quot;,
+            &quot;Effect&quot;: &quot;Deny&quot;,
+            &quot;Action&quot;: &quot;iam:DeleteRolePermissionsBoundary&quot;,
+            &quot;Resource&quot;: &quot;*&quot;
+        }
+    ]
+}
+</pre></div>
+
+
+<ul>
+<li>Again from the browser where you are logged into the console as the <strong>webadmin</strong>, verify the user can create a policy, create a role (attaching both a permssion policy and permission boundary to the role) and finally create a Lambda function into which you will pass that role. All of the preceding steps need to be done will also following the resource restrictions.</li>
+</ul>
+<h4 id="question_1"><strong>Question</strong>:</h4>
+<p>i. Why do we add the Deny for DeletePolicy actions?</p>
+<p>ii. What would happen if we didn't deny the ability to delete permission boundaries?</p>
+<h3 id="task-6-gather-info-needed-for-the-verify-phase">Task 6 - Gather info needed for the <strong>VERIFY</strong> phase</h3>
+<p><strong>Walk Through</strong> Now that you have setup the IAM user for the web admins, it's time to pass this information on to the next team who will work through the <strong>VERIFY</strong> tasks. You need to gather some details about your setupo and then hand this info to the next team.</p>
+<p>Here are all of the details you need to pass to another team. If you following the recommended naming conventions than you can use the answers below.  If you were given a form to fill out then enter the info into the form. This needs to be given to another team so they can do the <strong>VERIFY</strong> phase tasks. Your team should collect the <strong>VERIFY</strong> phase form from another team so you can also work through the <strong>VERIFY</strong> tasks. </p>
+<ul>
+<li>IAM users sign-in link:   <strong>https://Account_ID.signin.aws.amazon.com/console</strong></li>
+<li>IAM user name:    <strong>webadmin</strong></li>
+<li>IAM user password:    </li>
+<li>Resource restriction identifier:  </li>
+<li>Permission boundary name: <strong>webadminpermissionboundary</strong></li>
+<li>Permission policy name: <strong>webadminpermissionpolicy</strong></li>
+</ul>
+<blockquote>
+<p>Do not hand out this info to the same team that is giving you the info - this way we will end up properly swapping between teams if we have an odd number of teams.</p>
+</blockquote>
+<h4 id="click-here-to-go-to-the-verify-phase"><a href="../permission-boundary-round-verify/">Click here to go to the VERIFY phase</a></h4>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            &copy; 2018, Amazon Web Services, Inc. or its affiliates. All rights reserved.
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://awssecworkshops.com" class="md-footer-social__link fa fa-home"></a>
+    
+      <a href="https://aws.amazon.com/security/" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://twitter.com/awssecurityinfo?lang=en" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://aws.amazon.com/blogs/security/" class="md-footer-social__link fa fa-rss"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/application.5e60981f.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>
