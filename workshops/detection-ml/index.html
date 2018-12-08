@@ -1140,8 +1140,8 @@
 <p>https://console.aws.amazon.com/cloudformation/home?region=ca-central-1#/stacks/new?stackName=SEC405&amp;templateURL=https://s3.ca-central-1.amazonaws.com/aws-reinvent2018-sec405-de42b9ca/cloudformation.yaml</p>
 <p>The stack launch URL uses a copy of the CloudFormation template from <em>templates/cloudformation.yaml</em> that is contained in an S3 bucket and is the same as the one in this code repository.</p>
 <ol>
-<li>On the <strong>Select Template</strong> page, note that the template location where it says "Specify an Amazon S3 template URL" is prepopulated with the S3 URL to the template. Click <strong>Next</strong>.</li>
-<li>On the <strong>Specify Details</strong> page, the stack name is prepopulated as "SEC405", but you may change it if you wish. Click <strong>Next</strong>.</li>
+<li>On the <strong>Select Template</strong> page, note that the template location where it says "Specify an Amazon S3 template URL" is pre-populated with the S3 URL to the template. Click <strong>Next</strong>.</li>
+<li>On the <strong>Specify Details</strong> page, the stack name is pre-populated as "SEC405", but you may change it if you wish. Click <strong>Next</strong>.</li>
 <li>On the <strong>Options</strong> screen, click <strong>Next</strong>.</li>
 <li>On the Review page, check the box for “I acknowledge that AWS CloudFormation might create IAM resources” since the template creates an IAM role.</li>
 <li>Click <strong>Create</strong> to deploy the stack. While the CloudFormation stack is being created, you can view its status in the AWS CloudFormation console. You should see a green <strong>Status</strong> of <strong>CREATE_COMPLETE</strong> in just a few minutes.</li>
@@ -1166,7 +1166,7 @@
 <li>Click the <strong>Test</strong> button to run the function. You will need to create a test event to do this, but the event actually does not matter in this case, so just use the "Hello World" event template and give it a name "SEC405", then click <strong>Create</strong>. You then need to click the <strong>Test</strong> button once more.</li>
 <li>Examine the output, where you'll see the JSON for each GuardDuty finding being printed by the function <code>print_full_finding</code>. Look over the findings to see what information they contain.</li>
 <li>A function called <code>print_short_finding</code> is also defined to print out a shortened, one-line version of each GuardDuty finding. Replace the call to the function <code>print_full_finding</code> with <code>print_short_finding</code> (hint: Search for "TODO" around line 135. You will see multiple TODOs in the file, but only the first one applies here.).</li>
-<li>Click the <strong>Save</strong> button at the top of the screen to save your changes to the function, then click <strong>Test</strong> to run it again. Observe the new output, where you will now see a summarized verison of each finding being printed.</li>
+<li>Click the <strong>Save</strong> button at the top of the screen to save your changes to the function, then click <strong>Test</strong> to run it again. Observe the new output, where you will now see a summarized version of each finding being printed.</li>
 </ol>
 <h2 id="exercise-2-ip-based-anomaly-detection-in-sagemaker">Exercise 2: IP-based anomaly detection in SageMaker</h2>
 <p>In this exercise, you will use the IP Insights SageMaker machine learning algorithm to learn how unusual GuardDuty findings are for given principals (i.e., IAM users or roles) based on IP address.</p>
