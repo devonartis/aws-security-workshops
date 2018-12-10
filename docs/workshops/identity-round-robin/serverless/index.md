@@ -26,7 +26,7 @@ This round is broken down into a BUILD & VERIFY phase.
 
 ## Presentation
 
-[Workshop Presentation Powerpoint](./presentation.pdf)
+<a href="./Identity-RR-Serverless-Round.pdf" target="_blank">Workshop Presentation Powerpoint</a>
 
 ## Environment setup
 
