@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../../assets/images/aws-favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.0.6">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.1.0">
     
     
       
@@ -46,12 +46,12 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/application.451f80e5.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.11e41852.css">
       
       
     
     
-      <script src="../../../../assets/javascripts/modernizr.1aa3b519.js"></script>
+      <script src="../../../../assets/javascripts/modernizr.20ef595d.js"></script>
     
     
       
@@ -61,6 +61,7 @@
       
     
     <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
     
       <link rel="stylesheet" href="../../../../stylesheets/custom.css">
     
@@ -1078,7 +1079,7 @@ You will not be doing <em>cross-account access</em> in this lab.</p>
 <p>The CloudFormation stack you just built created two roles. One role is for a Security Administrator who has full access to CloudTrail, GuardDuty, Inspector, and Macie.  The other role is for a Security Operator who, after changes you make later on, will have read-only access to these services.  You are going to switch to the Security Administrator role but before doing so, let's look at the privileges associated with that role so you can see what it does.</p>
 <ol>
 <li>
-<p>Go to the IAM console, select <strong>Roles</strong> on the left and search for the string <em>SecAdmininistrator</em>.  Click on the role that you retrieve.
+<p>Go to the IAM console, select <strong>Roles</strong> on the left and search for the string <em>SecAdministrator</em>.  Click on the role that you retrieve.
 The policy definition will be similar to the image below.</p>
 <p><img alt="SecAdministratorRolePolicy" src="../images/IamEssSecAdminPolicy.png" /></p>
 <p>There are five managed policies attached to this role, four of them are provided by AWS for GuardDuty, Inspector, CloudTrail, and SNS.  SNS is included because it provides for a better console experience.  There is a fifth managed policy that was created for Amazon Macie to illustrate how custom managed poicies can be developed.   Feel free to click on each of the managed policies to see the underlying privileges of each.  In particular, notice that no other services such as Amazon EC2 are listed.</p>
@@ -1310,7 +1311,7 @@ Click <a href="../verify/">here</a> to proceed to the Verify Phase.</p>
       
     </div>
     
-      <script src="../../../../assets/javascripts/application.5e60981f.js"></script>
+      <script src="../../../../assets/javascripts/application.9e1f3b71.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
       
