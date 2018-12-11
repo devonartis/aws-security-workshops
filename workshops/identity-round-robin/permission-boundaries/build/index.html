@@ -798,13 +798,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#questions" title="Question(s)" class="md-nav__link">
-    Question(s)
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -826,7 +819,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#questions_1" title="Question(s)" class="md-nav__link">
+  <a href="#questions" title="Question(s)" class="md-nav__link">
     Question(s)
   </a>
   
@@ -852,13 +845,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#questions_2" title="Question(s)" class="md-nav__link">
-    Question(s)
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -879,13 +865,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#question" title="Question" class="md-nav__link">
-    Question
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -902,13 +881,6 @@
           <li class="md-nav__item">
   <a href="#walk-through_4" title="Walk Through" class="md-nav__link">
     Walk Through
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#question_1" title="Question" class="md-nav__link">
-    Question
   </a>
   
 </li>
@@ -1042,13 +1014,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#questions" title="Question(s)" class="md-nav__link">
-    Question(s)
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1070,7 +1035,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#questions_1" title="Question(s)" class="md-nav__link">
+  <a href="#questions" title="Question(s)" class="md-nav__link">
     Question(s)
   </a>
   
@@ -1096,13 +1061,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#questions_2" title="Question(s)" class="md-nav__link">
-    Question(s)
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1123,13 +1081,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#question" title="Question" class="md-nav__link">
-    Question
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1146,13 +1097,6 @@
           <li class="md-nav__item">
   <a href="#walk-through_4" title="Walk Through" class="md-nav__link">
     Walk Through
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#question_1" title="Question" class="md-nav__link">
-    Question
   </a>
   
 </li>
@@ -1216,18 +1160,18 @@ In addition you should have at least one team member investigating the account f
 
 <h2 id="task-1-create-an-iam-user-and-an-iam-policy-with-permission-to-create-customer-managed-policies">Task 1 <small>Create an IAM user and an IAM policy with permission to create customer managed policies</small></h2>
 <p>Build an IAM policy so that web admins can create customer managed policies. They should only be able to edit the policies they create (no other managed policies). We will not be using inline policies for this exercise. <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html">"In most cases, we recommend that you use managed policies instead of inline policies."</a></p>
-<div class="admonition alert">
-<p class="admonition-title">Alert</p>
-<p>As you use the provided IAM policy hints, keep in mind where you need to add the account ID, correctly use the resource restrictions and change the region specified if needed (although if you are taking this as part of an AWS event, please use the Ohio region or us-east-2.) Missing any of these items can cause issues with your policies</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>As you use the provided IAM policy hints in each task, keep in mind where you need to add the account ID, correctly use the resource restrictions and change the region specified if needed (although if you are taking this as part of an AWS event, please use the Ohio region or us-east-2.) Missing any of these items can cause issues with your policies</p>
 </div>
 <h3 id="walk-through">Walk Through</h3>
 <ul>
 <li>Begin by navigating to the <a href="https://console.aws.amazon.com/iam/home">IAM console</a>.</li>
-<li>We will grab the AWS account ID. On the first screen you see in the IAM console (which should be the Dashboard) you will see an <strong>IAM users sign-in link</strong>. Copy that link because you will need the account ID in the URL for the policies and you will need the entire URL when you hand this account to another team for the <strong>VERIFY</strong> phase. 
+<li>First you will grab the AWS account ID. On the first screen you see in the IAM console (which should be the Dashboard) you will see an <strong>IAM users sign-in link</strong>. Copy that link because you will need the account ID in the URL for the policies and you will need the entire URL when you hand this account to another team for the <strong>VERIFY</strong> phase. 
 <img alt="image1" src="../images/iam-dashboard.png" /></li>
 <li>Click <strong>Users</strong> on the left menu and create a new IAM user named <strong><code>webadmin</code></strong>. Check <strong>AWS Management Console access</strong> and then either autogenerate a password or set a custom password. Uncheck <strong>Require password reset</strong>. Attach the AWS managed policies <strong>IAMReadOnlyAccess</strong> &amp; <strong>AWSLambdaReadOnlyAccess</strong> to the user.
 <img alt="image1" src="../images/create-iam-user.png" /></li>
-<li>Next click “Policies” on the left menu. Create a new IAM policy based on the hint below. Attach this policy to the IAM user you created.</li>
+<li>Next click <strong>Policies</strong> on the left menu. Create a new IAM policy based on the hint below. Attach this policy to the IAM user you created.</li>
 </ul>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
@@ -1256,15 +1200,13 @@ In addition you should have at least one team member investigating the account f
 <ul>
 <li>You should login with the <strong>webadmin</strong> IAM user (using a different browser) to verify the user can create a policy (while following the resource restriction.) Use the <strong>IAM users sign-in link</strong> you gathered earlier to login. The permissions assigned to the policy do not matter for the test.</li>
 </ul>
-<h3 id="questions">Question(s)</h3>
 <div class="admonition question">
-<p class="admonition-title">Why are we using resource restrictions here?</p>
-</div>
-<div class="admonition question">
-<p class="admonition-title">There are two ways of doing resource restrictions: naming and pathing. Which option allows you to create policies using both the AWS Console and CLI?</p>
-</div>
-<div class="admonition question">
-<p class="admonition-title">Is there an advantage to using the option that requires you to edit polices via the CLI?</p>
+<p class="admonition-title">Question</p>
+<ul>
+<li>Why are we using resource restrictions here?</li>
+<li>There are two ways of doing resource restrictions: naming and pathing. Which option allows you to create policies using both the AWS Console and CLI?</li>
+<li>Is there an advantage to using the option that requires you to edit polices via the CLI?</li>
+</ul>
 </div>
 <h2 id="task-2-create-an-iam-policy-with-permission-to-create-iam-roles">Task 2 <small>Create an IAM policy with permission to create IAM roles</small></h2>
 <p>Build an IAM policy so that the web admins can create IAM roles (which they will use for AWS Lambda functions.) Web admins should be able to attach to these roles existing AWS and customer managed policies. The web admins should only be able to edit the roles they create, not any other roles. </p>
@@ -1301,9 +1243,10 @@ In addition you should have at least one team member investigating the account f
 <ul>
 <li>From the browser where you are logged into the console as the <strong>webadmin</strong>, verify  you can create a role (while following the resource restriction.) This role should use Lambda as the trusted entity (we will use this role to test the next task). The policy attached to the role do not matter at this point. </li>
 </ul>
-<h3 id="questions_1">Question(s)</h3>
+<h3 id="questions">Question(s)</h3>
 <div class="admonition question">
-<p class="admonition-title">Why do resource restriction matter for roles?</p>
+<p class="admonition-title">Question</p>
+<p>Why do resource restriction matter for roles?</p>
 </div>
 <h2 id="task-3-iam-policy-to-create-lambda-functions">Task 3 <small>IAM policy to create Lambda functions</small></h2>
 <p>The web admins can now create IAM policies and roles, so the next step is to give them permissions to create Lambda functions. They should be able to attach only IAM roles they created to the Lambda functions. In addition they should only be able to edit the Lambda functions they create, no other Lambda functions. </p>
@@ -1349,15 +1292,13 @@ In addition you should have at least one team member investigating the account f
 <ul>
 <li>Again from the browser where you are logged into the console as the <strong>webadmin</strong>, verify the user can create a lambda function (while following the resource restriction.) </li>
 </ul>
-<h3 id="questions_2">Question(s)</h3>
 <div class="admonition question">
-<p class="admonition-title">The scenario where you have admins in an account that need to be able to create IAM polices, roles and Lambda functions is common. The ability to restrict the permissions of the roles attached to the Lambda functions is relatively new though and important to proper least privilege administration. How was this situation handled before permission boundaries came along?</p>
-</div>
-<div class="admonition question">
-<p class="admonition-title">Why do we not allow the web admins to attach any role to Lambda functions? Why do we let the admins only pass IAM roles they create to Lambda functions?</p>
-</div>
-<div class="admonition question">
-<p class="admonition-title">Are resource restrictions in this case of Lambda function creation really necessary?</p>
+<p class="admonition-title">Question</p>
+<ul>
+<li>The scenario where you have admins in an account that need to be able to create IAM polices, roles and Lambda functions is common. The ability to restrict the permissions of the roles attached to the Lambda functions is relatively new though and important to proper least privilege administration. How was this situation handled before permission boundaries came along?</li>
+<li>Why do we not allow the web admins to attach any role to Lambda functions? Why do we let the admins only pass IAM roles they create to Lambda functions?</li>
+<li>Are resource restrictions in this case of Lambda function creation really necessary?</li>
+</ul>
 </div>
 <h2 id="task-4-create-a-permission-boundary">Task 4 <small>Create a permission boundary</small></h2>
 <p>We have policies now so that the web admins can create and edit customer managed policies, roles and Lambda functions. We need to limit the permissions of the roles they create though. If not then the web admins could simply create new policies with full admin rights, attach these to the roles, pass these roles to Lambda functions and escalate their permissions (either intentitionally or inadventently). We will use permission boundaries to limits the effective permissions of the roles. The permission boundary should allow the following <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html">effective permissions</a> for any role created by the web admins:</p>
@@ -1408,9 +1349,9 @@ In addition you should have at least one team member investigating the account f
 <ul>
 <li>How could you test the permission boundary at this point?</li>
 </ul>
-<h3 id="question">Question</h3>
 <div class="admonition question">
-<p class="admonition-title">From the standpoint of the policy language and how it is presented in the console, how does a permission boundary differ from a standard IAM policy?</p>
+<p class="admonition-title">Question</p>
+<p>From the standpoint of the policy language and how it is presented in the console, how does a permission boundary differ from a standard IAM policy?</p>
 </div>
 <h2 id="task-5-create-one-permission-policy-that-incorporate-all-of-the-preceding-tasks-and-add-a-permission-boundary-condition">Task 5 <small>Create one permission policy that incorporate all of the preceding tasks and add a permission boundary condition</small></h2>
 <h3 id="walk-through_4">Walk Through</h3>
@@ -1524,12 +1465,12 @@ In addition you should have at least one team member investigating the account f
 <ul>
 <li>Again from the browser where you are logged into the console as the <strong>webadmin</strong>, verify the user can create a policy, create a role (attaching both a permssion policy and permission boundary to the role) and finally create a Lambda function into which you will pass that role. All of the preceding steps need to be done will also following the resource restrictions.</li>
 </ul>
-<h3 id="question_1">Question</h3>
 <div class="admonition question">
-<p class="admonition-title">Why do we add the Deny for DeletePolicy actions?</p>
-</div>
-<div class="admonition question">
-<p class="admonition-title">What would happen if we didn't deny the ability to delete permission boundaries?</p>
+<p class="admonition-title">Question</p>
+<ul>
+<li>"Why do we add the Deny for DeletePolicy actions?"</li>
+<li>"What would happen if we didn't deny the ability to delete permission boundaries?"</li>
+</ul>
 </div>
 <h2 id="task-6-gather-info-needed-for-the-verify-phase">Task 6 <small>Gather info needed for the <strong>VERIFY</strong> phase</small></h2>
 <h3 id="walk-through_5">Walk Through</h3>
