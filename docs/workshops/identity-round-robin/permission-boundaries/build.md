@@ -87,8 +87,6 @@ Build an IAM policy so that the web admins can create IAM roles (which they will
 
 * From the browser where you are logged into the console as the **webadmin**, verify  you can create a role (while following the resource restriction.) This role should use Lambda as the trusted entity (we will use this role to test the next task). The policy attached to the role do not matter at this point. 
 
-### Question(s)
-
 !!! question 
 	Why do resource restriction matter for roles?
 
