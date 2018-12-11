@@ -1,12 +1,13 @@
-# Permission boundaries round - Overview
+# Permission boundaries round
 
 Hello fellow cloud consultant. Your customer has deployed a three tier web application in production. Different teams work on different aspects of the architecture but they don't always communicate well nor work well together. Just recently the team responsible for the web servers set up a Lambda function that inadvertently impacted the Application team's resources. The VP of Operations was furious. The VP has tasked you with setting up permissions for the web admins so that they can only impact they own resources while still being able to do their job. 
 
-**AWS Service/Feature Coverage**: IAM permission boundaries (For additional reading see the [IAM documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) and this [blog post](https://aws.amazon.com/blogs/security/delegate-permission-management-to-developers-using-iam-permissions-boundaries/)), [IAM Identifiers or resource restrictions](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html), IAM users, IAM roles and AWS Lambda
+**AWS Service/Feature Coverage**: 
 
-Using this workshop as an example, the three elements of a permission boundary are represented below. When your team does the **BUILD** tasks you will act as the admin. When your team does the **VERIFY** tasks you will act as the delegated admin. The delegated admins will create roles that can be considered **"bound"** since they will have permission boundaries attached.  
-
-![mechanism](./images/permission-boundaries.png)
+* AWS IAM [permission boundaries](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) 
+* AWS IAM [identifiers or resource restrictions](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html)
+* AWS IAM [users & roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html)
+* AWS [Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html)
  
 ## Agenda
 
@@ -19,6 +20,10 @@ The round is broken down into first a [**BUILD**](./build.md) phase followed by 
 !!! info "Team or Individual Exercise"
 	This workshop can be done as a team exercise or individually. The instructions are written with assumption that you are working as part of a team but you could just as easily do the steps below on your own. If done as part of an AWS sponsored event then you'll be split into teams of around 4-6 people. Each team will do the **BUILD** phase and then hand off their accounts to another team. Then each team will do the **VERIFY** phase. 
 
+Using this workshop as an example, the three elements of a permission boundary are represented below. When your team does the **BUILD** tasks you will act as the admin. When your team does the **VERIFY** tasks you will act as the delegated admin. The delegated admins will create roles that can be considered **"bound"** since they will have permission boundaries attached.  
+
+![mechanism](./images/permission-boundaries.png)
+
 <!--### Point system
 There is a point system for both the **BUILD** and **VERIFY**  activities. Each team also starts out with a number of points they can exchange for hints for various sections. 
 
@@ -30,11 +35,11 @@ Points earned during **VERIFY** Phase:
 
 ## Presentation
 
-[Workshop Presentation](./presentation.pdf)
+If you are doing this workshop as part of an AWS event then there will usually be a 30 minute presentation before the hands on work. Here is the [presentation deck](./presentation.pdf).
 
 ## Setup Instructions
 
-To setup your environment please expand one of the following dropdowns (depending on how you're doing this workshop) and follow the instructions: 
+To setup your environment please expand one of the following dropdowns (depending on how if you are doing this workshop at an **AWS event** or **individually**) and follow the instructions: 
 
 ??? info "AWS Sponsored Event"
 
@@ -84,7 +89,9 @@ To setup your environment please expand one of the following dropdowns (dependin
 This is an old AWS account though and it is possible there are permission holes lurking around that need to be addressed. Many applications are already locked down via [Organization SCP's](http://) - you do not have visibility or access though into the SCP's in effect for this account. 
 --->
 
-Application architecture: ![architecture](./images/architecture.png)
+??? info "Click here for the account architecture"
+
+	Account architecture: ![architecture](./images/architecture.png)
 
 There are many teams working in this AWS account, including the web admins and the application admins.  The ulimate goal of this workshop is to set up the web admins so they can create a Lambda function to read an S3 bucket while making sure they are not able to impact the resources of other teams. The web admins should only have access to the following resources:
 

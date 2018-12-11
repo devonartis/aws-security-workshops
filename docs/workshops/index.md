@@ -15,7 +15,11 @@
             </tr>
             <tr>
                 <td align="left"><a class="table" href="./threat-detection-remediation/"><strong>Find All the Threats: AWS Threat Detection and Remediation</strong></a></td>
-                <td align="left">This hands-on workshop where you learn about a number of AWS services involved with threat detection and remediation as we walk through some real-world threat scenarios. Learn about the threat detection capabilities of Amazon GuardDuty, Amazon Macie, and the available remediation options. For each hands-on scenario, we review methods to remediate the threat using the following services: AWS CloudTrail, Amazon VPC flow logs, Amazon CloudWatch Events, Amazon Macie, AWS Lambda, Amazon Inspector, Amazon GuardDuty and, of course, Amazon Security Hub.</td>
+                <td align="left"> This hands-on workshop is where you will learn about a number of AWS services involved with threat detection and response as we walk through real-world threat scenarios. Learn about the threat detection capabilities of Amazon GuardDuty, Amazon Macie and AWS Security Hub and the available response options. For each hands-on scenario, we review methods to detect and respond to threats using the following services: AWS CloudTrail, Amazon VPC flow logs, Amazon CloudWatch Events, Amazon Macie, AWS Lambda, Amazon Inspector, Amazon GuardDuty and Amazon Security Hub.</td>
+            </tr>
+                        <tr>
+                <td align="left"><a class="table" href="./identity-round-robin/"><strong>Identity Round Robin </strong></a></td>
+                <td align="left">This workshop is composed of a series of rounds covering a range of identity and access management topics. These topics cover identity in general, not just the AWS IAM service. To that end you will find coverage for platform identity, application identity and infrastructure identity on AWS. Some of the services covered (this is not a complete list) include AWS IAM, AWS CloudTrail, Amazon CloudWatch Events, Amazon S3, AWS Lambda, Amazon Macie, Amazon Inspector and Amazon GuardDuty. </td>
             </tr>
             
         </tbody>

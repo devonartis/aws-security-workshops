@@ -10,17 +10,17 @@ In addition you should have at least one team member investigating the account f
 
 Build an IAM policy so that web admins can create customer managed policies. They should only be able to edit the policies they create (no other managed policies). We will not be using inline policies for this exercise. ["In most cases, we recommend that you use managed policies instead of inline policies."](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html)
 
-!!! alert
-	As you use the provided IAM policy hints, keep in mind where you need to add the account ID, correctly use the resource restrictions and change the region specified if needed (although if you are taking this as part of an AWS event, please use the Ohio region or us-east-2.) Missing any of these items can cause issues with your policies
+!!! Attention
+	As you use the provided IAM policy hints in each task, keep in mind where you need to add the account ID, correctly use the resource restrictions and change the region specified if needed (although if you are taking this as part of an AWS event, please use the Ohio region or us-east-2.) Missing any of these items can cause issues with your policies
 
 ### Walk Through
 
 * Begin by navigating to the [IAM console](https://console.aws.amazon.com/iam/home).
-* We will grab the AWS account ID. On the first screen you see in the IAM console (which should be the Dashboard) you will see an **IAM users sign-in link**. Copy that link because you will need the account ID in the URL for the policies and you will need the entire URL when you hand this account to another team for the **VERIFY** phase. 
+* First you will grab the AWS account ID. On the first screen you see in the IAM console (which should be the Dashboard) you will see an **IAM users sign-in link**. Copy that link because you will need the account ID in the URL for the policies and you will need the entire URL when you hand this account to another team for the **VERIFY** phase. 
 ![image1](./images/iam-dashboard.png)
 * Click **Users** on the left menu and create a new IAM user named **`webadmin`**. Check **AWS Management Console access** and then either autogenerate a password or set a custom password. Uncheck **Require password reset**. Attach the AWS managed policies **IAMReadOnlyAccess** & **AWSLambdaReadOnlyAccess** to the user.
 ![image1](./images/create-iam-user.png)
-* Next click “Policies” on the left menu. Create a new IAM policy based on the hint below. Attach this policy to the IAM user you created.
+* Next click **Policies** on the left menu. Create a new IAM policy based on the hint below. Attach this policy to the IAM user you created.
 
 !!! hint
 	[IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html): You will want to use either naming or pathing resource restrictions in the IAM policy. The question marks "**????**" in the resource element below should be replaced with something that could act as a resource restriction. Examine the existing resources (roles, Lambda functions) to make sure the policy will give access to existing resources owned by the web admins. Replacing the question marks is really the key to this round. 
@@ -46,14 +46,11 @@ Build an IAM policy so that web admins can create customer managed policies. The
 ```
 
 * You should login with the **webadmin** IAM user (using a different browser) to verify the user can create a policy (while following the resource restriction.) Use the **IAM users sign-in link** you gathered earlier to login. The permissions assigned to the policy do not matter for the test.
-	
-### Question(s) 
 
-!!! question "Why are we using resource restrictions here?"
-
-!!! question "There are two ways of doing resource restrictions: naming and pathing. Which option allows you to create policies using both the AWS Console and CLI?"	
-  
-!!! question "Is there an advantage to using the option that requires you to edit polices via the CLI?" 
+!!! question 
+	* Why are we using resource restrictions here?
+	* There are two ways of doing resource restrictions: naming and pathing. Which option allows you to create policies using both the AWS Console and CLI?
+	* Is there an advantage to using the option that requires you to edit polices via the CLI?
 
 ## Task 2 <small>Create an IAM policy with permission to create IAM roles</small>
 		 		
@@ -92,7 +89,8 @@ Build an IAM policy so that the web admins can create IAM roles (which they will
 
 ### Question(s)
 
-!!! question "Why do resource restriction matter for roles?"
+!!! question 
+	Why do resource restriction matter for roles?
 
 ## Task 3 <small>IAM policy to create Lambda functions</small>
 
@@ -138,13 +136,10 @@ The web admins can now create IAM policies and roles, so the next step is to giv
 
 * Again from the browser where you are logged into the console as the **webadmin**, verify the user can create a lambda function (while following the resource restriction.) 
 
-### Question(s)
-
-!!! question "The scenario where you have admins in an account that need to be able to create IAM polices, roles and Lambda functions is common. The ability to restrict the permissions of the roles attached to the Lambda functions is relatively new though and important to proper least privilege administration. How was this situation handled before permission boundaries came along?"
- 	
-!!! question "Why do we not allow the web admins to attach any role to Lambda functions? Why do we let the admins only pass IAM roles they create to Lambda functions?"
-
-!!! question "Are resource restrictions in this case of Lambda function creation really necessary?"
+!!! question 
+	* The scenario where you have admins in an account that need to be able to create IAM polices, roles and Lambda functions is common. The ability to restrict the permissions of the roles attached to the Lambda functions is relatively new though and important to proper least privilege administration. How was this situation handled before permission boundaries came along?
+	* Why do we not allow the web admins to attach any role to Lambda functions? Why do we let the admins only pass IAM roles they create to Lambda functions?
+	* Are resource restrictions in this case of Lambda function creation really necessary?
 
 ## Task 4 <small>Create a permission boundary</small>
 
@@ -196,9 +191,8 @@ We have policies now so that the web admins can create and edit customer managed
 
 * How could you test the permission boundary at this point?
 
-### Question
-
-!!! question "From the standpoint of the policy language and how it is presented in the console, how does a permission boundary differ from a standard IAM policy?"
+!!! question 
+	From the standpoint of the policy language and how it is presented in the console, how does a permission boundary differ from a standard IAM policy?
 
 ## Task 5 <small>Create one permission policy that incorporate all of the preceding tasks and add a permission boundary condition</small>
 
@@ -308,11 +302,9 @@ Note that the policy below contains two additional sections (last two sections i
 
 * Again from the browser where you are logged into the console as the **webadmin**, verify the user can create a policy, create a role (attaching both a permssion policy and permission boundary to the role) and finally create a Lambda function into which you will pass that role. All of the preceding steps need to be done will also following the resource restrictions.
 
-### Question
-
-!!! question "Why do we add the Deny for DeletePolicy actions?"
-
-!!! question "What would happen if we didn't deny the ability to delete permission boundaries?"
+!!! question 
+	* "Why do we add the Deny for DeletePolicy actions?"
+	* "What would happen if we didn't deny the ability to delete permission boundaries?"
 
 ## Task 6 <small>Gather info needed for the **VERIFY** phase</small>
 
