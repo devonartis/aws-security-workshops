@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../assets/images/aws-favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.1.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.0.6">
     
     
       
@@ -46,12 +46,12 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/application.11e41852.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.451f80e5.css">
       
       
     
     
-      <script src="../../../assets/javascripts/modernizr.20ef595d.js"></script>
+      <script src="../../../assets/javascripts/modernizr.1aa3b519.js"></script>
     
     
       
@@ -61,7 +61,6 @@
       
     
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
-    
     
       <link rel="stylesheet" href="../../../stylesheets/custom.css">
     
@@ -973,12 +972,13 @@
 <p>Using this workshop as an example, the three elements of a permission boundary are represented below. When your team does the <strong>BUILD</strong> tasks you will act as the admin. When your team does the <strong>VERIFY</strong> tasks you will act as the delegated admin. The delegated admins will create roles that can be considered <strong>"bound"</strong> since they will have permission boundaries attached.  </p>
 <p><img alt="mechanism" src="images/permission-boundaries.png" /></p>
 <h2 id="agenda">Agenda</h2>
-<blockquote>
-<p>This workshop can be done as a team exercise or individually. The instructions are written with assumption that you are working as part of a team but you could just as easily do the steps below on your own. If done as part of an AWS sponsored event then you'll be split into teams of around 4-6 people. Each team will do the <strong>BUILD</strong> phase and then hand off their accounts to another team. Then each team will do the <strong>VERIFY</strong> phase. </p>
-</blockquote>
-<p>The round is broken down into first a <a href="./permission-boundary-round-build.md"><strong>BUILD</strong></a> phase followed by a <a href="./permission-boundary-round-verify.md"><strong>VERIFY</strong></a> phase. </p>
+<p>The round is broken down into first a <a href="build/"><strong>BUILD</strong></a> phase followed by a <a href="verify/"><strong>VERIFY</strong></a> phase. </p>
 <p><strong>BUILD</strong> (60 min): First each team will carry out the activities involved in the <strong>BUILD</strong> phase where they will set up access for the web admins and properly lock down the account. Then each team will hand credentials for an IAM user in their account to another team to act in the <strong>VERIFY</strong> phase. The <strong>VERIFY</strong> phase lasts about 30 min.</p>
 <p><strong>VERIFY</strong> (30 min): Each team will carry out the <strong>VERIFY</strong> activities as if they were part of the web admins team. The <strong>VERIFY</strong> activities will include validating that the requirements were set up correctly in the <strong>BUILD</strong> phase and also investigate if the web admins are able to take actions that they shouldn't be allowed to.</p>
+<div class="admonition info">
+<p class="admonition-title">Team or Individual Exercise</p>
+<p>This workshop can be done as a team exercise or individually. The instructions are written with assumption that you are working as part of a team but you could just as easily do the steps below on your own. If done as part of an AWS sponsored event then you'll be split into teams of around 4-6 people. Each team will do the <strong>BUILD</strong> phase and then hand off their accounts to another team. Then each team will do the <strong>VERIFY</strong> phase. </p>
+</div>
 <!--### Point system
 There is a point system for both the **BUILD** and **VERIFY**  activities. Each team also starts out with a number of points they can exchange for hints for various sections.
 
@@ -1147,7 +1147,7 @@ This is an old AWS account though and it is possible there are permission holes 
       
     </div>
     
-      <script src="../../../assets/javascripts/application.9e1f3b71.js"></script>
+      <script src="../../../assets/javascripts/application.5e60981f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       

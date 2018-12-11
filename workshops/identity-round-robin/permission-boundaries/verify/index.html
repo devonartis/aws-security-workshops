@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../../assets/images/aws-favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.1.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.0.6">
     
     
       
@@ -46,12 +46,12 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/application.11e41852.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.451f80e5.css">
       
       
     
     
-      <script src="../../../../assets/javascripts/modernizr.20ef595d.js"></script>
+      <script src="../../../../assets/javascripts/modernizr.1aa3b519.js"></script>
     
     
       
@@ -61,7 +61,6 @@
       
     
     <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
-    
     
       <link rel="stylesheet" href="../../../../stylesheets/custom.css">
     
@@ -797,29 +796,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#task-1-create-a-customer-managed-iam-policy" title="Task 1 - Create a customer managed IAM policy" class="md-nav__link">
-    Task 1 - Create a customer managed IAM policy
+  <a href="#task-1-create-a-customer-managed-iam-policy" title="Task 1 Create a customer managed IAM policy" class="md-nav__link">
+    Task 1 Create a customer managed IAM policy
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#task-2-create-an-iam-role" title="Task 2 - Create an IAM role" class="md-nav__link">
-    Task 2 - Create an IAM role
+  <a href="#task-2-create-an-iam-role" title="Task 2 Create an IAM role" class="md-nav__link">
+    Task 2 Create an IAM role
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#task-3-create-a-lambda-function" title="Task 3 - Create a Lambda function" class="md-nav__link">
-    Task 3 - Create a Lambda function
+  <a href="#task-3-create-a-lambda-function" title="Task 3 Create a Lambda function" class="md-nav__link">
+    Task 3 Create a Lambda function
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#task-4-investigate-if-you-are-able-to-do-anything-else" title="Task 4 - Investigate if you are able to do anything else." class="md-nav__link">
-    Task 4 - Investigate if you are able to do anything else.
+  <a href="#task-4-investigate-if-you-are-able-to-do-anything-else" title="Task 4 Investigate if you are able to do anything else" class="md-nav__link">
+    Task 4 Investigate if you are able to do anything else
   </a>
   
 </li>
@@ -895,29 +894,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#task-1-create-a-customer-managed-iam-policy" title="Task 1 - Create a customer managed IAM policy" class="md-nav__link">
-    Task 1 - Create a customer managed IAM policy
+  <a href="#task-1-create-a-customer-managed-iam-policy" title="Task 1 Create a customer managed IAM policy" class="md-nav__link">
+    Task 1 Create a customer managed IAM policy
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#task-2-create-an-iam-role" title="Task 2 - Create an IAM role" class="md-nav__link">
-    Task 2 - Create an IAM role
+  <a href="#task-2-create-an-iam-role" title="Task 2 Create an IAM role" class="md-nav__link">
+    Task 2 Create an IAM role
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#task-3-create-a-lambda-function" title="Task 3 - Create a Lambda function" class="md-nav__link">
-    Task 3 - Create a Lambda function
+  <a href="#task-3-create-a-lambda-function" title="Task 3 Create a Lambda function" class="md-nav__link">
+    Task 3 Create a Lambda function
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#task-4-investigate-if-you-are-able-to-do-anything-else" title="Task 4 - Investigate if you are able to do anything else." class="md-nav__link">
-    Task 4 - Investigate if you are able to do anything else.
+  <a href="#task-4-investigate-if-you-are-able-to-do-anything-else" title="Task 4 Investigate if you are able to do anything else" class="md-nav__link">
+    Task 4 Investigate if you are able to do anything else
   </a>
   
 </li>
@@ -941,8 +940,8 @@
                   <a href="https://github.com/aws-samples/aws-security-workshops/edit/master/docs/workshops/identity-round-robin/permission-boundaries/verify.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="permission-boundaries-round-verify-phase">Permission boundaries round - VERIFY phase</h1>
-<p>We are now in the <strong>VERIFY</strong> phase. It is time to put on the hat of the web admins and test out their access. First you verify that you are able to do what you should be allowed to do. With any remaining time, check if there are other resources in the account that you can access. </p>
+                <h1 id="permission-boundaries-round-verify-phase">Permission boundaries round <small>VERIFY phase</small></h1>
+<p>You are now in the <strong>VERIFY</strong> phase. It is time to put on the hat of the web admins and test out their access. First you verify that you are able to do what you should be allowed to do. With any remaining time, check if there are other resources in the account that you can access. </p>
 <p>You should have receieved from another team the following information:</p>
 <ul>
 <li>IAM users sign-in link:   <strong>https://Account_ID.signin.aws.amazon.com/console</strong></li>
@@ -952,16 +951,15 @@
 <li>Permission boundary name: <strong>webadminpermissionboundary</strong></li>
 <li>Permission policy name: <strong>webadminpermissionpolicy</strong></li>
 </ul>
-<p>The web admins should only have access to the following resources:</p>
+<p>The web admins (you) should only have access to the following resources:</p>
 <ol>
 <li>IAM policies and roles created by the web admins</li>
 <li>Lambda functions created by the web admins</li>
 </ol>
 <p>The web admins should not be able to impact any resources in the account that they do not own including IAM users, roles, S3 buckets, Lambda functions, etc.</p>
-<p>You will be setting up an IAM policy, an IAM role and a Lambda function. The Lambda function should be able to list files in an S3 bucket.</p>
-<p>Application architecture: <img alt="image1" src="../images/architecture.png" />
---&gt;</p>
-<h2 id="task-1-create-a-customer-managed-iam-policy">Task 1 - Create a customer managed IAM policy</h2>
+<p>You will be setting up an IAM policy, an IAM role and a Lambda function. The Lambda function should be able to list files in an S3 bucket. This is how you will verify you are able to do what the web admins are allowed to do.</p>
+<p>Application architecture: <img alt="image1" src="../images/architecture.png" /></p>
+<h2 id="task-1-create-a-customer-managed-iam-policy">Task 1 <small>Create a customer managed IAM policy</small></h2>
 <ul>
 <li>The first step is to create a customer managed IAM policy. This will set the permissions of the role that you will pass to a Lambda function. Since the function will be working with S3 and since the point of this is to show how permission boundaries work, use the following policy which grants basic Lambda logging permissions and S3 full access. </li>
 <li>Keep in mind the resource restrictions put in place which will require you to use a certain name for the policy.</li>
@@ -984,12 +982,12 @@
 </pre></div>
 
 
-<h2 id="task-2-create-an-iam-role">Task 2 - Create an IAM role</h2>
+<h2 id="task-2-create-an-iam-role">Task 2 <small>Create an IAM role</small></h2>
 <ul>
 <li>Next you will create an IAM Role. Choose Lambda as the service for this role. Attach the policy you just created and the permission boundary (which will most likely be named:  <strong>webadminpermissionboundary</strong>)</li>
 <li>Keep in mind the resource restrictions put in place which will require you to use a certain name for the role.</li>
 </ul>
-<h2 id="task-3-create-a-lambda-function">Task 3 - Create a Lambda function</h2>
+<h2 id="task-3-create-a-lambda-function">Task 3 <small>Create a Lambda function</small></h2>
 <ul>
 <li>Finally you will create a <strong>Node.js 8.10</strong> Lambda function using the code below and attach the IAM role you just created to it. You will need to replace <code>"WEB_ADMIN_BUCKET_NAME"</code> with the bucket from the account that begins with <code>"web-admins-"</code>. and ends in <code>"-data"</code></li>
 </ul>
@@ -1019,7 +1017,7 @@
 <ul>
 <li>Test the Lambda function and make sure it is generating logs in CloudWatch logs and that it is able to list the objects in the bucket. In order to test you will need to create a test event. The parameters of the test do not matter.</li>
 </ul>
-<h2 id="task-4-investigate-if-you-are-able-to-do-anything-else">Task 4 - Investigate if you are able to do anything else.</h2>
+<h2 id="task-4-investigate-if-you-are-able-to-do-anything-else">Task 4 <small>Investigate if you are able to do anything else</small></h2>
 <p>The final step is to determine if you can do anything else in the account. Can you impact any resources not owned by the web admins?</p>
                 
                   
@@ -1109,7 +1107,7 @@
       
     </div>
     
-      <script src="../../../../assets/javascripts/application.9e1f3b71.js"></script>
+      <script src="../../../../assets/javascripts/application.5e60981f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
       
