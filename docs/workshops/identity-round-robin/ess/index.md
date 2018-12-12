@@ -57,9 +57,5 @@ Here is a picture of what you will build.
 1. You will need an AWS account and the associated administrative login credentials.
 These may be provided by an event sponsor.
 
-| **SECURITY NOTES** |
-|---|
-| **If you are providing your own account, make sure the account is used only for educational purposes.  The AWS CloudFormation template creates managed roles and policies that allow ANYONE to assume the role that in turn grants access to Amazon S3, AWS CloudTrail, Amazon Macie, Amazon GuardDuty, and Amazon SNS in the account.  This is done because the lab needs to work in a variety of environments.  Make sure you follow the cleanup instructions at the end of the Verify Phase.** |
-
 ## [Click here to proceed to the Build Phase](./build.md)
 

@@ -97,6 +97,29 @@ You should then see the AWS account ID of your account as shown below.
     This shows that AWS CloudTrail logs for your account have started to make their way to the S3 bucket.
 It may take up to five minutes for logs to start appearing.
 
+## Understanding Roles
+
+A role is a security principal, an actor, that has a set of policies and a trust relationship.  A user, an application, or an AWS service can *assume* the role in order to subsititute its own access privileges for those associated with the role.  The *policies* define what AWS actions the role can perform.  The *trust relationshop* defines who is allowed to assume the role.
+
+The CloudFormation stack you just built created two roles. One role is for a Security Administrator who has full access to CloudTrail, GuardDuty, Inspector, and Macie.  The other role is for a Security Operator who, after changes you make later on, will have read-only access to these services.  You are going to switch to the Security Administrator role but before doing so, let's look at the privileges associated with that role so you can see what it does.
+
+1. Go to the IAM console, select **Roles** on the left and search for the string *SecAdministrator*.  Click on the role that you retrieve.
+The policy definition will be similar to the image below.
+
+    ![SecAdministratorRolePolicy](./images/IamEssSecAdminPolicy.png)
+
+    There are five managed policies attached to this role, four of them are provided by AWS for GuardDuty, Inspector, CloudTrail, and SNS.  SNS is included because it provides for a better console experience.  There is a fifth managed policy that was created for Amazon Macie to illustrate how custom managed poicies can be developed.   Feel free to click on each of the managed policies to see the underlying privileges of each.  In particular, notice that no other services such as Amazon EC2 are listed.
+
+2. From the main page of the role, click the **Trust relationships** tab.  You will see a section on the page telling you that the trusted entity (the entity that can assume the role) is the 12-digit AWS account ID as shown below.  This means that any principal in the account can assume the role.
+
+    ![SecAdministratorTrustRel](./images/IamEssAdminTrustRel.png)
+
+3. The internal representation of the trust relatioship is a JSON policy document.  Click **Show policy document**.  You will see a policy similar to that shown in the picture below.
+
+    ![SecAdministratorTrustRel](./images/IamEssAdminTrustPol.png)
+
+    This policy says that every principal in the account is allowed to use the sts:AssumeRole action to take on the identity of the role.  STS stands for *Security Token Service*.  The AssumeRole API associated with the service creates temporary credentials when you call the API that are associated with the security policies of the role including an access key and a secret access key.  Your application then uses these security tokens to make calls to other AWS APIs with the policies defined in the role.
+
 ## Switching to the Security Administrator role
 
 You are now going to learn about how to switch to a new role in the AWS console.
@@ -106,18 +129,9 @@ You can also switch to roles in other AWS accounts to gain access to resources i
 This is known as *cross-account access*.
 You will not be doing *cross-account access* in this lab.
 
-The CloudFormation stack you just built created two roles. One role is for a Security Administrator who has full access to CloudTrail, GuardDuty, Inspector, and Macie.  The other role is for a Security Operator who, after changes you make later on, will have read-only access to these services.  You are going to switch to the Security Administrator role but before doing so, let's look at the privileges associated with that role so you can see what it does.
+1. Go to the CloudFormation console and view the outputs tab of the CloudFormation stack named *esslab* you just built.
 
-1. Go to the IAM console, select **Roles** on the left and search for the string *SecAdmininistrator*.  Click on the role that you retrieve.
-The policy definition will be similar to the image below.
-
-    ![SecAdministratorRolePolicy](./images/IamEssSecAdminPolicy.png)
-
-    There are five managed policies attached to this role, four of them are provided by AWS for GuardDuty, Inspector, CloudTrail, and SNS.  SNS is included because it provides for a better console experience.  There is a fifth managed policy that was created for Amazon Macie to illustrate how custom managed poicies can be developed.   Feel free to click on each of the managed policies to see the underlying privileges of each.  In particular, notice that no other services such as Amazon EC2 are listed.
-
-2. Go to the CloudFormation console and view the outputs tab of the CloudFormation stack named *esslab* you just built.
-
-3. Click on the URL next to SecAdministratorRoleURL.
+2. Click on the URL next to SecAdministratorRoleURL.
 A new browser tab window will appear showing information similar to the image below.
 
     ![SecAdministratorRole](./images/IamEssSwitchSecAdminRole.png)
@@ -133,14 +147,14 @@ You can also select a color that will be used to display the role you assume in 
 
     This means that your *effective* privileges have been *temporarily* replaced with those of the SecAdministrator role.
 
-4.  Go to the Amazon EC2 console.   Notice that you are able to go to the console regardless of your permissions.   The AWS console is a "wrapper" around the underlying EC2 APIs.  Not having EC2 permissions doesn't prevent you from going to the console but you will be unable to do anything once you are in that console.  Notice the error message below.
+3.  Go to the Amazon EC2 console.   Notice that you are able to go to the console regardless of your permissions.   The AWS console is a "wrapper" around the underlying EC2 APIs.  Not having EC2 permissions doesn't prevent you from going to the console but you will be unable to do anything once you are in that console.  Notice the error message below.
 
     ![EC2Console](./images/IamEssEC2Console.png)
 
-5. Now go to the Amazon Inspector Console.  Click **Assessment Runs** and check the box to the left of the instance and click **Run**.
+4. Now go to the Amazon Inspector Console.  Click **Assessment Runs** and check the box to the left of the instance and click **Run**.
 You have just launched an new assessment run which requires administrative access.
 
-6. Now go to the GuardDuty console.
+5. Now go to the GuardDuty console.
 Notice that you are in the console and that you can see the GuardDuty Detector ID.
 You do, however, have an error message at the top as shown below.
 
@@ -150,23 +164,23 @@ You do, however, have an error message at the top as shown below.
 To verify that you do have administrative capabilities, scroll down to the field named *Updated findings* and change the value to **Send notification every 1 hour** and click **Save settings** at the bottom of the window (you may need to scroll down further).
 You will see a message at the top of your window (you may need to scroll up) saying that the settings have been saved.  This shows you do have full access to GuardDuty (but not IAM).
 
-7.  Go to the Macie console, select the US West (Oregon) region, and click on the Content Type icon.
+6.  Go to the Macie console, select the US West (Oregon) region, and click on the Content Type icon.
 You will see a list of file types appear.
 Pick a file type such as *application/cap*, edit it and change the value of the *Enabled* flag to *No - disabled*.
 This shows that you have administrative access to Macie.
 Close the Macie window.
 
-8.  Go back to the console session that you had for GuardDuty and from there go to the CloudTrail console.
+7.  Go back to the console session that you had for GuardDuty and from there go to the CloudTrail console.
 
-9.  Select the trail whose name begins with *esslab*.
+8.  Select the trail whose name begins with *esslab*.
 
-10. Toggle the Logging switch to off.
+9. Toggle the Logging switch to off.
 You will be asked to confirm.
 Click **Continue**.
 Now toggle Logging back to ON.
 This shows that you have administrative access to CloudTrail.
 
-11.  Now that you have confirmed that you have administrative access to Inspector, Macie, GuardDuty, and CloudTrail, you no longer need your temporary permissions.
+10.  Now that you have confirmed that you have administrative access to Inspector, Macie, GuardDuty, and CloudTrail, you no longer need your temporary permissions.
 Click on the SecAdministrator label and select **Back to** on the bottom right of the menu as shown below.  Also note that the console maintains a role history to make it easier for you to switch back to the SecAdministrator role later.
 
     ![SwitchBacktoAdmin](./images/IamSwitchFromSecAdmin.png)
