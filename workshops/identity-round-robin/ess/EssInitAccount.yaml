@@ -943,7 +943,7 @@ Resources:
   SecAdministratorMaciePolicy:
     Type: AWS::IAM::ManagedPolicy
     Properties:
-      Description: 'Policy for Security Operator role'
+      Description: 'Policy for Security Administrator role'
       Path: '/'
       PolicyDocument:
         Version: '2012-10-17'
@@ -980,12 +980,6 @@ Resources:
 #
 # NOTE: Amazon SNS is included because it provides for a cleaner console
 # experience for Amazon Inspector.
-#
-# IMPORTANT SECURITY NOTE:
-#
-# The principal for this role is "*", which allows *ANY* user in *ANY* account
-# to assume this role.  This is *NOT* a best practice and should only be used
-# for lab environments.
 
   SecAdministratorRole:
     Type: AWS::IAM::Role
@@ -996,7 +990,7 @@ Resources:
           - Effect: "Allow"
             Principal: 
               AWS: 
-              - "*"
+              - !Ref AWS::AccountId
             Action: 
             - "sts:AssumeRole"
       ManagedPolicyArns:
@@ -1017,12 +1011,6 @@ Resources:
 #
 # NOTE: This role *initially* is almost identitcal to SecAdministratorMacieRole.
 # You will update the definition in the console as part of the lab exercise.
-#
-# IMPORTANT SECURITY NOTE:
-#
-# The principal for this role is "*", which allows *ANY* user in *ANY* account
-# to assume this role.  This is *NOT* a best practice and should only be used
-# for lab # environments.
 
   SecOperatorRole:
     Type: AWS::IAM::Role
@@ -1033,7 +1021,7 @@ Resources:
           - Effect: "Allow"
             Principal: 
               AWS: 
-              - "*"
+              - !Ref AWS::AccountId
             Action: 
             - "sts:AssumeRole"
       ManagedPolicyArns:
