@@ -23,6 +23,66 @@
 
 }
 
+.md-header-nav__source {
+    margin-left: 0;
+}
+
+/* Language Drop Down */
+.md-header-nav__lang {
+    padding: 0 0.5rem;
+    line-height: 4.8rem;
+    font-family: "Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
+    width: 30px;
+}
+
+.md-lang-drop {
+    position: relative;
+    display: inline-block;
+    font-size: 1.9rem;
+    padding: 2px 0 0 5px;
+}
+
+.md-lang-dropbtn {
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 0px 10px;
+    font-weight: bold;
+}
+
+.md-lang-dropbtn:hover, .md-lang-dropbtn:focus {
+    color: #f8991d;
+}
+
+.md-dropdown-content {
+    display: none;
+    width: 100%;
+    background-color: #f1f1f1;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    overflow: auto;
+}
+
+.md-dropdown-content a {
+    color: black;
+    padding: 0px 10px;
+    text-decoration: none;
+    display: block;
+    line-height: 3rem;
+    font-weight: bold;
+    font-size: 1.3rem;
+  }
+
+.md-dropdown-content a:hover { 
+    color: #f8991d;
+}
+
+.show {
+    display:block;
+}
+
+/* Second Navigation */
+
 .md-tabs {
     background-image: url(../assets/images/second-nav-blue.png);
     background-color: #1f4e79 !important;
@@ -49,6 +109,8 @@
 .table {
     font-size: 1.4rem;
 }
+
+/* Footer */
 
 .md-footer-nav {
     background-image: url(../assets/images/second-nav-blue.png);
