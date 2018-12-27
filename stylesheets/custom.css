@@ -21,6 +21,10 @@
         color: #ffffff;
     }
 
+    html .md-nav--primary .md-nav__title::before {
+        color: #ffffff;
+    }
+
 }
 
 .md-header-nav__source {
