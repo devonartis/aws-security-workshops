@@ -27,6 +27,11 @@
 
 }
 
+.md-tabs__link {
+    font-weight: bold !important;
+    font-size: 1.5rem !important;
+}
+
 .md-header-nav__source {
     margin-left: 0;
 }
