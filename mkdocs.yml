@@ -55,7 +55,7 @@ nav:
   - Workshops: 
     - 'Directory': 'workshops/index.md'
     - 'Detection with Machine Learning': 'workshops/detection-ml/index.md'
-    - 'Find All the Threats': 
+    - 'Scaling threat detection and response on AWS': 
       - 'Overview': 'workshops/threat-detection-remediation/index.md'
       - 'Module 1: Environment Build': 'workshops/threat-detection-remediation/01-environment-setup.md'
       - 'Module 2: Attack Simulation': 'workshops/threat-detection-remediation/02-attack-simulation.md'

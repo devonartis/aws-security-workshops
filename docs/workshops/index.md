@@ -14,8 +14,8 @@
                 <td align="left">This workshop shows how you can use an IP-based machine learning algorithm with Amazon SageMaker to augment and enrich findings from AWS Security services such as Amazon GuardDuty. You'll learn how to load the notebook in SageMaker, train the model, and score findings to determine abnormality of the activity.</td>
             </tr>
             <tr>
-                <td align="left"><a class="table" href="./threat-detection-remediation/"><strong>Find All the Threats: AWS Threat Detection and Remediation</strong></a></td>
-                <td align="left"> This hands-on workshop is where you will learn about a number of AWS services involved with threat detection and response as we walk through real-world threat scenarios. Learn about the threat detection capabilities of Amazon GuardDuty, Amazon Macie and AWS Security Hub and the available response options. For each hands-on scenario, we review methods to detect and respond to threats using the following services: AWS CloudTrail, Amazon VPC flow logs, Amazon CloudWatch Events, Amazon Macie, AWS Lambda, Amazon Inspector, Amazon GuardDuty and Amazon Security Hub.</td>
+                <td align="left"><a class="table" href="./threat-detection-remediation/"><strong>Scaling threat detection and response on AWS</strong></a></td>
+                <td align="left"> This hands-on workshop is where you will learn about a number of AWS services involved with threat detection and response as we walk through real-world threat scenarios. Learn about the threat detection capabilities of AWS services and the available response options. For each hands-on scenario, we review methods to detect and respond to threats using the following services: AWS CloudTrail, Amazon VPC flow logs, Amazon CloudWatch Events, Amazon Macie, AWS Lambda, Amazon Inspector, Amazon GuardDuty and AWS Security Hub.</td>
             </tr>
                         <tr>
                 <td align="left"><a class="table" href="./identity-round-robin/"><strong>Identity Round Robin </strong></a></td>
