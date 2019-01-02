@@ -4,7 +4,7 @@ This workshop is composed of a series of rounds covering a range of identity and
 
 * **Level**: Intermediate - Advanced
 * **Duration**: 6 hours
-* **CAF Functions**: Protect
+* **CSF Functions**: Protect
 * **CAF Components**: Preventive
 * **Prerequisites**: AWS Account, Admin IAM User
 

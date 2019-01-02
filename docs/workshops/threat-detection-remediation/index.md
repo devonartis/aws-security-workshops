@@ -4,7 +4,7 @@ This workshop is designed to help you get familiar with AWS Security services an
 
 * **Level**: Intermediate
 * **Duration**: 2 - 3 hours
-* **CAF Functions**: Detect, Respond, Recover
+* **CSF Functions**: Detect, Respond, Recover
 * **CAF Components**: Detective, Responsive
 * **Prerequisites**: AWS Account, Admin IAM User
 
