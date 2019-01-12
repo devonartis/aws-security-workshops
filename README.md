@@ -16,7 +16,7 @@ Coming soon!
 
 ## To submit an idea:
 
-If you have ideas for topics or scenarios you would like to see included in new workshops please let us know by submitting it as an issue or contacting us directly at [aws-security-workshops@amazon.com](mailto:aws-security-workshops@amazon.com?subject=AWS Security Workshops: Idea Submission).
+If you have ideas for topics or scenarios you would like to see included in new workshops please let us know by submitting it as an issue or contacting us directly at <a href="mailto:aws-security-workshops@amazon.com?subject=AWS Security Workshops: Idea Submission">aws-security-workshops@amazon.com</a>
 
 ## License Summary
 
