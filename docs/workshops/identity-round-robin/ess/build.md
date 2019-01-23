@@ -2,7 +2,7 @@
 
 | IMPORTANT NOTE!  |
 |---|
-| Please make sure you have followed the instructions in the instructions in the **[scenario section](./index.md)** before continuing below. |
+| Please make sure you have read the **[scenario section](./index.md)** before continuing below. |
 
 ## Sign in to AWS
 
