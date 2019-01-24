@@ -1,10 +1,56 @@
-# Permission boundaries round <small>Build Phase</small>
+# Permissions boundaries round <small>Build Phase</small>
 
 Below are a series of tasks to delegate permissions to the web admins. In these tasks you will be creating smaller policies and testing them. In **Task 5** you will combine these policies together into one permission policy. You should create each policy and test it before moving on to the next task. It helps to divide the team into people doing the tasks and people testing things out. So some of the members of the team will be logged in using SSO and following the instructions in the tasks while other members will be logged in as the webadmin user (created in Task 1 below) to test out the work done in each task. 
 
 <!--
 In addition you should have at least one team member investigating the account for potential holes that could be exploited by the web admins. 
 -->
+
+## Setup Instructions
+
+To setup your environment please expand one of the following dropdowns (depending on how if you are doing this workshop at an **AWS event** or **individually**) and follow the instructions: 
+
+??? info "AWS Sponsored Event"
+
+	**Console Login:** if you are attending this workshop at an official AWS event then your team should have the URL and login credentials for your account. This will allow you to login to the account using AWS SSO. Browse to that URL and login. 
+
+	After you login click **AWS Account** box, then click on the Account ID displayed below that (the red box in the image.) You should see a link below that for **Management console**. Click on that and you will be taken the AWS console. 
+
+	![login-page](./images/login.png)
+
+	Make sure the region is set to Ohio (us-east-2)
+
+	**CloudFormation:** Launch the CloudFormation stack below to setup the environment:
+
+	Region| Deploy
+	------|-----
+	US East 2 (Ohio) | [![Deploy permissions boundary round in us-east-2](./images/deploy-to-aws.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/new?stackName=Perm-Bound&templateURL=https://s3-us-west-2.amazonaws.com/sa-security-specialist-workshops-us-west-2/identity-workshop/permissionboundary/identity-workshop-web-admins.yaml)
+
+	1. Click the **Deploy to AWS** button above.  This will automatically take you to the console to run the template.  
+	2. Click **Next** on the **Select Template** section.
+	3. Click **Next** on the **Specify Details** section (the stack name will be prefilled - you can change it or leave it as is)
+	4. Click **Next** on the **Options** section.
+	5. Finally, acknowledge that the template will create IAM roles under **Capabilitie** and click **Create**.
+
+	This will bring you back to the CloudFormation console. You can refresh the page to see the stack starting to create. Before moving on, make sure the stack is in a **CREATE_COMPLETE**.
+
+??? info "Individual"
+
+	Log in to your account however you would normally
+
+	**CloudFormation:** Launch the CloudFormation stack below to setup the environment:
+
+	Region| Deploy
+	------|-----
+	US East 2 (Ohio) | [![Deploy permissions boundary round in us-east-2](./images/deploy-to-aws.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/new?stackName=Perm-Bound&templateURL=https://s3-us-west-2.amazonaws.com/sa-security-specialist-workshops-us-west-2/identity-workshop/permissionboundary/identity-workshop-web-admins.yaml)
+
+	1. Click the **Deploy to AWS** button above.  This will automatically take you to the console to run the template.  
+	2. Click **Next** on the **Select Template** section.
+	3. Click **Next** on the **Specify Details** section (the stack name will be prefilled - you can change it or leave it as is)
+	4. Click **Next** on the **Options** section.
+	5. Finally, acknowledge that the template will create IAM roles under **Capabilitie** and click **Create**.
+
+	This will bring you back to the CloudFormation console. You can refresh the page to see the stack starting to create. Before moving on, make sure the stack is in a **CREATE_COMPLETE**.
 
 ## Task 1 <small>Create an IAM user and an IAM policy with permission to create customer managed policies</small>
 
@@ -135,23 +181,23 @@ The web admins can now create IAM policies and roles, so the next step is to giv
 * Again from the browser where you are logged into the console as the **webadmin**, verify the user can create a lambda function (while following the resource restriction.) 
 
 !!! question 
-	* The scenario where you have admins in an account that need to be able to create IAM polices, roles and Lambda functions is common. The ability to restrict the permissions of the roles attached to the Lambda functions is relatively new though and important to proper least privilege administration. How was this situation handled before permission boundaries came along?
+	* The scenario where you have admins in an account that need to be able to create IAM polices, roles and Lambda functions is common. The ability to restrict the permissions of the roles attached to the Lambda functions is relatively new though and important to proper least privilege administration. How was this situation handled before permissions boundaries came along?
 	* Why do we not allow the web admins to attach any role to Lambda functions? Why do we let the admins only pass IAM roles they create to Lambda functions?
 	* Are resource restrictions in this case of Lambda function creation really necessary?
 
-## Task 4 <small>Create a permission boundary</small>
+## Task 4 <small>Create a permissions boundary</small>
 
-We have policies now so that the web admins can create and edit customer managed policies, roles and Lambda functions. We need to limit the permissions of the roles they create though. If not then the web admins could simply create new policies with full admin rights, attach these to the roles, pass these roles to Lambda functions and escalate their permissions (either intentitionally or inadventently). We will use permission boundaries to limits the effective permissions of the roles. The permission boundary should allow the following [effective permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html) for any role created by the web admins:
+We have policies now so that the web admins can create and edit customer managed policies, roles and Lambda functions. We need to limit the permissions of the roles they create though. If not then the web admins could simply create new policies with full admin rights, attach these to the roles, pass these roles to Lambda functions and escalate their permissions (either intentitionally or inadventently). We will use permissions boundaries to limits the effective permissions of the roles. The permissions boundary should allow the following [effective permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html) for any role created by the web admins:
 
 >	i. Create log groups (but can not overwrite any other log groups)
 
 >	ii. Create log streams and put logs
 
->	iii. List the objects from the S3 bucket name that starts with **"identitywksp-web-admins-applicat-rs3elbaccesslogs"**
+>	iii. List the objects from the S3 bucket name that starts with `"web-admins-"` and ends in `"-data"`
 
 ### Walk Through: 
 
-* Create a new IAM policy that will act as the permission boundary for the web admins. Name the policy **`webadminpermissionboundary`**
+* Create a new IAM policy that will act as the permissions boundary for the web admins. Name the policy **`webadminpermissionboundary`**
 
 !!! hint
 	[IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html): The question marks **`????`** in the resource element below should be replaced with something that could act as a resource restriction. 
@@ -187,27 +233,27 @@ We have policies now so that the web admins can create and edit customer managed
 }
 ```
 
-* How could you test the permission boundary at this point?
+* How could you test the permissions boundary at this point?
 
 !!! question 
-	From the standpoint of the policy language and how it is presented in the console, how does a permission boundary differ from a standard IAM policy?
+	From the standpoint of the policy language and how it is presented in the console, how does a permissions boundary differ from a standard IAM policy?
 
-## Task 5 <small>Create one permission policy that incorporate all of the preceding tasks and add a permission boundary condition</small>
+## Task 5 <small>Create one permission policy that incorporate all of the preceding tasks and add a permissions boundary condition</small>
 
 ### Walk Through
 
 * You have two options here:
 
-1. Combine the policies created so far and reference the permission boundary created in the previous step. 
+1. Combine the policies created so far and reference the permissions boundary created in the previous step. 
 2. Use the complete policy below (with the usual changes.) 
 
-Note that the policy below contains two additional sections (last two sections in the full policy below) that we did not address in the earlier steps. The additions are focused on denying the ability to change or delete the permission policy or the permission boundary. Also the policy below includes the permission boundary conditions and a few other changes because not all actions support the permission boundary condition. 
+Note that the policy below contains two additional sections (last two sections in the full policy below) that we did not address in the earlier steps. The additions are focused on denying the ability to change or delete the permission policy or the permissions boundary. Also the policy below includes the permissions boundary conditions and a few other changes because not all actions support the permissions boundary condition. 
 
 * Name the new policy **`webadminpermissionpolicy`** and attach it to the webadmin user. Remove the earlier policies you added during the testing.
 * When you are done the **webadmin** user should have only three policies attached: webadminpermissionpolicy, IAMReadOnlyAccess & AWSLambdaReadOnlyAccess.
 		
 !!! hint 
-	[Permission boundaries](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html): The question marks **`????`** in the resource elements below should be replaced with something that could act as a resource restriction. 
+	[permissions boundaries](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html): The question marks **`????`** in the resource elements below should be replaced with something that could act as a resource restriction. 
 
 ``` json
 {
@@ -298,11 +344,11 @@ Note that the policy below contains two additional sections (last two sections i
 }
 ```
 
-* Again from the browser where you are logged into the console as the **webadmin**, verify the user can create a policy, create a role (attaching both a permssion policy and permission boundary to the role) and finally create a Lambda function into which you will pass that role. All of the preceding steps need to be done will also following the resource restrictions.
+* Again from the browser where you are logged into the console as the **webadmin**, verify the user can create a policy, create a role (attaching both a permssion policy and permissions boundary to the role) and finally create a Lambda function into which you will pass that role. All of the preceding steps need to be done will also following the resource restrictions. 
 
 !!! question 
 	* "Why do we add the Deny for DeletePolicy actions?"
-	* "What would happen if we didn't deny the ability to delete permission boundaries?"
+	* "What would happen if we didn't deny the ability to delete permissions boundaries?"
 
 ## Task 6 <small>Gather info needed for the **VERIFY** phase</small>
 
@@ -316,7 +362,7 @@ Here are all of the details you need to pass to another team. If you following t
 * IAM user name:	**webadmin**
 * IAM user password:	
 * Resource restriction identifier:	
-* Permission boundary name: **webadminpermissionboundary**
+* permissions boundary name: **webadminpermissionboundary**
 * Permission policy name: **webadminpermissionpolicy**
 
 !!! tip 
