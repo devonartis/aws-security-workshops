@@ -79,7 +79,7 @@ You can refresh the browser window to update the status.
 
     ![Account output](./images/IamEssOutputStack.png)
 
-    The output value assigned to *LoggingBucketName*  is the name of the bucket into which AWS CloudTrail will deliver its logs.
+    The output value assigned to *LoggingBucketName*  is the name of the bucket into which AWS CloudTrail will deliver its logs.  Copy the value of *LoggingBucketName* to a scratch file on your workstation so you have it available later.
 
     The value assigned to *SecAdministratorRoleURL* is a URL that you will use later in the lab to temporarily "switch to" (meaning take on the access privileges of) a Securty Administrator role.   This role has full administrative privileges for AWS CloudTrail, Amazon GuardDuty, Amazon Inspector, and Amazon Macie.
 
@@ -87,9 +87,9 @@ You can refresh the browser window to update the status.
 
 8. Let's take a look at CloudTrail logging.  The most important part of collecting AWS CloudTrail information into an Amazon S3 bucket is setting the correct permissions on the Amazon S3 bucket.
 
-    Go to the S3 console, select the value assigned to*LoggingBucketName*, click on **Permissions**, and then Click on **Bucket Policy**.  Note that the policy allows the CloudTrail service to read the ACL of the *LoggingBucket* and also to create logs with prefixes containing the AWS account ID. you can read more about this policy at this [link](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.html).
+    Go to the S3 console, check the box next to the bucket with the name assigned to *LoggingBucketName* which you note in Step 7, click on **Permissions**, and then Click on **Bucket Policy**.  Note that the policy allows the CloudTrail service to read the ACL of the *LoggingBucket* and also to create logs with prefixes containing the AWS account ID. you can read more about this policy at this [link](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.html).
 
-9. Go to the S3 console, select *LoggingBucketName*.  Now click the **Overview** tab and then click the **AWSLogs** folder prefix.
+9. Go to the S3 console, check the box next to the bucket with the name *LoggingBucketName*.  Click on **Properties**. Now click the **Overview** tab and then click the **AWSLogs** folder prefix.
 You should then see the AWS account ID of your account as shown below.
 
     ![LoggingBucket](./images/IamEssBucket.png)
