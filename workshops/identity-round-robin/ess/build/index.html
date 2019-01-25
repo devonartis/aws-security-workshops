@@ -995,16 +995,16 @@ You can refresh the browser window to update the status.</p>
 <li>
 <p>Take a look at the outputs for the <strong>esslab</strong> CloudFormation stack.  They will look similar to the picture below.</p>
 <p><img alt="Account output" src="../images/IamEssOutputStack.png" /></p>
-<p>The output value assigned to <em>LoggingBucketName</em>  is the name of the bucket into which AWS CloudTrail will deliver its logs.</p>
+<p>The output value assigned to <em>LoggingBucketName</em>  is the name of the bucket into which AWS CloudTrail will deliver its logs.  Copy the value of <em>LoggingBucketName</em> to a scratch file on your workstation so you have it available later.</p>
 <p>The value assigned to <em>SecAdministratorRoleURL</em> is a URL that you will use later in the lab to temporarily "switch to" (meaning take on the access privileges of) a Securty Administrator role.   This role has full administrative privileges for AWS CloudTrail, Amazon GuardDuty, Amazon Inspector, and Amazon Macie.</p>
 <p>The value assigned to <em>SecOperatorRoleURL</em> is a URL that you will use later in the lab to temporarily "switch to" a Securty Operator role.   You will later modify the policy associated with this role so it only has "read only" privileges for AWS CloudTrail, Amazon GuardDuty, Amazon Inspector, and Amazon Macie.</p>
 </li>
 <li>
 <p>Let's take a look at CloudTrail logging.  The most important part of collecting AWS CloudTrail information into an Amazon S3 bucket is setting the correct permissions on the Amazon S3 bucket.</p>
-<p>Go to the S3 console, select the value assigned to<em>LoggingBucketName</em>, click on <strong>Permissions</strong>, and then Click on <strong>Bucket Policy</strong>.  Note that the policy allows the CloudTrail service to read the ACL of the <em>LoggingBucket</em> and also to create logs with prefixes containing the AWS account ID. you can read more about this policy at this <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.html">link</a>.</p>
+<p>Go to the S3 console, check the box next to the bucket with the name assigned to <em>LoggingBucketName</em> which you note in Step 7, click on <strong>Permissions</strong>, and then Click on <strong>Bucket Policy</strong>.  Note that the policy allows the CloudTrail service to read the ACL of the <em>LoggingBucket</em> and also to create logs with prefixes containing the AWS account ID. you can read more about this policy at this <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.html">link</a>.</p>
 </li>
 <li>
-<p>Go to the S3 console, select <em>LoggingBucketName</em>.  Now click the <strong>Overview</strong> tab and then click the <strong>AWSLogs</strong> folder prefix.
+<p>Go to the S3 console, check the box next to the bucket with the name <em>LoggingBucketName</em>.  Click on <strong>Properties</strong>. Now click the <strong>Overview</strong> tab and then click the <strong>AWSLogs</strong> folder prefix.
 You should then see the AWS account ID of your account as shown below.</p>
 <p><img alt="LoggingBucket" src="../images/IamEssBucket.png" /></p>
 <p>This shows that AWS CloudTrail logs for your account have started to make their way to the S3 bucket.
