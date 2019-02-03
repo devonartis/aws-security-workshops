@@ -103,12 +103,12 @@ A role is a security principal, an actor, that has a set of policies and a trust
 
 The CloudFormation stack you just built created two roles. One role is for a Security Administrator who has full access to CloudTrail, GuardDuty, Inspector, and Macie.  The other role is for a Security Operator who, after changes you make later on, will have read-only access to these services.  You are going to switch to the Security Administrator role but before doing so, let's look at the privileges associated with that role so you can see what it does.
 
-1. Go to the IAM console, select **Roles** on the left and search for the string *SecAdministrator*.  Click on the role that you retrieve.
+1. Go to the IAM console, select **Roles** on the left and search for the string *SecAdministrator*.  You can search either by using your browser's search capability or you can type *SecAdministrator* into the search box.  Click on the role that you retrieve.
 The policy definition will be similar to the image below.
 
     ![SecAdministratorRolePolicy](./images/IamEssSecAdminPolicy.png)
 
-    There are five managed policies attached to this role, four of them are provided by AWS for GuardDuty, Inspector, CloudTrail, and SNS.  SNS is included because it provides for a better console experience.  There is a fifth managed policy that was created for Amazon Macie to illustrate how custom managed poicies can be developed.   Feel free to click on each of the managed policies to see the underlying privileges of each.  In particular, notice that no other services such as Amazon EC2 are listed.
+    There are five managed policies attached to this role, four of them are provided by AWS for GuardDuty, Inspector, CloudTrail, and SNS.  SNS is included because it provides for a better console experience.  There is a fifth managed policy that was created for Amazon Macie to illustrate how custom managed poicies can be developed.   Click on each of the managed policies to see the underlying privileges of each.  Note that there are some services, such as Amazon EFS (Elastic File System), that are not granted by any of these policies.  You will confirm this lack of access later in this workshop.
 
 2. From the main page of the role, click the **Trust relationships** tab.  You will see a section on the page telling you that the trusted entity (the entity that can assume the role) is the 12-digit AWS account ID as shown below.  This means that any principal in the account can assume the role.
 
@@ -131,7 +131,7 @@ You will not be doing *cross-account access* in this lab.
 
 1. Go to the CloudFormation console and view the outputs tab of the CloudFormation stack named *esslab* you just built.
 
-2. Click on the URL next to SecAdministratorRoleURL.
+2. Click on the URL next to *SecAdministratorRoleURL*.  You may need to scroll down to see it.
 A new browser tab window will appear showing information similar to the image below.
 
     ![SecAdministratorRole](./images/IamEssSwitchSecAdminRole.png)
@@ -147,9 +147,9 @@ You can also select a color that will be used to display the role you assume in 
 
     This means that your *effective* privileges have been *temporarily* replaced with those of the SecAdministrator role.
 
-3.  Go to the Amazon EC2 console.   Notice that you are able to go to the console regardless of your permissions.   The AWS console is a "wrapper" around the underlying EC2 APIs.  Not having EC2 permissions doesn't prevent you from going to the console but you will be unable to do anything once you are in that console.  Notice the error message below.
+3.  Go to the Amazon EFS console.  Notice that you get a message telling you that you do not have access to any of the features of the console.  This is because none of the underlying policies grant any access to any part of Amazon EFS.
 
-    ![EC2Console](./images/IamEssEC2Console.png)
+    ![EFSConsole](./images/IamEssEFSConsole.png)
 
 4. Now go to the Amazon Inspector Console.  Click **Assessment Runs** and check the box to the left of the instance and click **Run**.
 You have just launched an new assessment run which requires administrative access.
