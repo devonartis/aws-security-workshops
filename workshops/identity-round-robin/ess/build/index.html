@@ -1083,13 +1083,10 @@ Close the Macie window.</p>
 <p>Go back to the console session that you had for GuardDuty and from there go to the CloudTrail console.</p>
 </li>
 <li>
-<p>Click the Trails menu item and then select the trail whose name begins with <em>esslab</em>.</p>
+<p>Click <strong>Trails</strong> and then click the trail whose name begins with <em>esslab</em>.</p>
 </li>
 <li>
-<p>Toggle the Logging switch to OFF.
-You will be asked to confirm.
-Click <strong>Continue</strong>.
-Now toggle Logging back to ON.
+<p>Toggle the Logging switch to OFF.  You will be asked to confirm.  Click <strong>Continue</strong>.  Now toggle Logging back to ON.
 This shows that you have administrative access to CloudTrail.</p>
 </li>
 <li>
@@ -1147,13 +1144,13 @@ You can also select a color that will be used to display the role you assume in 
 <p>Now go to the Amazon Inspector Console.  Click <strong>Assessment Templates</strong> and check the box to the left of the template name that begins with <em>LampInspectorAssessmentTemplate</em> and click <strong>Run</strong>.  After several seconds you will see an error message telling you that you are not authorized to call the StartAssessmentRun action.</p>
 </li>
 <li>
-<p>Now go to the GuardDuty console, click <strong>Settings</strong> and try to modify the <strong>Updated findings</strong> field.  You will see an error message telling you that you are not authorized to perform the UpdateDetector action.
+<p>Now go to the GuardDuty console, click <strong>Settings</strong> and modify the <strong>Updated findings</strong> field and click *<em>Save settings</em>.  You will see an error message telling you that you are not authorized to perform the UpdateDetector action (the message may appear beneath the first IAM error message).
 This is because you have read-only access to GuardDuty.</p>
 </li>
 <li>
 <p>Go to the Macie console, select the US West (Oregon) region, click on <strong>Settings</strong> and click on the Content Type icon.
 You will see a list of file types appear.
-Pick a file type such as <em>application/cap</em>, edit it and change the value of the <em>Enabled</em> flag and click Save.
+Pick a file type such as <em>application/cap</em>, edit it and change the value of the <em>Enabled</em> flag and click <strong>Save</strong>.
 You will receive an error message because you have read-only access to Macie.
 Close the Macie window.</p>
 </li>
@@ -1161,15 +1158,11 @@ Close the Macie window.</p>
 <p>Go back to the console session that you had for GuardDuty and from there go to the CloudTrail console.</p>
 </li>
 <li>
-<p>Select the trail whose name begins with <em>esslab</em>.</p>
+<p>Click <strong>Trails</strong> and click the trail whose name begins with <em>esslab</em>.</p>
 </li>
 <li>
-<p>Toggle the Logging switch to OFF.</p>
+<p>Toggle the Logging switch to OFF.  Click <strong>Continue</strong>.  You will receive an error message because you have read-only access to CloudTrail.</p>
 </li>
-</ol>
-<p>Click <strong>Continue</strong>.
-You will receive an error message because you have read-only access to CloudTrail.</p>
-<ol>
 <li>
 <p>Now switch back to your default role.
 After you to this the SecOperator role label will no longer appear on your console.</p>
