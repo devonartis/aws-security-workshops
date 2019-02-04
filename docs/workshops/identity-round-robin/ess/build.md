@@ -151,7 +151,7 @@ You can also select a color that will be used to display the role you assume in 
 
     ![EFSConsole](./images/IamEssEFSConsole.png)
 
-4. Now go to the Amazon Inspector Console.  Click **Assessment Runs** and check the box to the left of the instance and click **Run**.
+4. Now go to the Amazon Inspector Console.  Click **Assessment Templates* and check the box to the left of the template name that begins with *LampInspectorAssessmentTemplate* and click **Run**.
 You have just launched an new assessment run which requires administrative access.
 
 5. Now go to the GuardDuty console and select the Settings menu item..
@@ -211,7 +211,8 @@ Also modify the SecOperatorMacie policy so that it provides read-only access to 
     <summary><strong>Click here to expand</strong></summary><p>
     <br/>
 
-    Here are some links that offer information that may be helpful to you.
+    Here are some links that offer information that may be helpful to you.  Open them in a *new* browser tab for more information.
+
 
     [Controlling access to Amazon CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/control-user-permissions-for-cloudtrail.html)
 
@@ -223,7 +224,7 @@ Also modify the SecOperatorMacie policy so that it provides read-only access to 
 
     </details>
 
-4. Go to the CloudFormation console and view the outputs tab of the CloudFormation stack named *esslab* you just built.
+4. Go to the CloudFormation console and view the outputs tab of the CloudFormation stack named *esslab* you built earlier.
 
 5. Click on the URL next to SecOperatorRoleURL.
 A new browser tab window will appear showing information similar to the image below.
@@ -241,9 +242,8 @@ You can also select a color that will be used to display the role you assume in 
 
     This means that your *effective* privileges have been *temporarily*  replaced with those of the SecOperator role.
 
-6. Now go to the Amazon Inspector Console.  Click **Assessment Runs** and check the box to the left of the instance and click **Run**.
-After several seconds you will see an error message telling you that you are not authorized to call the StartAssessmentRun action.
-This is because you have read-only access to Inspector.
+6. Now go to the Amazon Inspector Console.  Click **Assessment Templates* and check the box to the left of the template name that begins with *LampInspectorAssessmentTemplate* and click **Run**.  After several seconds you will see an error message telling you that you are not authorized to call the StartAssessmentRun action.|TY<>|
+
 
 7. Now go to the GuardDuty Console and try to modify the **Updated findings** field.  You will see an error message telling you that you are not authorized to perform the UpdateDetector action.
 This is because you have read-only access to GuardDuty.
@@ -259,7 +259,8 @@ Close the Macie window.
 9.  Select the trail whose name begins with *esslab*.
 
 10. Toggle the Logging switch to off.
-You will be asked to confirm.
+|TY<>|
+
 Click **Continue**.
 You will receive an error message because you have read-only access to CloudTrail.
 
