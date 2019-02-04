@@ -151,7 +151,7 @@ You can also select a color that will be used to display the role you assume in 
 
     ![EFSConsole](./images/IamEssEFSConsole.png)
 
-4. Now go to the Amazon Inspector Console.  Click **Assessment Templates* and check the box to the left of the template name that begins with *LampInspectorAssessmentTemplate* and click **Run**.
+4. Now go to the Amazon Inspector Console.  Click **Assessment Templates** and check the box to the left of the template name that begins with *LampInspectorAssessmentTemplate* and click **Run**.
 You have just launched an new assessment run which requires administrative access.
 
 5. Now go to the GuardDuty console and select the Settings menu item..
@@ -242,7 +242,7 @@ You can also select a color that will be used to display the role you assume in 
 
     This means that your *effective* privileges have been *temporarily*  replaced with those of the SecOperator role.
 
-6. Now go to the Amazon Inspector Console.  Click **Assessment Templates* and check the box to the left of the template name that begins with *LampInspectorAssessmentTemplate* and click **Run**.  After several seconds you will see an error message telling you that you are not authorized to call the StartAssessmentRun action.|TY<>|
+6. Now go to the Amazon Inspector Console.  Click **Assessment Templates** and check the box to the left of the template name that begins with *LampInspectorAssessmentTemplate* and click **Run**.  After several seconds you will see an error message telling you that you are not authorized to call the StartAssessmentRun action.
 
 
 7. Now go to the GuardDuty Console and try to modify the **Updated findings** field.  You will see an error message telling you that you are not authorized to perform the UpdateDetector action.
