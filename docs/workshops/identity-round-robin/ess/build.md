@@ -245,7 +245,7 @@ You can also select a color that will be used to display the role you assume in 
 6. Now go to the Amazon Inspector Console.  Click **Assessment Templates** and check the box to the left of the template name that begins with *LampInspectorAssessmentTemplate* and click **Run**.  After several seconds you will see an error message telling you that you are not authorized to call the StartAssessmentRun action.
 
 
-7. Now go to the GuardDuty Console and try to modify the **Updated findings** field.  You will see an error message telling you that you are not authorized to perform the UpdateDetector action.
+7. Now go to the GuardDuty console, click **Settings** and try to modify the **Updated findings** field.  You will see an error message telling you that you are not authorized to perform the UpdateDetector action.
 This is because you have read-only access to GuardDuty.
 
 8.  Go to the Macie console, select the US West (Oregon) region, click on **Settings** and click on the Content Type icon.
@@ -258,8 +258,7 @@ Close the Macie window.
 
 9.  Select the trail whose name begins with *esslab*.
 
-10. Toggle the Logging switch to off.
-|TY<>|
+10. Toggle the Logging switch to OFF.
 
 Click **Continue**.
 You will receive an error message because you have read-only access to CloudTrail.
