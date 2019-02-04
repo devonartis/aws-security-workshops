@@ -26,7 +26,7 @@ Depending on how you're doing this workshop, expand one of the following dropdow
 
 ## Verify the Security Operator role
 
-1. Go to the CloudFormation console and view the outputs tab of the CloudFormation stack named *esslab* you just built.
+1. Go to the CloudFormation console and view the outputs tab of the CloudFormation stack named *esslab*.
 
 2. Click on the URL next to SecOperatorRoleURL.
 A new browser tab window will appear showing information similar to the image below.
@@ -44,16 +44,14 @@ You can also select a color that will be used to display the role you assume in 
 
     This means that your *effective* privileges have been *temporarily*  replaced with those of the SecOperator role.
 
-3. Now go to the Amazon Inspector Console.  Click **Assessment Runs** and check the box to the left of the instance and click **Run**.
-After several seconds you will see an error message telling you that you are not authorized to call the StartAssessmentRun action.
+3. Now go to the Amazon Inspector Console.  Click **Assessment Templates** and check the box to the left of the template name that begins with *LampInspectorAssessmentTemplate* and click **Run**.  After several seconds you will see an error message telling you that you are not authorized to call the StartAssessmentRun action.
 This is because you have read-only access to Inspector.
 
-4. Now go to the GuardDuty Console and try to modify the **Updated findings** field.  You will see an error message telling you that you are not authorized to perform the UpdateDetector action.
-This is because you have read-only access to GuardDuty.
+4. Now go to the GuardDuty console, click **Settings**, change the **Updated findings** field, and click **Save settings**.  You will see an error message telling you that you are not authorized to perform the UpdateDetector action (the message may appear beneath the first IAM error message).  This is because you have read-only access to GuardDuty.
 
 5.  Go to the Macie console, select the us-west-2 region, click on **Settings** and click on the Content Type icon.
 You will see a list of file types appear.
-Pick a file type such as *application/cap*, edit it and change the value of the *Enabled* flag and click Save.
+Pick a file type such as *application/cap*, edit it and change the value of the *Enabled* flag and click **Save**.
 You will receive an error message because you have read-only access to Macie.
 Close the Macie window.
 
@@ -61,13 +59,9 @@ Close the Macie window.
 
 7.  Select the trail whose name begins with *esslab*.
 
-8. Toggle the Logging switch to off.
-You will be asked to confirm.
-Click **Continue**.
-You will receive an error message because you have read-only access to CloudTrail.
+8. Toggle the Logging switch to OFF.  You will be asked to confirm.  Click **Continue**.  You will receive an error message because you have read-only access to CloudTrail.
 
-9. Now switch back to your default role.
-After you to this the SecOperator role label will no longer appear on your console.
+9. Now switch back to your default role.  After you to this the SecOperator role label will no longer appear on your console.
 
 ## Discuss your findings
 
