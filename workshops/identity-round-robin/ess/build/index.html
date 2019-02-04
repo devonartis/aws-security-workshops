@@ -1073,7 +1073,7 @@ Notice that you have an error message at the top as shown below.</p>
 You will see a message at the top of your window (you may need to scroll up) saying that the settings have been saved.  This shows you do have full access to <em>GuardDuty</em> (but, again, not to <em>IAM</em>).</p>
 </li>
 <li>
-<p>Go to the Macie console, select the US West (Oregon) region, clikck Settings, and click on the Content Type icon.
+<p>Go to the Macie console, select the US West (Oregon) region, click Settings, and click on the Content Type icon.
 You will see a list of file types appear.
 Pick a file type such as <em>application/cap</em>, click the edit widget (it looks like a pencil), change the value of the <em>Enabled</em> flag to <em>No - disabled</em>.
 This shows that you have administrative access to Macie.
@@ -1083,10 +1083,10 @@ Close the Macie window.</p>
 <p>Go back to the console session that you had for GuardDuty and from there go to the CloudTrail console.</p>
 </li>
 <li>
-<p>Select the trail whose name begins with <em>esslab</em>.</p>
+<p>Click the Trails menu item and then select the trail whose name begins with <em>esslab</em>.</p>
 </li>
 <li>
-<p>Toggle the Logging switch to off.
+<p>Toggle the Logging switch to OFF.
 You will be asked to confirm.
 Click <strong>Continue</strong>.
 Now toggle Logging back to ON.
@@ -1114,7 +1114,7 @@ The managed policies for Inspector, GuardDuty, and CloudTrail still provide full
 The Macie policy (whose name contains <em>SecOperatorMaciePolicy</em>), despite its name, still provides full access to Macie.</p>
 </li>
 <li>
-<p>Remove the AmazonInspectorFullAccess, AmazonGuardDutyFullAccess, and Amazon InspectorFullAccess policies by click on the removal crosses as shown by the arrows.
+<p>Remove the AmazonCloudTrailFullAccess, AmazonGuardDutyFullAccess, and Amazon InspectorFullAccess policies by click on the removal crosses as shown by the arrows.
 Add read-only access policies for Inspector, CloudTrail, and GuardDuty.
 Also modify the SecOperatorMacie policy so that it provides read-only access to Macie.</p>
 <p>If you need some hints, open the dropdown below.</p>
