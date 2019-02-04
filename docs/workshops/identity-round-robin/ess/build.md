@@ -164,7 +164,7 @@ Notice that you have an error message at the top as shown below.
     To verify that you do have administrative capabilities, scroll down to the field named *Updated findings* and change the value to **Send notification every 1 hour** and click **Save settings** at the bottom of the window (you may need to scroll down further).
 You will see a message at the top of your window (you may need to scroll up) saying that the settings have been saved.  This shows you do have full access to *GuardDuty* (but, again, not to *IAM*).
 
-6.  Go to the Macie console, select the US West (Oregon) region, clikck Settings, and click on the Content Type icon.
+6.  Go to the Macie console, select the US West (Oregon) region, click Settings, and click on the Content Type icon.
 You will see a list of file types appear.
 Pick a file type such as *application/cap*, click the edit widget (it looks like a pencil), change the value of the *Enabled* flag to *No - disabled*.
 This shows that you have administrative access to Macie.
@@ -172,9 +172,9 @@ Close the Macie window.
 
 7.  Go back to the console session that you had for GuardDuty and from there go to the CloudTrail console.
 
-8.  Select the trail whose name begins with *esslab*.
+8.  Click the Trails menu item and then select the trail whose name begins with *esslab*.
 
-9. Toggle the Logging switch to off.
+9. Toggle the Logging switch to OFF.
 You will be asked to confirm.
 Click **Continue**.
 Now toggle Logging back to ON.
@@ -201,7 +201,7 @@ The role will have permissions similar to those shown in the picture below.
 The managed policies for Inspector, GuardDuty, and CloudTrail still provide full access to the services.  The SNS policy has already been changed to provide read-only access to SNS.
 The Macie policy (whose name contains *SecOperatorMaciePolicy*), despite its name, still provides full access to Macie.
 
-3.  Remove the AmazonInspectorFullAccess, AmazonGuardDutyFullAccess, and Amazon InspectorFullAccess policies by click on the removal crosses as shown by the arrows.
+3.  Remove the AmazonCloudTrailFullAccess, AmazonGuardDutyFullAccess, and Amazon InspectorFullAccess policies by click on the removal crosses as shown by the arrows.
 Add read-only access policies for Inspector, CloudTrail, and GuardDuty.
 Also modify the SecOperatorMacie policy so that it provides read-only access to Macie.
 
