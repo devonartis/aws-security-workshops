@@ -54,7 +54,7 @@ nav:
       - Verify Phase: 'builder-sessions/permission-boundary/verify.md'
   - Workshops: 
     - 'Directory': 'workshops/index.md'
-    - 'Detection with Machine Learning': 'workshops/detection-ml/index.md'
+    - 'Detection with Machine Learning': 'https://ml-threat-detection.awssecworkshops.com/'
     - 'Identity Round Robin': 
       - 'Overview': 'workshops/identity-round-robin/index.md'
       - 'Serverless Round':
