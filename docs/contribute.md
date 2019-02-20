@@ -43,11 +43,13 @@ GitHub provides additional document on [forking a repository](https://help.githu
 ## Finding contributions to work on
 Looking at the existing issues is a great way to find something to contribute on. As our projects, by default, use the default GitHub issue labels ((enhancement/bug/duplicate/help wanted/invalid/question/wontfix), looking at any ['help wanted'](https://github.com/aws-samples/aws-security-workshops/labels/help%20wanted) issues is a great place to start. 
 
+You can also contact us directly at <a href="mailto:aws-security-workshops@amazon.com?subject=AWS Security Workshops: Idea Submission">aws-security-workshops@amazon.com</a>
+
 
 ## Code of Conduct
 This project has adopted the [Amazon Open Source Code of Conduct](https://aws.github.io/code-of-conduct). 
 For more information see the [Code of Conduct FAQ](https://aws.github.io/code-of-conduct-faq) or contact 
-opensource-codeofconduct@amazon.com with any additional questions or comments.
+ <a href="mailto:opensource-codeofconduct@amazon.com">opensource-codeofconduct@amazon.com</a> with any additional questions or comments.
 
 
 ## Security issue notifications
