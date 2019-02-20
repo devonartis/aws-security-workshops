@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../assets/images/aws-favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.1.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.0.6">
     
     
       
@@ -46,12 +46,12 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.11e41852.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.451f80e5.css">
       
       
     
     
-      <script src="../assets/javascripts/modernizr.20ef595d.js"></script>
+      <script src="../assets/javascripts/modernizr.1aa3b519.js"></script>
     
     
       
@@ -61,7 +61,6 @@
       
     
     <link rel="stylesheet" href="../assets/fonts/material-icons.css">
-    
     
       <link rel="stylesheet" href="../stylesheets/custom.css">
     
@@ -391,22 +390,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-an-admin-user" title="Create an admin user" class="md-nav__link">
-    Create an admin user
+  <a href="#create-an-iam-user-with-admin-permissions" title="Create an IAM user  (with admin permissions) " class="md-nav__link">
+    Create an IAM user  (with admin permissions) 
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#add-credits-optional" title="Add credits (optional)" class="md-nav__link">
-    Add credits (optional)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-a-cloud9-instance-optional" title="Create a Cloud9 instance (optional)" class="md-nav__link">
-    Create a Cloud9 instance (optional)
+  <a href="#add-credits-optional" title="Add credits  (optional) " class="md-nav__link">
+    Add credits  (optional) 
   </a>
   
 </li>
@@ -822,22 +814,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-an-admin-user" title="Create an admin user" class="md-nav__link">
-    Create an admin user
+  <a href="#create-an-iam-user-with-admin-permissions" title="Create an IAM user  (with admin permissions) " class="md-nav__link">
+    Create an IAM user  (with admin permissions) 
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#add-credits-optional" title="Add credits (optional)" class="md-nav__link">
-    Add credits (optional)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-a-cloud9-instance-optional" title="Create a Cloud9 instance (optional)" class="md-nav__link">
-    Create a Cloud9 instance (optional)
+  <a href="#add-credits-optional" title="Add credits  (optional) " class="md-nav__link">
+    Add credits  (optional) 
   </a>
   
 </li>
@@ -863,8 +848,8 @@
                 
                 <h1 id="getting-started">Getting Started</h1>
 <h2 id="create-an-aws-account">Create an AWS account</h2>
-<p>In order to complete these workshops, you'll need a valid, usable <a href="https://aws.amazon.com/getting-started/" target="_blank">AWS Account</a>. Use a personal account or create a new AWS account to ensure you have the necessary access and that you do not accidentally modify corporate resources. Do <strong>not</strong> use an AWS account from the company you work for. </p>
-<h2 id="create-an-admin-user">Create an admin user</h2>
+<p>In order to complete the hands-on content on this site, you'll need an <a href="https://aws.amazon.com/getting-started/" target="_blank">AWS Account</a>. We strongly recommend that you use a personal account or create a new AWS account to ensure you have the necessary access and that you do not accidentally modify corporate resources. Do <strong>not</strong> use an AWS account from the company you work for unless they provide sandbox accounts just for this purpose.</p>
+<h2 id="create-an-iam-user-with-admin-permissions">Create an IAM user <small> (with admin permissions) </small></h2>
 <p>If you don't already have an AWS IAM user with admin permissions, please use the following instructions to create one:</p>
 <ol>
 <li>Browse to the <a href="https://console.aws.amazon.com/iam/" target="_blank">AWS IAM</a> console.</li>
@@ -874,15 +859,14 @@
 <li>Click <strong>Create User</strong></li>
 <li>Click <strong>Dashboard</strong> on the left navigation and use the <strong>IAM users sign-in link</strong> to login as the admin user you just created.</li>
 </ol>
-<h2 id="add-credits-optional">Add credits (optional)</h2>
-<p>If you are doing this workshop as part of an AWS sponsored event, you will receive credits to cover the costs.  Below are the instructions for entering the credits:</p>
+<h2 id="add-credits-optional">Add credits <small> (optional) </small></h2>
+<p>If you are doing this workshop as part of an AWS sponsored event that doesn't provide AWS accounts, you will receive credits to cover the costs.  Below are the instructions for entering the credits:</p>
 <ol>
 <li>Browse to the <a href="https://console.aws.amazon.com/billing/home?#/credits" target="_blank">AWS Account Settings</a> console.</li>
 <li>Enter the <strong>Promo Code</strong> you received (these will be handed out at the beginning of the workshop).</li>
 <li>Enter the <strong>Security Check</strong> and click <strong>Redeem</strong>.</li>
 </ol>
-<h2 id="create-a-cloud9-instance-optional">Create a Cloud9 instance (optional)</h2>
-<p>If the workshop you are doing requires you to run commands or scripts you will need to launch a an <a href="https://aws.amazon.com/cloud9/" target="_blank">AWS Cloud9</a> instance which will provide you with a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser. The workshop instructions will specify if this needed.  Below are the instructions for launching an instance:</p>
+<details class="info"><summary>Click here if the workshop you are doing requires a Cloud9 instance</summary><p>If the workshop you are doing requires you to run commands or scripts you will need to launch a an <a href="https://aws.amazon.com/cloud9/" target="_blank">AWS Cloud9</a> instance which will provide you with a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser. The workshop instructions will specify if this needed.  Below are the instructions for launching an instance:</p>
 <ol>
 <li>Browse to the <a href="https://console.aws.amazon.com/cloud9" target="_blank">AWS Cloud9</a> console.</li>
 <li>Click <strong>Create environment</strong> on the right side.</li>
@@ -891,6 +875,7 @@
 <li>Click <strong>Create environment</strong>.</li>
 <li>The environment will open automatically after it has been provisioned.  Browse back to the <a href="https://console.aws.amazon.com/cloud9" target="_blank">AWS Cloud9</a> console and you can click <strong>Open IDE</strong> on the environment you created to access it at anytime.</li>
 </ol>
+</details>
 <p>You are now setup for the workshops!</p>
                 
                   
@@ -980,7 +965,7 @@
       
     </div>
     
-      <script src="../assets/javascripts/application.9e1f3b71.js"></script>
+      <script src="../assets/javascripts/application.5e60981f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
       
