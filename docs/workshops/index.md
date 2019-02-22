@@ -10,7 +10,7 @@
         </thead>
         <tbody>
             <tr>
-                <td align="left"><a class="table" target="_blank" href="https://github.com/aws-samples/data-protection"><strong>Data Protection</strong></a></td>
+                <td align="left"><a class="table" target="_blank" href="https://data-protection.awssecworkshops.com/"><strong>Data Protection</strong></a></td>
                 <td align="left">These set of workshops demonstrate concepts of Data protection using services such as AWS KMS and AWS Certificate manager. You will learn about server side encryption, client side encryption - with and without data key caching and how AWS private certificate authority can be used to create private certificates for private domains or devices.</td>
             </tr>
             <tr>
