@@ -54,20 +54,9 @@ nav:
       - Verify Phase: 'builder-sessions/permission-boundary/verify.md'
   - Workshops: 
     - 'Directory': 'workshops/index.md'
+    - 'Data Protection': 'https://data-protection.awssecworkshops.com/'
     - 'Detection with Machine Learning': 'https://ml-threat-detection.awssecworkshops.com/'
-    - 'Identity Round Robin': 
-      - 'Overview': 'workshops/identity-round-robin/index.md'
-      - 'Serverless Round':
-        - 'Scenario': 'workshops/identity-round-robin/serverless/index.md'
-        - 'Build Phase': 'workshops/identity-round-robin/serverless/build.md'
-        - 'Verify Phase': 'workshops/identity-round-robin/serverless/verify.md'
-      - 'Security Services Round':
-        - 'Scenario': 'workshops/identity-round-robin/ess/index.md'
-        - 'Build Phase': 'workshops/identity-round-robin/ess/build.md'
-        - 'Verify Phase': 'workshops/identity-round-robin/ess/verify.md'
-      - 'Permission Boundary Round':
-        - 'Scenario': 'workshops/identity-round-robin/permission-boundaries/index.md'
-        - 'Build Phase': 'workshops/identity-round-robin/permission-boundaries/build.md'
-        - 'Verify Phase': 'workshops/identity-round-robin/permission-boundaries/verify.md'
+    - 'Identity Round Robin': 'https://identity-round-robin.awssecworkshops.com/'
+    - 'Scaling threat detection': 'https://scaling-threat-detection.awssecworkshops.com/'
   - Contributing: 'contribute.md'
   - License: 'license.md'

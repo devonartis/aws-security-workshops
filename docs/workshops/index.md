@@ -18,7 +18,7 @@
                 <td align="left">This workshop shows how you can use an IP-based machine learning algorithm with Amazon SageMaker to augment and enrich findings from AWS Security services such as Amazon GuardDuty. You'll learn how to load the notebook in SageMaker, train the model, and score findings to determine abnormality of the activity.</td>
             </tr>
             <tr>
-                <td align="left"><a class="table" href="./identity-round-robin/"><strong>Identity Round Robin </strong></a></td>
+                <td align="left"><a class="table" target="_blank" href="https://identity-round-robin.awssecworkshops.com/"><strong>Identity Round Robin </strong></a></td>
                 <td align="left"> "Identity Round Robin" is a collection of identity workshops covering a range of identity and access management topics. Each workshop can be done separately and there is no dependency between the workshops. These topics cover identity in general, not just the AWS IAM service. To that end you will find coverage for platform identity, application identity and infrastructure identity on AWS. Some of the services covered include AWS IAM, AWS CloudTrail, Amazon CloudWatch Events, Amazon S3, AWS Lambda, Amazon Macie, Amazon Inspector AWS Security Hub and Amazon GuardDuty. Each round (workshop) is 2 hours long with 30 minutes devoted to a presentation and 1.5 hours of hands on work. 
                     <ul>
                         <li><strong>Level</strong>: 300</li>
