@@ -108,7 +108,7 @@
 .md-typeset table:not([class]) th {
     min-width: 15rem;
     background-color: #6c6c6c !important;
-    font-size: 1.5rem;
+    font-size: medium;
 }
 
 .md-typeset table:not([class]) td {
@@ -116,7 +116,7 @@
 }
 
 .table {
-    font-size: 1.4rem;
+    font-size: medium;
 }
 
 /* Footer */
