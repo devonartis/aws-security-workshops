@@ -4,8 +4,6 @@ Permission boundaries is probably one of the most important new IAM features tha
 
 ![mechanism](./images/permission-boundaries.png)
 
-[Presentation deck](./presentation.pdf)
-
 ## Environment Setup
 
 ??? note "AWS Sponsored Event"
