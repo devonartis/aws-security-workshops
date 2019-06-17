@@ -29,6 +29,17 @@
                 </td>
             </tr>
             <tr>
+                <td align="left"><a class="table" target="_blank" href="http://protecting-workloads.awssecworkshops.com/workshop/"><strong>Protecting Workloads from the Instance to the Edge</strong></a></td>
+                <td align="left">Your mission in this workshop is to use AWS Web Application Firewall (WAF), Inspector and Amazon Systems Manager to help build an effective set of controls around your AWS workloads. You will learn to use AWS WAF to mitigate common attack vectors against web applications such as SQL injection and Cross Site Scripting. You will also learn how to use Amazon Inspector and Amazon Systems Manager to automate security assessments and operational tasks such as patching and configuration management across your EC2 fleet.  
+                    <ul>
+                        <li><strong>Level</strong>: 300</li>
+                        <li><strong>Duration</strong>: 2 hours </li>
+                        <li><strong>NIST CSF Functions</strong>: Protect</li>
+                        <li><strong>CAF Components</strong>: Preventive</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
                 <td align="left"><a class="table" href="https://scaling-threat-detection.awssecworkshops.com/" target="_blank"><strong>Scaling threat detection and response on AWS</strong></a></td>
                 <td align="left"> This hands-on workshop is where you will learn about a number of AWS services involved with threat detection and response as we walk through real-world threat scenarios. Learn about the threat detection capabilities of Amazon GuardDuty, Amazon Macie and AWS Security Hub and the available response options. For each hands-on scenario, we review methods to detect and respond to threats using the following services: AWS CloudTrail, Amazon VPC flow logs, Amazon CloudWatch Events, Amazon Macie, AWS Lambda, Amazon Inspector, Amazon GuardDuty and Amazon Security Hub.
                     <ul>
