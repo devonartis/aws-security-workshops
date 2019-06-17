@@ -3,7 +3,7 @@
 ![Components](assets/images/csf-core-functions.png "NIST Cybersecurity Framework Core Functions")
 
 !!! info "6/17/2019 - Latest workshop addition"
-    <a class="table" target="_blank" href="http://protecting-workloads.awssecworkshops.com/workshop/"><strong>Protecting Workloads from the Instance to the Edge</strong></a>
+    <a class="table" target="_blank" href="http://protecting-workloads.awssecworkshops.com/workshop/"><strong>Protecting workloads on AWS from the instance to the edge</strong></a>
 
     Your mission in this workshop is to use AWS Web Application Firewall (WAF), Inspector and Amazon Systems Manager to help build an effective set of controls around your AWS workloads. You will learn to use AWS WAF to mitigate common attack vectors against web applications such as SQL injection and Cross Site Scripting. You will also learn how to use Amazon Inspector and Amazon Systems Manager to automate security assessments and operational tasks such as patching and configuration management across your EC2 fleet. 
 

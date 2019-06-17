@@ -29,7 +29,7 @@
                 </td>
             </tr>
             <tr>
-                <td align="left"><a class="table" target="_blank" href="http://protecting-workloads.awssecworkshops.com/workshop/"><strong>Protecting Workloads from the Instance to the Edge</strong></a></td>
+                <td align="left"><a class="table" target="_blank" href="http://protecting-workloads.awssecworkshops.com/workshop/"><strong>Protecting workloads on AWS from the instance to the edge</strong></a></td>
                 <td align="left">Your mission in this workshop is to use AWS Web Application Firewall (WAF), Inspector and Amazon Systems Manager to help build an effective set of controls around your AWS workloads. You will learn to use AWS WAF to mitigate common attack vectors against web applications such as SQL injection and Cross Site Scripting. You will also learn how to use Amazon Inspector and Amazon Systems Manager to automate security assessments and operational tasks such as patching and configuration management across your EC2 fleet.  
                     <ul>
                         <li><strong>Level</strong>: 300</li>
