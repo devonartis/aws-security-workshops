@@ -57,6 +57,7 @@ nav:
     - 'Data Protection': 'https://data-protection.awssecworkshops.com/'
     - 'Detection with Machine Learning': 'https://ml-threat-detection.awssecworkshops.com/'
     - 'Identity Round Robin': 'https://identity-round-robin.awssecworkshops.com/'
+    - ' Finding and addressing Network Misconfigurations': 'https://validating-network-reachability.awssecworkshops.com/'
     - 'Protecting Workloads from the Instance to the Edge': 'http://protecting-workloads.awssecworkshops.com/workshop/'
     - 'Scaling threat detection': 'https://scaling-threat-detection.awssecworkshops.com/'
   - Contributing: 'contribute.md'
