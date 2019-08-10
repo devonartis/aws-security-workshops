@@ -56,6 +56,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc></loc>
+     
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://awssecworkshops.com/contribute/</loc>
      <lastmod>2019-08-09</lastmod>
      <changefreq>daily</changefreq>
