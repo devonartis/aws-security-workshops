@@ -2,12 +2,12 @@
 
 ![Components](assets/images/csf-core-functions.png "NIST Cybersecurity Framework Core Functions")
 
-<!--
-!!! info "6/17/2019 - Latest workshop addition"
-    <a class="table" target="_blank" href="http://protecting-workloads.awssecworkshops.com/workshop/"><strong>Protecting workloads on AWS from the instance to the edge</strong></a>
 
-    Your mission in this workshop is to use AWS Web Application Firewall (WAF), Inspector and Amazon Systems Manager to help build an effective set of controls around your AWS workloads. You will learn to use AWS WAF to mitigate common attack vectors against web applications such as SQL injection and Cross Site Scripting. You will also learn how to use Amazon Inspector and Amazon Systems Manager to automate security assessments and operational tasks such as patching and configuration management across your EC2 fleet. 
--->
+!!! info "8/9/2019 - Latest workshop addition"
+    <a class="table" target="_blank" href="https://validating-network-reachability.awssecworkshops.com/"><strong>Finding and addressing Network Misconfigurations on AWS</strong></a>
+
+    In this workshop you will learn how to use the Amazon Inspector Network Reachability report to validate your network configuration without needing a deep background in networking. You will use this report to find misconfigurations that may result in unintended behaviors and unexpected vulnerabilities. You will finish the workshop by remediating these vulnerabilities by integrating the findings of Amazon Inspector with other AWS services. 
+
 
 Welcome to the AWS security workshops portal! Here you will find a collection of workshops and other hands-on content aimed at helping you gain an understanding of the AWS service ecosystem and introduce you to a variety of best practices that can be applied to securing your environments and workloads running in AWS.
 
