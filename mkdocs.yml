@@ -52,6 +52,7 @@ nav:
     - Permission Boundaries: 
       - Build Phase: 'builder-sessions/permission-boundary/build.md'
       - Verify Phase: 'builder-sessions/permission-boundary/verify.md'
+    - 'Native Infrastructure Security': 'http://ec2-infra-sec.awssecworkshops.com/'
   - Workshops: 
     - 'Directory': 'workshops/index.md'
     - 'Data Protection': 'https://data-protection.awssecworkshops.com/'

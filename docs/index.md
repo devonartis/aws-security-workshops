@@ -3,11 +3,10 @@
 ![Components](assets/images/csf-core-functions.png "NIST Cybersecurity Framework Core Functions")
 
 
-!!! info "8/9/2019 - Latest workshop addition"
-    <a class="table" target="_blank" href="https://validating-network-reachability.awssecworkshops.com/"><strong>Finding and addressing Network Misconfigurations on AWS</strong></a>
+!!! info "9/17/2019 - Latest builder session addition"
+    <a class="table" target="_blank" href="https://ec2-infra-sec.awssecworkshops.com"><strong>Mitigate Risks Using Cloud-Native Infrastructure Security </strong></a>
 
-    In this workshop you will learn how to use the Amazon Inspector Network Reachability report to validate your network configuration without needing a deep background in networking. You will use this report to find misconfigurations that may result in unintended behaviors and unexpected vulnerabilities. You will finish the workshop by remediating these vulnerabilities by integrating the findings of Amazon Inspector with other AWS services. 
-
+    In this hands-on builder session, we help you identify which cloud-native solutions can mitigate the same risks while providing scalability, reliability, and cost optimization at a low operational burden. During this workshop, you will learn how to use cloud native controls like CloudTrail, Security Groups, GuardDuty and many more, to secure your cloud architecture. 
 
 Welcome to the AWS security workshops portal! Here you will find a collection of workshops and other hands-on content aimed at helping you gain an understanding of the AWS service ecosystem and introduce you to a variety of best practices that can be applied to securing your environments and workloads running in AWS.
 
