@@ -16,6 +16,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc></loc>
+     
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://awssecworkshops.com/builder-sessions/permission-boundary/build/</loc>
      <lastmod>2019-09-17</lastmod>
      <changefreq>daily</changefreq>
@@ -23,11 +28,6 @@
     <url>
      <loc>https://awssecworkshops.com/builder-sessions/permission-boundary/verify/</loc>
      <lastmod>2019-09-17</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc></loc>
-     
      <changefreq>daily</changefreq>
     </url>
     <url>
