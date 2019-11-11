@@ -36,4 +36,9 @@ If you are doing this workshop as part of an AWS sponsored event that doesn't pr
 	5.  Click **Create environment**.
 	6.  The environment will open automatically after it has been provisioned.  Browse back to the <a href="https://console.aws.amazon.com/cloud9" target="_blank">AWS Cloud9</a> console and you can click **Open IDE** on the environment you created to access it at anytime.
 
-You are now setup for the workshops!
+## Choose your workshop
+
+You are now setup for the workshops!  The site is broken down into two different types.  Click on one of the types below to be taken to the directory:
+
+* **[Builder Sessions](/builder-sessions/)** - A 1 hour hands-on deep dive focused on a specific topic or AWS service.
+* **[Workshops](/workshops/)** - A 2 hour hands-on deep dive using a broader set of AWS services together and covering multiple aspects of a particular security domain. 
