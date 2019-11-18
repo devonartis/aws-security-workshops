@@ -2,12 +2,13 @@
 
 ![Components](assets/images/csf-core-functions.png "NIST Cybersecurity Framework Core Functions")
 
-<!--
-!!! info "9/17/2019 - Latest builder session addition"
-    <a class="table" target="_blank" href="https://ec2-infra-sec.awssecworkshops.com"><strong>Mitigate Risks Using Cloud-Native Infrastructure Security </strong></a>
+!!! info "11/18/2019 - Latest builder session addition"
+    <a class="table" target="_blank" href="https://secrets-manager.awssecworkshops.com/RDSFargate/"><strong>Using AWS Secrets Manager with Amazon RDS and AWS Fargate</strong></a>
 
-    In this hands-on builder session, we help you identify which cloud-native solutions can mitigate the same risks while providing scalability, reliability, and cost optimization at a low operational burden. During this workshop, you will learn how to use cloud native controls like CloudTrail, Security Groups, GuardDuty and many more, to secure your cloud architecture. 
--->
+    This Secrets Manager Builder Session guides you through the use of AWS Secrets Manager with Amazon RDS and AWS Fargate. In the first phase of the Builder Session, you will access the RDS data base with Secrets Manager. You will then use Secrets Manager to rotate the data base password. You will then use Secrets Manager to access the data base again to show that you can continue to access the data base after the rotation.
+
+    In the second phase of the Builder Session, you will extend your use of Secrets Manager into an AWS Fargate container. You will create an Amazon ECS task definition to pass secrets to the Fargate container and then launch the Fargate container. You will then SSH into the container to show that the secret was passed to the container and that you can access the RDS data base. 
+
 Welcome to the AWS security workshops portal! Here you will find a collection of workshops and other hands-on content aimed at helping you gain an understanding of the AWS service ecosystem and introduce you to a variety of best practices that can be applied to securing your environments and workloads running in AWS.
 
 Security and Compliance is a <a href="https://aws.amazon.com/compliance/shared-responsibility-model/" target="_blank">shared responsibility</a> between AWS and the customer. AWS is responsible for protecting the infrastructure which runs all of the services offered and this responsibility is known as the **Security of the Cloud**. AWS customers benefit from a data center and network architecture built to satisfy the requirements of the most security-sensitive organizations. Customers responsibility, known as the **Security in the Cloud**, is determined by which services the customer chooses to use.

@@ -49,10 +49,11 @@ nav:
   - Getting Started: 'getting-started.md'
   - Builder Sessions:
     - Directory: 'builder-sessions/index.md'
-    - 'Native Infrastructure Security': 'http://ec2-infra-sec.awssecworkshops.com/'
+    - 'Native Infrastructure Security': 'https://ec2-infra-sec.awssecworkshops.com/'
     - Permission Boundaries: 
       - Build Phase: 'builder-sessions/permission-boundary/build.md'
       - Verify Phase: 'builder-sessions/permission-boundary/verify.md'
+    - 'Using AWS Secrets Manager with Amazon RDS and AWS Fargate': 'https://secrets-manager.awssecworkshops.com/RDSFargate/'
   - Workshops: 
     - 'Directory': 'workshops/index.md'
     - 'Access Delegation': 'https://identity-round-robin.awssecworkshops.com/delegation/'
