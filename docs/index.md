@@ -2,7 +2,7 @@
 
 ![Components](assets/images/csf-core-functions.png "NIST Cybersecurity Framework Core Functions")
 
-!!! info "11/18/2019 - Latest workshop"
+!!! info "12/08/2019 - Latest workshop"
     <a class="table" target="_blank" href="https://serverless-idm.awssecworkshops.com"><strong>AWS Identity: Using Amazon Cognito for serverless consumer apps</strong></a>
 
     In this workshop, you learn how to build a serverless customer-facing microservices application demonstrating end-to-end authentication and authorization using Amazon Cognito, Amazon API Gateway, AWS Lambda, and all things AWS Identity and Access Management (IAM). You have the opportunity to build an end-to-end functional app with a secure identity provider showcasing user authentication patterns.
