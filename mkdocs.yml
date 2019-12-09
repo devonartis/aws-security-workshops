@@ -57,6 +57,7 @@ nav:
   - Workshops: 
     - 'Directory': 'workshops/index.md'
     - 'Access Delegation': 'https://identity-round-robin.awssecworkshops.com/delegation/'
+    - 'Amazon Cognito for serverless consumer apps': 'https://serverless-idm.awssecworkshops.com/'
     - 'Data Protection': 'https://data-protection.awssecworkshops.com/'
     - 'Detection with Machine Learning': 'https://ml-threat-detection.awssecworkshops.com/'
     - 'Finding and addressing Network Misconfigurations': 'https://validating-network-reachability.awssecworkshops.com/'

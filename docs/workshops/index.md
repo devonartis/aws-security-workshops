@@ -23,6 +23,17 @@
                 </td>
             </tr>
             <tr>
+                <td align="left"><a class="table" target="_blank" href="https://identity-round-robin.awssecworkshops.com/delegation/"><strong>AWS Identity: Using Amazon Cognito for serverless consumer apps</strong></a></td>
+                <td align="left">In this workshop, you learn how to build a serverless customer-facing microservices application demonstrating end-to-end authentication and authorization using Amazon Cognito, Amazon API Gateway, AWS Lambda, and all things AWS Identity and Access Management (IAM). You have the opportunity to build an end-to-end functional app with a secure identity provider showcasing user authentication patterns.
+                    <ul>
+                        <li><strong>Level</strong>: 400</li>
+                        <li><strong>Duration</strong>: 2 hours</li>
+                        <li><strong>NIST CSF Functions</strong>: Protect</li>
+                        <li><strong>CAF Components</strong>: Preventive</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
                 <td align="left"><a class="table" target="_blank" href="https://identity-round-robin.awssecworkshops.com/permission-boundaries-advanced/"><strong>Permissions boundaries: how to delegate permissions on AWS</strong></a></td>
                 <td align="left">In this workshop, you learn how to secure access permissions for multiple teams operating in a single AWS account. We provide an example three-tier web application running in production, and you practice delegating permissions to web administrators so they can modify only their own resources without impacting the permissions needed to do their job.All attendees need a laptop, an active AWS Account, an AWS IAM Administrator, and a familiarity with core AWS services. 
                     <ul>
