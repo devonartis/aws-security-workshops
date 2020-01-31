@@ -144,3 +144,29 @@
         </tbody>
     </table>
 </div>
+
+## DevSecOps
+
+<div class="md-typeset__table">
+    <table>
+        <thead>
+            <tr>
+                <th align="left" ><strong>Title</strong></th>
+                <th align="left"><strong>Description</strong></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td align="left"><a class="table" target="_blank" href="https://devops.awssecworkshops.com/"><strong>DevSecOps: Integrating security into pipelines</strong></a></td>
+                <td align="left">In this workshop, you practice running an environment with a test and production deployment pipeline. Along the way, we cover topics such as static code analysis, dynamic infrastructure review, and workflow types. You also learn how to update your process in response to security events. As an example, we write new AWS Lambda functions, aligned with controls, to automate security at scale.
+                    <ul>
+                        <li><strong>Level</strong>: 300</li>
+                        <li><strong>Duration</strong>: 2 hours</li>
+                        <li><strong>NIST CSF Functions</strong>: Protect</li>
+                        <li><strong>CAF Components</strong>: Preventive</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
