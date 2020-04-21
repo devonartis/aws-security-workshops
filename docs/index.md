@@ -2,10 +2,10 @@
 
 ![Components](assets/images/csf-core-functions.png "NIST Cybersecurity Framework Core Functions")
 
-!!! info "1/31/2020 - Latest workshop"
-    <a class="table" target="_blank" href="https://devops.awssecworkshops.com/"><strong>DevSecOps: Integrating security into pipelines</strong></a>
+!!! info "4/21/2020 - Latest builder session"
+    <a class="table" target="_blank" href="https://hands-on-guardduty.awssecworkshops.com/"><strong>Getting hands-on with Amazon GuardDuty</strong></a>
 
-    In this workshop, you practice running an environment with a test and production deployment pipeline. Along the way, we cover topics such as static code analysis, dynamic infrastructure review, and workflow types. You also learn how to update your process in response to security events. As an example, we write new AWS Lambda functions, aligned with controls, to automate security at scale.
+    In this hands-on builder session, you will walk through a scenario covering threat detection and remediation using Amazon GuardDuty; a managed threat detection service. The scenario simulates an attack that spans a few threat vectors, representing just a small sample of the threats that GuardDuty is able to detect.  In addition, you will look at how to view and analyze GuardDuty findings, how to send alerts based on the findings, and, finally, how to remediate findings.
 
 Welcome to the AWS security workshops portal! Here you will find a collection of workshops and other hands-on content aimed at helping you gain an understanding of the AWS service ecosystem and introduce you to a variety of best practices that can be applied to securing your environments and workloads running in AWS.
 

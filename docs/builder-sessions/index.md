@@ -9,6 +9,18 @@
             </tr>
         </thead>
         <tbody>
+        <tr>
+                <td align="left"><a class="table" target="_blank" href="https://hands-on-guardduty.awssecworkshops.com/"><strong>Getting hands-on with Amazon GuardDuty</strong></a></td>
+                <td align="left">In this hands-on builder session, you will walk through a scenario covering threat detection and remediation using Amazon GuardDuty; a managed threat detection service. The scenario simulates an attack that spans a few threat vectors, representing just a small sample of the threats that GuardDuty is able to detect.  In addition, you will look at how to view and analyze GuardDuty findings, how to send alerts based on the findings, and, finally, how to remediate findings.
+                    <ul>
+                        <li><strong>Level</strong>: Intermediate</li>
+                        <li><strong>Duration</strong>: 1 hour</li>
+                        <li><strong>NIST CSF Functions</strong>: Protect, Detect, Respond</li>
+                        <li><strong>CAF Components</strong>: Preventative, Detective, Responsive</li>
+                        <li><strong>Services</strong>: Amazon CloudWatch, Amazon GuardDuty, AWS CloudTrail, AWS Lambda, Security Groups, Amazon SNS</li>
+                    </ul>
+                </td>
+            </tr>
             <tr>
                 <td align="left"><a class="table" target="_blank" href="https://ec2-infra-sec.awssecworkshops.com"><strong>Mitigate Risks Using Cloud-Native Infrastructure Security</strong></a></td>
                 <td align="left">In this hands-on builder session, we help you identify which cloud-native solutions can mitigate the same risks while providing scalability, reliability, and cost optimization at a low operational burden. During this workshop, you will learn how to use cloud native controls like CloudTrail, Security Groups, GuardDuty and many more, to secure your cloud architecture. 

@@ -10,7 +10,7 @@ repo_name: 'aws-samples/aws-security-workshops'
 repo_url: 'https://github.com/aws-samples/aws-security-workshops'
 
 # Copyright
-copyright: '&copy; 2018, Amazon Web Services, Inc. or its affiliates. All rights reserved.'
+copyright: '&copy; 2020, Amazon Web Services, Inc. or its affiliates. All rights reserved.'
 
 # Configuration
 theme:
@@ -49,6 +49,7 @@ nav:
   - Getting Started: 'getting-started.md'
   - Builder Sessions:
     - Directory: 'builder-sessions/index.md'
+    - 'Hands-on with Amazon GuardDuty': 'https://hands-on-guardduty.awssecworkshops.com/'
     - 'Native Infrastructure Security': 'https://ec2-infra-sec.awssecworkshops.com/'
     - Permission Boundaries: 
       - Build Phase: 'builder-sessions/permission-boundary/build.md'
