@@ -2,10 +2,14 @@
 
 ![Components](assets/images/csf-core-functions.png "NIST Cybersecurity Framework Core Functions")
 
-!!! info "4/21/2020 - Latest builder session"
-    <a class="table" target="_blank" href="https://hands-on-guardduty.awssecworkshops.com/"><strong>Getting hands-on with Amazon GuardDuty</strong></a>
+!!! info "6/1/2020 - Latest workshop"
+    <a class="table" target="_blank" href="https://vul-mgmt-program.awssecworkshops.com/"><strong>Build a Vulnerability Management Program Using AWS for AWS</strong></a>
 
-    In this hands-on builder session, you will walk through a scenario covering threat detection and remediation using Amazon GuardDuty; a managed threat detection service. The scenario simulates an attack that spans a few threat vectors, representing just a small sample of the threats that GuardDuty is able to detect.  In addition, you will look at how to view and analyze GuardDuty findings, how to send alerts based on the findings, and, finally, how to remediate findings.
+    In this workshop we start by guiding you through tagging your resources and maintaining an asset inventory for visibility and governance purposes with AWS Tags and Systems Manager (SSM). We then build an Amazon Machine Image (AMI) baking pipeline, harden the AMI with AWS SSM and install the Amazon Inspector agent. Within the pipeline we look for vulnerabilities and apply patches before promoting the AMI for use by an application.
+
+    Next we construct a continuous detection framework to detect change in state of security or detection of vulnerabilities using Amazon Inspector and AWS SSM’s Patch Manager.
+
+    Finally we put all these pieces together to manage your Amazon EC2 fleet at scale.
 
 Welcome to the AWS security workshops portal! Here you will find a collection of workshops and other hands-on content aimed at helping you gain an understanding of the AWS service ecosystem and introduce you to a variety of best practices that can be applied to securing your environments and workloads running in AWS.
 
