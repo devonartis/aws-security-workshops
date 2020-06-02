@@ -28,6 +28,8 @@ extra:
   social:
     - icon: fontawesome/solid/home
       link: https://awssecworkshops.com
+    - icon: fontawesome/solid/shield-alt
+      link: https://aws.amazon.com/security/
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/awssecurityinfo?lang=en
     - icon: fontawesome/solid/rss-square
