@@ -2,7 +2,12 @@
 
 ![Components](assets/images/csf-core-functions.png "NIST Cybersecurity Framework Core Functions")
 
-!!! info "6/1/2020 - Latest workshop"
+!!! info "6/8/2020 - Latest workshops"
+   
+    <a class="table" target="_blank" href="https://www.vpcendpointworkshop.com/index.html"><strong>Amazon VPC Endpoint Workshop</strong></a>
+
+    In this workshop, you will learn how to leverage VPC Endpoints to privately connect your VPC to supported AWS services and use network and IAM based security configurations to restrict access to your AWS resources and data.
+
     <a class="table" target="_blank" href="https://vul-mgmt-program.awssecworkshops.com/"><strong>Build a Vulnerability Management Program Using AWS for AWS</strong></a>
 
     In this workshop we start by guiding you through tagging your resources and maintaining an asset inventory for visibility and governance purposes with AWS Tags and Systems Manager (SSM). We then build an Amazon Machine Image (AMI) baking pipeline, harden the AMI with AWS SSM and install the Amazon Inspector agent. Within the pipeline we look for vulnerabilities and apply patches before promoting the AMI for use by an application.
