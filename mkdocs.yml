@@ -19,6 +19,8 @@ theme:
     - 404.html
   logo: 'assets/images/aws_smile_logo.png'
   favicon: 'assets/images/aws-favicon.ico'
+  features:
+    - tabs
 
 # Customization
 extra_css:
@@ -45,7 +47,11 @@ markdown_extensions:
 nav:
   - Home: 'index.md'
   - Getting Started: 'getting-started.md'
-  - Builder Sessions: 'builder-sessions.md'
-  - Workshops: 'workshops.md'
+  - Builder Sessions: 
+    - Directory: 'builder-sessions.md'
+  - Workshops: 
+    - Directory: 'workshops.md'
   - Contributing: 'contribute.md'
   - License: 'license.md'
+
+
