@@ -2,19 +2,11 @@
 
 ![Components](assets/images/csf-core-functions.png "NIST Cybersecurity Framework Core Functions")
 
-!!! info "6/8/2020 - Latest workshops"
+!!! info "7/14/2020 - Latest workshop"
    
-    <a class="table" target="_blank" href="https://www.vpcendpointworkshop.com/index.html"><strong>Amazon VPC Endpoint Workshop</strong></a>
+    <a class="table" target="_blank" href="https://security-hub-workshop.awssecworkshops.com/">**Integration, Prioritization, and Response with AWS Security Hub Overview**</a>
 
-    In this workshop, you will learn how to leverage VPC Endpoints to privately connect your VPC to supported AWS services and use network and IAM based security configurations to restrict access to your AWS resources and data.
-
-    <a class="table" target="_blank" href="https://vul-mgmt-program.awssecworkshops.com/"><strong>Build a Vulnerability Management Program Using AWS for AWS</strong></a>
-
-    In this workshop we start by guiding you through tagging your resources and maintaining an asset inventory for visibility and governance purposes with AWS Tags and Systems Manager (SSM). We then build an Amazon Machine Image (AMI) baking pipeline, harden the AMI with AWS SSM and install the Amazon Inspector agent. Within the pipeline we look for vulnerabilities and apply patches before promoting the AMI for use by an application.
-
-    Next we construct a continuous detection framework to detect change in state of security or detection of vulnerabilities using Amazon Inspector and AWS SSM’s Patch Manager.
-
-    Finally we put all these pieces together to manage your Amazon EC2 fleet at scale.
+    This workshop is designed to get you familiar with AWS Security Hub so that you can better understand how you would use it in your own AWS environment(s). This workshop is broken into two sections. The first section will guide you through a demonstration of the features and functions of Security Hub. The second section will show you how to use Security Hub to import findings from different data sources, analyze findings so you can prioritize response work, and implement responses to findings to help improve your security posture.
 
 Welcome to the AWS security workshops portal! Here you will find a collection of workshops and other hands-on content aimed at helping you gain an understanding of the AWS service ecosystem and introduce you to a variety of best practices that can be applied to securing your environments and workloads running in AWS.
 
