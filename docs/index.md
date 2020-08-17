@@ -1,6 +1,8 @@
 # AWS Security Workshops
 
-![Components](assets/images/csf-core-functions.png "NIST Cybersecurity Framework Core Functions")
+<!-- ![Components](assets/images/csf-core-functions.png "NIST Cybersecurity Framework Core Functions") -->
+
+<a href="https://awssecworkshops.com/workshops/#identity"><img src="assets/images/identity.png" width="200" height="" border="0"></a> <a href="https://awssecworkshops.com/workshops/#detection-and-response"><img src="assets/images/detective-controls.png" width="200" height="" border="0"></a> <a href="https://awssecworkshops.com/workshops/#infrastructure-security"><img src="assets/images/infrastructure-security.png" width="200" height="" border="0"></a>  <a href="https://awssecworkshops.com/workshops/#data-protection"><img src="assets/images/data-protection.png" width="200" height="" border="0"></a> <a href="https://awssecworkshops.com/workshops/#detection-and-response"><img src="assets/images/incident-response.png" width="200" height="" border="0"></a> <a href="https://awssecworkshops.com/workshops/#devsecops"><img src="assets/images/devsecops.png" width="200" height="" border="0"></a>
 
 !!! info "7/14/2020 - Latest workshop"
    

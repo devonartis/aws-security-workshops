@@ -1,8 +1,10 @@
 # AWS Security Workshops
 
-![Components](./images/security-components-color.png "Categorization of AWS Security Services")
+<!-- ![Components](./images/security-components-color.png "Categorization of AWS Security Services") -->
 
-Here you'll find a collection of security workshops and other hands-on content that will guide you through prepared scenarios that represent common use cases and security operational tasks on Amazon Web Services (AWS). The workshops closely align with the [NIST Cyber Security Framework](https://www.nist.gov/cyberframework) and will provide a deep dive into a variety of AWS security services, techniques, and best practices that'll you'll be able to apply to your own environments to better improve your security posture.
+<a href="https://awssecworkshops.com/workshops/#identity"><img src="./images/identity.png" width="200" height="" border="0"></a> <a href="https://awssecworkshops.com/workshops/#detection-and-response"><img src="./images/detective-controls.png" width="200" height="" border="0"></a> <a href="https://awssecworkshops.com/workshops/#infrastructure-security"><img src="./images/infrastructure-security.png" width="200" height="" border="0"></a>  <a href="https://awssecworkshops.com/workshops/#data-protection"><img src="./images/data-protection.png" width="200" height="" border="0"></a> <a href="https://awssecworkshops.com/workshops/#detection-and-response"><img src="./images/incident-response.png" width="200" height="" border="0"></a> <a href="https://awssecworkshops.com/workshops/#devsecops"><img src="./images/devsecops.png" width="200" height="" border="0"></a>
+
+Here you'll find a collection of security workshops and other hands-on content that will guide you through prepared scenarios that represent common use cases and security operational tasks on Amazon Web Services (AWS). The workshops align loosely to the [Security Perspective of the AWS Cloud Adoption Framework](https://aws.amazon.com/blogs/security/new-whitepaper-now-available-the-security-perspective-of-the-aws-cloud-adoption-framework/) and provide a deep dive into a variety of AWS security services, techniques, and best practices that'll you'll be able to apply to your own environments to better improve your security posture.
 
 ## To start a workshop:
 
