@@ -19,6 +19,7 @@
                         <li><strong>Duration</strong>: 2 hours</li>
                         <li><strong>NIST CSF Functions</strong>: Protect</li>
                         <li><strong>CAF Components</strong>: Preventive</li>
+                        <li><strong>Personas</strong>:  Identity & Access Management Engineers, Identity & Access Management Analysts, Security analysts & Security operations engineers</li>
                     </ul>
                 </td>
             </tr>
@@ -30,6 +31,7 @@
                         <li><strong>Duration</strong>: 2 hours</li>
                         <li><strong>NIST CSF Functions</strong>: Protect</li>
                         <li><strong>CAF Components</strong>: Preventive</li>
+                        <li><strong>Personas</strong>: Identity & Access Management Engineers, Identity & Access Management Analysts, Security analysts & Security operations engineers</li>
                     </ul>
                 </td>
             </tr>
@@ -41,6 +43,7 @@
                         <li><strong>Duration</strong>: 2 hours</li>
                         <li><strong>NIST CSF Functions</strong>: Protect</li>
                         <li><strong>CAF Components</strong>: Preventive</li>
+                        <li><strong>Personas</strong>:  Identity & Access Management Engineers, Identity & Access Management Analysts, Security analysts & Security operations engineers</li>
                     </ul>
                 </td>
             </tr>
@@ -52,6 +55,7 @@
                         <li><strong>Duration</strong>: 2 hours</li>
                         <li><strong>NIST CSF Functions</strong>: Protect</li>
                         <li><strong>CAF Components</strong>: Preventive</li>
+                        <li><strong>Personas</strong>:  Identity & Access Management Engineers, Identity & Access Management Analysts, Security analysts & Security operations engineers</li>
                     </ul>
                 </td>
             </tr>
@@ -72,7 +76,11 @@
         <tbody>
             <tr>
                 <td align="left"><a class="table" target="_blank" href="https://data-protection.awssecworkshops.com/"><strong>Data Protection</strong></a></td>
-                <td align="left">These set of workshops demonstrate concepts of Data protection using services such as AWS KMS and AWS Certificate manager. You will learn about server side encryption, client side encryption - with and without data key caching and how AWS private certificate authority can be used to create private certificates for private domains or devices.</td>
+                <td align="left">These set of workshops demonstrate concepts of Data protection using services such as AWS KMS and AWS Certificate manager. You will learn about server side encryption, client side encryption - with and without data key caching and how AWS private certificate authority can be used to create private certificates for private domains or devices. 
+                <ul>
+                        <li><strong> Personas</strong>: Data Protection Analyst, Security analysts and Security operations engineers.</li>
+                    </ul>
+                </td>
             </tr>
         </tbody>
     </table>
@@ -97,6 +105,7 @@
                         <li><strong>Duration</strong>: 2 hours</li>
                         <li><strong>NIST CSF Functions</strong>: Protect</li>
                         <li><strong>CAF Components</strong>: Preventative</li>
+                        <li><strong>Personas</strong>: Security analysts, Security operations engineers and Network administrators.</li>
                     </ul>
                 </td>
             </tr>
@@ -112,6 +121,7 @@
                         <li><strong>Duration</strong>: 2 hours</li>
                         <li><strong>NIST CSF Functions</strong>: Identify, Protect, Detect, Respond, Recover</li>
                         <li><strong>CAF Components</strong>: Detective, Responsive</li>
+                        <li><strong>Personas</strong>: Security analysts and Security operations engineers</li>
                     </ul>
                 </td>
             </tr>
@@ -123,6 +133,7 @@
                         <li><strong>Duration</strong>: 2 hours</li>
                         <li><strong>NIST CSF Functions</strong>: Detect, Respond</li>
                         <li><strong>CAF Components</strong>: Detective, Responsive</li>
+                        <li><strong>Personas</strong>: Network administrators, Security analysts and Security operations engineers.</li>
                     </ul>
                 </td>
             </tr>
@@ -134,6 +145,7 @@
                         <li><strong>Duration</strong>: 2 hours </li>
                         <li><strong>NIST CSF Functions</strong>: Protect</li>
                         <li><strong>CAF Components</strong>: Preventive</li>
+                        <li><strong>Personas</strong>: Security analysts, Security operations engineers and Network administrators</li>
                     </ul>
                 </td>
             </tr>
@@ -154,7 +166,11 @@
         <tbody>
             <tr>
                 <td align="left"><a class="table" target="_blank" href="https://ml-threat-detection.awssecworkshops.com/"><strong>Detection with Machine Learning</strong></a></td>
-                <td align="left">This workshop shows how you can use an IP-based machine learning algorithm with Amazon SageMaker to augment and enrich findings from AWS Security services such as Amazon GuardDuty. You'll learn how to load the notebook in SageMaker, train the model, and score findings to determine abnormality of the activity.</td>
+                <td align="left">This workshop shows how you can use an IP-based machine learning algorithm with Amazon SageMaker to augment and enrich findings from AWS Security services such as Amazon GuardDuty. You'll learn how to load the notebook in SageMaker, train the model, and score findings to determine abnormality of the activity.
+                <ul>
+                <li><strong>Personas</strong>: Incident responders, Security analysts and Security operations engineers</li>
+                    </ul>
+                </td>
             </tr>
             <tr>
                 <td align="left"><a class="table" href="https://security-hub-workshop.awssecworkshops.com/" target="_blank"><strong>Integration, Prioritization, and Response with AWS Security Hub Overview</strong></a></td>
@@ -164,6 +180,7 @@
                         <li><strong>Duration</strong>: 2 - 3 hours</li>
                         <li><strong>NIST CSF Functions</strong>: Detect and Respond</li>
                         <li><strong>CAF Components</strong>: Detective, Responsive</li>
+                        <li><strong>Personas</strong>:   Incident responders, Security analysts and Security operations engineers</li>
                     </ul>
                 </td>
             </tr>
@@ -175,6 +192,7 @@
                         <li><strong>Duration</strong>: 2 - 3 hours</li>
                         <li><strong>NIST CSF Functions</strong>: Detect and Respond</li>
                         <li><strong>CAF Components</strong>: Detective, Responsive</li>
+                        <li><strong>Personas</strong>: Incident responders, Security analysts and Security operations engineers</li>
                     </ul>
                 </td>
             </tr>
@@ -201,6 +219,7 @@
                         <li><strong>Duration</strong>: 2 hours</li>
                         <li><strong>NIST CSF Functions</strong>: Protect</li>
                         <li><strong>CAF Components</strong>: Preventive</li>
+                        <li><strong> Personas</strong>: Security analysts and Security operations engineers</li>
                     </ul>
                 </td>
             </tr>

@@ -2,7 +2,27 @@
 
 <!-- ![Components](assets/images/csf-core-functions.png "NIST Cybersecurity Framework Core Functions") -->
 
-<a href="https://awssecworkshops.com/workshops/#identity"><img src="assets/images/identity.png" width="200" height="" border="0"></a> <a href="https://awssecworkshops.com/workshops/#detection-and-response"><img src="assets/images/detective-controls.png" width="200" height="" border="0"></a> <a href="https://awssecworkshops.com/workshops/#infrastructure-security"><img src="assets/images/infrastructure-security.png" width="200" height="" border="0"></a>  <a href="https://awssecworkshops.com/workshops/#data-protection"><img src="assets/images/data-protection.png" width="200" height="" border="0"></a> <a href="https://awssecworkshops.com/workshops/#detection-and-response"><img src="assets/images/incident-response.png" width="200" height="" border="0"></a> <a href="https://awssecworkshops.com/workshops/#devsecops"><img src="assets/images/devsecops.png" width="200" height="" border="0"></a>
+<table>
+ <thead>
+        <tr>
+            <th colspan="3" align=
+            "center">Workshop Themes</th>
+        </tr>
+    </thead>
+    <tbody>
+  <tr>
+    <td><a href="https://awssecworkshops.com/workshops/#identity"><img src="assets/images/identity.png" width="200" height="" border="0"></a> </td>
+    <td><a href="https://awssecworkshops.com/workshops/#detection-and-response"><img src="assets/images/detective-controls.png" width="200" height="" border="0"></a> </td>
+    <td><a href="https://awssecworkshops.com/workshops/#infrastructure-security"><img src="assets/images/infrastructure-security.png" width="200" height="" border="0"></a></td>
+  </tr>
+  <tr>
+    <td><a href="https://awssecworkshops.com/workshops/#data-protection"><img src="assets/images/data-protection.png" width="200" height="" border="0"></a>  </td>
+    <td><a href="https://awssecworkshops.com/workshops/#detection-and-response"><img src="assets/images/incident-response.png" width="200" height="" border="0"></a> </td>
+    <td><a href="https://awssecworkshops.com/workshops/#devsecops"><img src="assets/images/devsecops.png" width="200" height="" border="0"></a></td>
+  </tr>
+  </tbody>
+</table>
+
 
 !!! info "7/14/2020 - Latest workshop"
    
