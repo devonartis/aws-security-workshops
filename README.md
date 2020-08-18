@@ -41,4 +41,4 @@ If you have ideas for topics or scenarios you would like to see included in new 
 
 ## License Summary
 
-This sample code is made available under a modified MIT license. See the [LICENSE](LICENSE) file.
+This sample code is made available under a modified MIT license. See the [LICENSE](LICENSE) file.  
