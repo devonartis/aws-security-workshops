@@ -36,6 +36,18 @@
                 </td>
             </tr>
             <tr>
+                <td align="left"><a class="table" target="_blank" href="https://idm-infrastructure.awssecworkshops.com/"><strong>Infrastructure Identity in AWS</strong></a></td>
+                <td align="left"> This workshop is designed to help you get familiar with AWS Security services and learn how to use them to securely administer systems in your environment. You'll be working with services such as AWS Systems Manager Session Manager, Amazon EC2 Instance Connect, and AWS Identity and Access Management. You will learn how to use these services to securely connect and administer your Amazon EC2 Instances as well as systems on-premises, you will setup tagged based access, and configure logging which will enable auditing of administrative activities and improve the security posture of your environment. 
+                    <ul>
+                        <li><strong>Level</strong>: 300</li>
+                        <li><strong>Duration</strong>: 2 hours</li>
+                        <li><strong>NIST CSF Functions</strong>: Protect, Detect</li>
+                        <li><strong>CAF Components</strong>: Preventive, Detective</li>
+                        <li><strong>Personas</strong>:  Identity & Access Management Engineers, Identity & Access Management Analysts, Security analysts & Security operations engineers</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
                 <td align="left"><a class="table" target="_blank" href="https://identity-round-robin.awssecworkshops.com/permission-boundaries-advanced/"><strong>Permissions boundaries: how to delegate permissions on AWS</strong></a></td>
                 <td align="left">In this workshop, you learn how to secure access permissions for multiple teams operating in a single AWS account. We provide an example three-tier web application running in production, and you practice delegating permissions to web administrators so they can modify only their own resources without impacting the permissions needed to do their job.All attendees need a laptop, an active AWS Account, an AWS IAM Administrator, and a familiarity with core AWS services. 
                     <ul>

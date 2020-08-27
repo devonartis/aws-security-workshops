@@ -24,11 +24,11 @@
 </table>
 
 
-!!! info "7/14/2020 - Latest workshop"
+!!! info "8/27/2020 - Latest workshop"
    
-    <a class="table" target="_blank" href="https://security-hub-workshop.awssecworkshops.com/">**Integration, Prioritization, and Response with AWS Security Hub Overview**</a>
+    <a class="table" target="_blank" href="https://idm-infrastructure.awssecworkshops.com/">**Infrastructure Identity in AWS**</a>
 
-    This workshop is designed to get you familiar with AWS Security Hub so that you can better understand how you would use it in your own AWS environment(s). This workshop is broken into two sections. The first section will guide you through a demonstration of the features and functions of Security Hub. The second section will show you how to use Security Hub to import findings from different data sources, analyze findings so you can prioritize response work, and implement responses to findings to help improve your security posture.
+    This workshop is designed to help you get familiar with AWS Security services and learn how to use them to securely administer systems in your environment. You'll be working with services such as AWS Systems Manager Session Manager, Amazon EC2 Instance Connect, and AWS Identity and Access Management. You will learn how to use these services to securely connect and administer your Amazon EC2 Instances as well as systems on-premises, you will setup tagged based access, and configure logging which will enable auditing of administrative activities and improve the security posture of your environment.
 
 Welcome to the AWS security workshops portal! Here you will find a collection of workshops and other hands-on content aimed at helping you gain an understanding of the AWS service ecosystem and introduce you to a variety of best practices that can be applied to securing your environments and workloads running in AWS.
 
