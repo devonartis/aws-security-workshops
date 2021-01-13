@@ -177,14 +177,6 @@
         </thead>
         <tbody>
             <tr>
-                <td align="left"><a class="table" target="_blank" href="https://ml-threat-detection.awssecworkshops.com/"><strong>Detection with Machine Learning</strong></a></td>
-                <td align="left">This workshop shows how you can use an IP-based machine learning algorithm with Amazon SageMaker to augment and enrich findings from AWS Security services such as Amazon GuardDuty. You'll learn how to load the notebook in SageMaker, train the model, and score findings to determine abnormality of the activity.
-                <ul>
-                <li><strong>Personas</strong>: Incident responders, Security analysts and Security operations engineers</li>
-                    </ul>
-                </td>
-            </tr>
-            <tr>
                 <td align="left"><a class="table" href="https://security-hub-workshop.awssecworkshops.com/" target="_blank"><strong>Integration, Prioritization, and Response with AWS Security Hub Overview</strong></a></td>
                 <td align="left">This workshop is designed to get you familiar with AWS Security Hub so that you can better understand how you would use it in your own AWS environment(s). This workshop is broken into two sections. The first section will guide you through a demonstration of the features and functions of Security Hub. The second section will show you how to use Security Hub to import findings from different data sources, analyze findings so you can prioritize response work, and implement responses to findings to help improve your security posture.
                     <ul>
